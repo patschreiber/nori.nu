@@ -32,8 +32,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'mysql2', '>= 0.3.13'
+gem 'haml'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -42,4 +45,19 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+
+# Will generate a schema of the model on the top of the model.
+gem 'annotate'
+
+# Flay analyzes code for structural similarities. Differences in literal values, variable, class, method names, whitespace, programming style, braces vs do/end, etc are all ignored.
+gem 'flay'
+
+# MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
+gem 'mailcatcher'
+
+# Ruby/CLI: Automatic lossless reduction of all your images.
+gem 'smusher'
+
+
+
