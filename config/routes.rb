@@ -1,6 +1,4 @@
 Public::Application.routes.draw do
-  get "users/new"
-  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -10,7 +8,7 @@ Public::Application.routes.draw do
 
   root 'pages#index'
 
-  match '/signup' => 'users#new', via: 'get'
+  get '/landing_page' => 'pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
