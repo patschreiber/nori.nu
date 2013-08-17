@@ -8,7 +8,8 @@ Public::Application.routes.draw do
 
   root 'pages#index'
 
-  get '/landing_page' => 'pages#index'
+  match '/landing_page' => 'pages#index', via: 'get'
+  match '/signup' => 'users#new', via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

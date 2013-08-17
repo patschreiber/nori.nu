@@ -1,3 +1,9 @@
+- provide :title, 'Home'
+
 %h1	
-  Yeah
-= @time
+  Welcome
+%p
+  = @time
+= image_tag "kangaroo_temp_splash_image_700x493.jpg"
+%p
+  = link_to "Signup", signup_path #defined by route 
