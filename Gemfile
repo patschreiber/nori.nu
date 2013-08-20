@@ -60,4 +60,10 @@ gem 'mailcatcher'
 gem 'smusher'
 
 
+group :test do
+  # A factory to simulate User model objects. 
+  gem 'factory_girl_rails'
+end
+
+
 
