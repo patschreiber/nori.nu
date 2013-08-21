@@ -1,0 +1,8 @@
+- if @user.errors.any?
+  #error_explanation
+    .alert.alert-error
+      Please fix these #{pluralize(@user.errors.count, "error")} in order to sign up.
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li
+          #{msg}

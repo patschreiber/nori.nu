@@ -7,12 +7,6 @@
 = image_tag "kangaroo_temp_splash_image_700x493.jpg"
 
 %p
-= form_tag '/signin' do
-  = text_field_tag 'username', nil, placeholder: 'Username'
-  = password_field_tag 'password', nil, placeholder: 'Password'
-  = submit_tag 'Sign In'
-  
-
+  = render 'shared/login_form'
 %p
   = link_to "Signup", signup_path #defined by route 
-

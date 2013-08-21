@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
+  before_create :create_remember_token
 
   validates :last_name, presence: true
   validates :first_name, presence: true
