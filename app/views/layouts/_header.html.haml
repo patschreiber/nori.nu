@@ -1,0 +1,5 @@
+%div
+  = if signed_in?
+    = link_to "Users", '#'
+    = link_to "Profile", current_user
+    = link_to "Settings", '#'
