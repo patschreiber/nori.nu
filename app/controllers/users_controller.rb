@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    action = "Create"
   	@user = User.new(user_params)
   	if @user.save
       sign_in @user
@@ -19,7 +20,9 @@ class UsersController < ApplicationController
 
   end
 
-  def update
+  def edit
+    action = "Update"
+    @user = User.find(params[:id])
   end
 
   def delete

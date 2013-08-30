@@ -1,3 +1,24 @@
-    li { float: left; padding: 10px; width: 100px; border: 0 px solid blue; text-align: center; list-style-type: none; }
-    li.active { border: 0px solid red; }
-    #marker { position: fixed; display: none; height: 3px; width: 122px; border-top: 3px solid black; }
+/* Universal Stylings
+===================== */
+
+html { 
+  font-family: 'Open Sans', sans-serif;
+  /* 
+  font-family: 'Open Sans', sans-serif;
+  color: ;
+  */
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 200;
+}
+
+
+li { float: left; padding: 10px; width: 100px; border: 0 px solid blue; text-align: center; list-style-type: none; }
+li.active { border: 0px solid red; }
+#marker { position: fixed; display: none; height: 3px; width: 122px; border-top: 3px solid black; }
