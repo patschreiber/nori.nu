@@ -1,31 +1,42 @@
 - provide :title, 'Signup'
-%h1
-  Signup
 
-%div
-= form_for(@user) do |f|
-  = render 'shared/error_messages'
-
-%div
+.container
+  .row
+    .col-md-4
+      %h1
+        Signup
   = form_for(@user) do |f|
 
-    = f.label :first_name
-    = f.text_field :first_name, placeholder: 'Johnny'
+    - if @user.errors.any?
+      = render 'shared/error_messages'
+    .row
+      .col-md-3
+        .pull-left
+          /= f.label :first_name
+          = f.text_field :first_name, placeholder: 'First Name'
+      .col-md-3
+        .pull-left
+          /= f.label :last_name
+          = f.text_field :last_name, placeholder: 'Last Name'
 
-    = f.label :last_name
-    = f.text_field :last_name, placeholder: 'Appleseed'
-
-    = f.label :username
-    = f.text_field :username, placeholder: 'Appleseeder123'
-
-    = f.label :email
-    = f.text_field :email, placeholder: 'example@example.com'
-
-    = f.label :password, 'Password'
-    = f.password_field :password
-
-    = f.label :password_confirmation, 'Confirm Password'
-    = f.password_field :password_confirmation
+    .row
+      .col-md-3
+        .pull-left
+          /= f.label :username
+          = f.text_field :username, placeholder: 'Desired Username'
+      .col-md-3
+        .pull-left 
+          /= f.label :email
+          = f.text_field :email, placeholder: 'Email'
+    .row
+      .col-md-3
+        .pull-left
+          /= f.label :password, 'Password'
+          = f.password_field :password, placeholder: 'Password'
+      .col-md-3
+        .pull-left
+          /= f.label :password_confirmation, 'Confirm Password'
+          = f.password_field :password_confirmation, placeholder: 'Confirm Password'
 
     = f.submit "Create Account"
 

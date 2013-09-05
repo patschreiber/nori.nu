@@ -7,11 +7,8 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true 
     = csrf_meta_tags 
     = render 'snippets/shim'
-  %body
     = render 'layouts/header'
-    %div
-      - flash.each do |key, value|
-        %div{ :class => "alert alert-#{key}#" }= value
+  %body
 
     = yield 
     = render 'layouts/footer'

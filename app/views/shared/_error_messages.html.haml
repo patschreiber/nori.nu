@@ -1,8 +1,10 @@
-- if @user.errors.any?
-  #error_explanation
-    .alert.alert-error
-      Please fix #{pluralize(@user.errors.count, "error")} in order to sign up.
-    %ul
-      - @user.errors.full_messages.each do |msg|
-        %li
-          #{msg}
+.container
+  .row
+    .col-md-10
+      - if @user.errors.any?
+        .text-danger
+          Please fix #{pluralize(@user.errors.count, "error")} in order to sign up.
+          %ul
+            - @user.errors.full_messages.each do |msg|
+              %li
+                #{msg}

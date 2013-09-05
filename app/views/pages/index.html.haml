@@ -1,13 +1,29 @@
 - provide :title, 'Home'
 
-%h1	
-  Welcome
-%p
-  = @time
-/= image_tag "kangaroo_temp_splash_image_700x493.jpg"
+.container
+  .row
+    .col-md-3
+      = link_to image_tag(logo_image_path), root_path
 
-%p
-  = render 'shared/login_form'
-%p
-  = link_to "Signup", signup_path #defined by route 
-  = link_to "Forgot Password?", "#"
+  .row
+    .col-md-3
+      %h1.text-center 
+        Welcome
+    .col-md-3.col-md-offset-4.login-div-background 
+      - flash.each do |key, value|
+        %div{ :class => "text-danger" }= value  
+      .login-form
+        
+        = form_for(:session, url: sessions_path) do |f|
+          .pull-right
+            = f.label :username
+            = f.text_field :username
+          .pull-right
+            = f.label :password
+            = f.password_field :password
+
+            = f.submit "Submit", :class => "btn btn-block"
+        
+        = link_to "Signup", signup_path #defined by route 
+        = link_to "Forgot Password?", "#"
+

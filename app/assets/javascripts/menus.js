@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('li').mouseenter( function() {
+  $('.main-user-menu li').mouseenter( function() {
 
     var top = $(this).offset().top + $(this).height() + 15;
     var left = $(this).offset().left; 
@@ -13,10 +13,10 @@ $(document).ready(function() {
     });
   });
 
-  $('li:first').trigger('mouseover');
+  $('.main-user-menu li').trigger('mouseover');
   $('#marker').hide();
 
-  $('li').mouseleave(function() {
+  $('.main-user-menu li').mouseleave(function() {
     
     $('.active').removeClass('active');
     $('#marker').fadeOut(150);
