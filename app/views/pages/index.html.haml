@@ -1,29 +1,41 @@
 - provide :title, 'Home'
+.width-100.main-background-gradient
+  .container
+    .row
+      .col-md-3.col-xs-12
+        .wide-margin-top
+          = link_to image_tag(logo_image_path), root_path
 
-.container
-  .row
-    .col-md-3
-      = link_to image_tag(logo_image_path), root_path
+    .row
+      .col-md-6
+        %h1.text-center 
+          Welcome
+        %p
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .col-md-3.col-md-offset-2
+        .text-center
+          - flash.each do |key, value|
+            %div{ :class => "text-danger error-message" }= value  
+        .login-form
+          = form_for(:session, url: sessions_path) do |f|
+            .row
+              .col-md-12
+                .pull-right
+                  = f.label :username
+                  = f.text_field :username
+            .row
+              .col-md-12
+                .pull-right
+                  = f.label :password
+                  = f.password_field :password
+            .row
+              .col-md-8.pull-right
+                = f.submit "Submit", :class => "btn btn-primary btn-block"
+            .row
+              .col-md-8.pull-right
+                .forgot-password-margin
+                  = link_to "Forgot Password?", "#"
+    .wide-margin-top  
 
-  .row
-    .col-md-3
-      %h1.text-center 
-        Welcome
-    .col-md-3.col-md-offset-4.login-div-background 
-      - flash.each do |key, value|
-        %div{ :class => "text-danger" }= value  
-      .login-form
-        
-        = form_for(:session, url: sessions_path) do |f|
-          .pull-right
-            = f.label :username
-            = f.text_field :username
-          .pull-right
-            = f.label :password
-            = f.password_field :password
 
-            = f.submit "Submit", :class => "btn btn-block"
-        
-        = link_to "Signup", signup_path #defined by route 
-        = link_to "Forgot Password?", "#"
 

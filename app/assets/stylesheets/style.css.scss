@@ -11,13 +11,20 @@ $grey_sleek: #1A1A1A ;  /* For use with menus/settings*/
 $grey: #575757;         /* For use with menus/settings background-image: -webkit-radial-gradient(center top,ellipse cover,$grey 0,darken($grey, 15%) 100%); */
 $alt_grey: #212121;
 $light_grey: #999999;
+$red_orange: #D5482A;
 
+$wide_margin_top: 35px 0 0 0;
 
 
 body { 
-  color: darken($light_grey, 10%);
+  color: darken($grey, 10%);
   font-family: 'Open Sans', sans-serif;
-  background-image: -webkit-radial-gradient(center top,ellipse cover,$grey 0,darken($grey, 25%) 100%);
+  background-color: lighten($red_orange, 44%);
+  background-image: radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -webkit-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -moz-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -o-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -ms-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
   background-repeat: no-repeat;
 }
 
@@ -30,7 +37,7 @@ a {
 }
 
 a:hover {
-  color: darken($light_grey, 15%);
+  color: darken($purple, 15%);
   text-decoration: none;
 }
 
@@ -63,21 +70,22 @@ li {
 /* Utility Stylings (Margins, backgrounds for divs, etc.)
 ===================== */
 
-.not-signed-in {
-  .header-margin {
-    margin: 1em 0 0 0;
-  }
+.wide-margin-top {
+  margin: $wide_margin_top;
 }
 
-.login-div-background {
-  background-color: $grey;
-} 
+.width-100 {
+  width: 100%;
+}
 
 
 /* Input Fields 
 ===================== */
 
 .login-form {
+
+  padding: 15px 0 0 0;
+
   input[type=text], 
   input[type=password] {
     background: transparent;
@@ -104,6 +112,10 @@ li {
   textarea:focus, input:focus{
     outline: 0;
   }
+
+  .forgot-password-margin {
+    margin: 1em 0 0 0;
+  }
 }
 
 
@@ -118,6 +130,76 @@ li {
 
   a:hover {
   color: darken($light_grey, 15%);
+  }
+
+}
+
+
+/* errors  
+===================== */
+
+.error-message {
+  background-color: lighten(red, 35%);
+  border: 1px solid red;
+  border-radius: 4px;
+  margin: 0 0 1em 0;
+  padding: 0.5em;
+}
+
+
+/* colors  
+===================== */
+
+.white {
+  background-color: $white;
+}
+
+.grey-sleek {
+  background-color: $grey_sleek;
+}
+
+.red-orange {
+  background-color: $red_orange;  
+}
+
+.purple {
+  background-color: $purple;  
+}
+
+.blue {
+  background-color: $blue;  
+}
+
+.light-background-color {
+  background-color: lighten($red_orange, 46%);
+}
+
+.main-background-gradient {
+  background-color: lighten($red_orange, 44%);
+  background-image: radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -webkit-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -moz-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -o-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-image: -ms-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
+  background-repeat: no-repeat;
+}
+
+
+/* unique page sections  
+===================== */
+
+.marketing-page-columns {
+
+  color: $light_grey;
+  background-color: $grey_sleek;
+
+  p {
+    padding: .5em;
+  }
+
+  .header-border {
+    border-radius: 4px;
+    border-top: 5px solid $red_orange;
   }
 
 }
