@@ -5,38 +5,6 @@
     .col-md-4
       %h1
         Signup
-  = form_for(@user) do |f|
-
-    - if @user.errors.any?
-      = render 'shared/error_messages'
-    .row
-      .col-md-3
-        .pull-left
-          /= f.label :first_name
-          = f.text_field :first_name, placeholder: 'First Name'
-      .col-md-3
-        .pull-left
-          /= f.label :last_name
-          = f.text_field :last_name, placeholder: 'Last Name'
-
-    .row
-      .col-md-3
-        .pull-left
-          /= f.label :username
-          = f.text_field :username, placeholder: 'Desired Username'
-      .col-md-3
-        .pull-left 
-          /= f.label :email
-          = f.text_field :email, placeholder: 'Email'
-    .row
-      .col-md-3
-        .pull-left
-          /= f.label :password, 'Password'
-          = f.password_field :password, placeholder: 'Password'
-      .col-md-3
-        .pull-left
-          /= f.label :password_confirmation, 'Confirm Password'
-          = f.password_field :password_confirmation, placeholder: 'Confirm Password'
-
-    = f.submit "Create Account"
+  .row
+    = render :partial => 'shared/signup_form', :locals => { :button_action => 'Create', :edit => "false"}
 

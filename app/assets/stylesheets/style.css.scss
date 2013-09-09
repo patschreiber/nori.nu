@@ -42,7 +42,7 @@ a {
 }
 
 a:hover {
-  color: darken($purple, 15%);
+  color: $dark_blue;
   text-decoration: none;
 }
 
@@ -59,7 +59,7 @@ label {
   background:url(nori_logo.svg);
 }
 
-#marker { position: fixed; display: none; height: 3px; width: 100px; border-top: 3px solid $purple; }
+#marker { position: fixed; display: none; height: 3px; width: 100px; border-top: 3px solid $red_orange; }
 
 
 
@@ -87,10 +87,10 @@ label {
     background: transparent;
     border-top: 0;
     border-right: 0;
-    border-bottom: 3px solid darken($light_grey, 10%);
+    border-bottom: 3px solid $grey_dark;
     border-bottom-left-radius: 4px;
-    border-left: 3px solid darken($light_grey, 10%);
-    color: $light_grey;
+    border-left: 3px solid $grey_dark;
+    color: $grey_dark;
     margin: 1em 0 0 0;
     padding: .3em;
     z-index: 3;
@@ -102,7 +102,7 @@ label {
 
   input[type=text]:focus, 
   input[type=password]:focus {
-    border-bottom: 3px solid $purple;
+    border-bottom: 3px solid $blue;
   }
 
   textarea:focus, input:focus{
@@ -195,6 +195,21 @@ label {
 
 /* unique page sections  
 ===================== */
+
+.main-index-nav {
+  font-size: 1.7em;
+  margin: 25px 25px 0 25px;
+  
+  #marker { position: fixed; display: none; height: 3px; width: 120px; border-top: 3px solid $red_orange;}
+  
+  a {
+    color: $grey_sleek;
+  }
+
+  a:hover {
+    color: $blue;
+  }
+}
 
 .feature-list-main-page {
     margin: $wide_margin_top_bottom;

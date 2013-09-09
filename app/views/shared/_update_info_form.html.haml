@@ -8,18 +8,7 @@
     = f.label :last_name
     = f.text_field :last_name, placeholder: 'Appleseed'
 
-    - if edit == "false"
-      = f.label :username
-      = f.text_field :username, placeholder: 'Appleseeder123'
-
     = f.label :email
     = f.text_field :email, placeholder: 'example@example.com'
-
-    - if edit == "false"
-      = f.label :password, 'Password'
-      = f.password_field :password
-
-      = f.label :password_confirmation, 'Confirm Password'
-      = f.password_field :password_confirmation
 
     = f.submit "#{button_action} Account", :class => 'btn btn-success'

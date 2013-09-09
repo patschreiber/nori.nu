@@ -1,6 +1,6 @@
--provide :title, "Edit Profile Information"
+- provide :title, "Edit Profile Information"
 
 .container
   %h1 
     Expand or update your profile
-  = render :partial => 'shared/signup_form', :locals => { :button_action => 'Update'}
+  = render :partial => 'shared/signup_form', :locals => { :button_action => 'Update', :edit => "true"}
