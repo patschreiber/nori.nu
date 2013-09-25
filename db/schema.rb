@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826164947) do
+ActiveRecord::Schema.define(version: 20130925214438) do
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", id: false, force: true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "last_name"
@@ -26,5 +37,25 @@ ActiveRecord::Schema.define(version: 20130826164947) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+
+  create_table "users_stats", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "player_level"
+    t.integer  "current_experience"
+    t.integer  "total_experience"
+    t.integer  "current_gold"
+    t.integer  "health"
+    t.integer  "attack"
+    t.integer  "defense"
+    t.integer  "stealth"
+    t.integer  "luck"
+    t.integer  "total_items_found"
+    t.integer  "total_buttons_clicked"
+    t.integer  "total_gold_collected"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users_stats", ["player_level"], name: "index_users_stats_on_player_level", using: :btree
 
 end

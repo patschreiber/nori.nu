@@ -13,9 +13,11 @@ $logged_in_margin_top: 5px 0 0 0;
 
 $default_paragraph_padding: .5em;
 
+.row {
+  margin: 0;
+}
+
 #map-canvas {
-        margin: 0;
-        padding: 0;
         height: 500px;
       }
 

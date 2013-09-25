@@ -10,10 +10,14 @@ Public::Application.routes.draw do
 
   root 'pages#index'
 
-  match '/map' => 'pages#map', via: 'get', :as => :map
+  match '/game' => 'game#index', via: 'get', :as => :game
   match '/signup' => 'users#new', via: 'get'
   match '/signin' => 'sessions#new', via: 'get'
   match '/signout' => 'sessions#destroy', via: 'delete'
+
+  namespace :admin do 
+    resources :users
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -68,6 +68,9 @@ gem 'jquery-ui-rails'
 # Makes sample users
 gem 'faker'
 
+# Authorization library for Ruby on Rails which restricts what resources a given user is allowed to access.
+gem 'cancan'
+
 group :test do
   # A factory to simulate User model objects. 
   gem 'factory_girl_rails'
