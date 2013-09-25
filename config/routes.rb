@@ -10,6 +10,7 @@ Public::Application.routes.draw do
 
   root 'pages#index'
 
+  match '/map' => 'pages#map', via: 'get', :as => :map
   match '/signup' => 'users#new', via: 'get'
   match '/signin' => 'sessions#new', via: 'get'
   match '/signout' => 'sessions#destroy', via: 'delete'

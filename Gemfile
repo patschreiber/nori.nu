@@ -51,8 +51,11 @@ gem 'debugger', group: [:development, :test]
 # Will generate a schema of the model on the top of the model.
 gem 'annotate'
 
-# Flay analyzes code for structural similarities. Differences in literal values, variable, class, method names, whitespace, programming style, braces vs do/end, etc are all ignored.
-gem 'flay'
+group :flay do
+  # Flay analyzes code for structural similarities. Differences in literal values, variable, class, method names, whitespace, programming style, braces vs do/end, etc are all ignored.
+  gem 'flay'
+  gem 'flay-haml'
+end
 
 # MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface.
 gem 'mailcatcher'
@@ -61,6 +64,9 @@ gem 'mailcatcher'
 gem 'smusher'
 
 gem 'jquery-ui-rails'
+
+# Makes sample users
+gem 'faker'
 
 group :test do
   # A factory to simulate User model objects. 

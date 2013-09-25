@@ -2,19 +2,6 @@
 .width-100.main-background-gradient
   .container
     .row
-      .wide-margin-top
-      .col-md-3.col-xs-12
-        = link_to image_tag(logo_image_path), root_path
-      .col-md-9.col-xs-12
-        %ul.main-user-menu.main-index-nav
-          %li
-            = link_to "Play", "#"
-          %li
-            = link_to "News", "#"
-          %li
-            = link_to "Forums", "#"
-
-    .row
       .col-md-6
         %h1.text-center 
           Welcome
@@ -25,24 +12,10 @@
           - flash.each do |key, value|
             %div{ :class => "text-danger error-message" }= value  
         .login-form
-          = form_for(:session, url: sessions_path) do |f|
-            .row
-              .col-md-12
-                .pull-right
-                  = f.label :username
-                  = f.text_field :username
-            .row
-              .col-md-12
-                .pull-right
-                  = f.label :password
-                  = f.password_field :password
-            .row
-              .col-md-8.pull-right
-                = f.submit "Submit", :class => "btn btn-primary btn-block"
-            .row
-              .col-md-8.pull-right
-                .forgot-password-margin
-                  = link_to "Forgot Password?", "#"
+          - if signed_in?
+            = render 'shared/announcements'
+          - else 
+            = render 'shared/login_form'
     .wide-margin-top
     
     = render 'shared/feature_list_main_page'

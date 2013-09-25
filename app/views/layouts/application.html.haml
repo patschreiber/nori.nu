@@ -3,13 +3,16 @@
   %head
     %title
       = (yield :title).present? ? "#{yield :title} | nori.nu" : "nori.nu" 
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
+    = favicon_link_tag "favicon.ico"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    - if signed_in?
+      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true" 
     = javascript_include_tag "application", "data-turbolinks-track" => true 
     = csrf_meta_tags 
+    %meta{'http-equiv' => 'Content-Language', :content => 'en'}
     = render 'snippets/shim'
-    = render 'layouts/header'
   %body
-
+    = render 'layouts/header'
     = yield 
     = render 'layouts/footer'
 

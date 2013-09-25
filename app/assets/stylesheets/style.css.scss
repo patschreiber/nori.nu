@@ -1,25 +1,23 @@
 /* Universal Stylings
 ===================== */
 
-$dark_blue: #1826B0;
-$blue: #1E30DD;
-$dark_purple: #100125;
-$purple: #3216B0;
-$white: #FFFFFF;
-$off_white: #F9F9F9;
-$black: #000000;
-$grey_sleek: #1A1A1A ;  /* For use with menus/settings*/
-$grey: #575757;         /* For use with menus/settings background-image: -webkit-radial-gradient(center top,ellipse cover,$grey 0,darken($grey, 15%) 100%); */
-$grey_dark: #3E3E3E;
-$light_grey: #999999;
-$red_orange: #D5482A;
+@import "colors";
 
 $wide_margin_top: 34px 0 0 0;
 $wide_margin_bottom: 0 0 34px 0;
-$wide_margin_top_bottom: 34px 0 34px 0;
-$skinny_margin_top_bottom: 17px 0 34px 0;
+$wide_margin_top_bottom: 34px 0 34px 0; 
+$skinny_margin_top_bottom: 17px 0 17px 0;
+$skinny_margin_top: 17px 0 0 0;
+$skinny_margin_bottom: 0 0 17px 0;
+$logged_in_margin_top: 5px 0 0 0;
 
 $default_paragraph_padding: .5em;
+
+#map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 500px;
+      }
 
 body { 
   color: darken($grey, 10%);
@@ -68,6 +66,13 @@ label {
 
 .wide-margin-top {
   margin: $wide_margin_top;
+}
+
+.skinny-margin-top {
+  margin: $skinny_margin_top;
+}
+.logged-in-margin-top {
+  margin: $logged_in_margin_top;
 }
 
 .width-100 {
@@ -180,6 +185,9 @@ label {
 
 .light-background-color {
   background-color: lighten($red_orange, 46%);
+}
+.light-transparent {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .main-background-gradient {
@@ -308,3 +316,17 @@ label {
 }
 
 
+.navbar {
+  margin: 0;
+  background-color: $grey_sleek;
+  border: 0px;
+  border-radius: 0px;
+  background-image: none;
+}
+.navbar-brand
+{
+  background: url(nori_logo_light.svg) no-repeat left center;
+  height: 50px;
+  width: 150px;
+  background-color: $grey_sleek;
+}

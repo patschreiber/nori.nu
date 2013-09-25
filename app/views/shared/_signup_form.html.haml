@@ -3,17 +3,17 @@
     = render 'shared/error_messages'
 
     = f.label :first_name
-    = f.text_field :first_name, placeholder: 'Johnny'
+    = f.text_field :first_name, placeholder: 'Johnny', :size => 25
 
     = f.label :last_name
-    = f.text_field :last_name, placeholder: 'Appleseed'
+    = f.text_field :last_name, placeholder: 'Appleseed', :size => 25
 
     - if edit == "false"
       = f.label :username
       = f.text_field :username, placeholder: 'Appleseeder123'
 
     = f.label :email
-    = f.text_field :email, placeholder: 'example@example.com'
+    = f.text_field :email, placeholder: 'example@example.com', :size => 40
 
     - if edit == "false"
       = f.label :password, 'Password'

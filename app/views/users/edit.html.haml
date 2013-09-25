@@ -3,4 +3,5 @@
 .container
   %h1 
     Expand or update your profile
-  = render :partial => 'shared/signup_form', :locals => { :button_action => 'Update', :edit => "true"}
+  .col-md-6.col-md-offset-3
+    = render :partial => 'shared/signup_form', :locals => { :button_action => 'Update', :edit => "true"}
