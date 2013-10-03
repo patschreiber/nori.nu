@@ -32,24 +32,3 @@
         .btn.btn-default
           = link_to "Sign In", signin_path
       #marker
-
-/*
-/- if signed_in?
-/  .width-100.grey-sleek
-/    .container
-/      .row
-/        .logged-in-margin-top
-/        .col-xs-6.col-sm-3.col-md-2
-/          = link_to image_tag(logo_image_path), root_path
-
-/        .col-md-6.pull-right
-/          %ul.main-user-menu
-/            %li
-/              = link_to 'Home', map_path, 'data-no-turbolink' => true
-/            %li
-/              = link_to "Profile", current_user
-/            %li
-/              = link_to "Settings", edit_user_path(current_user)
-/            %li
-/              = link_to "Sign out", signout_path, method: "delete"
-/        #marker

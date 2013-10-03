@@ -10,10 +10,11 @@ Public::Application.routes.draw do
 
   root 'pages#index'
 
-  match '/game' => 'game#index', via: 'get', :as => :game
+  match '/game' => 'game#index', via: [:get, :post], :as => :game
   match '/signup' => 'users#new', via: 'get'
   match '/signin' => 'sessions#new', via: 'get'
   match '/signout' => 'sessions#destroy', via: 'delete'
+  match '/update-stats' => 'game#update_stats', via: [:get, :post], :as => :update_stats
 
   namespace :admin do 
     resources :users

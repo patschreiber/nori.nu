@@ -1,9 +1,14 @@
 .row
-  #map-canvas
+  /#map-canvas
 .row
   .container
-    #{@user.username}
-    #{@level}
-    #{@gold}
-    #{@health}
+    #{@user.username} #{@user_id}
+    %br
+    Player Level
+    .playerlevel
+      #{@level}
+    .level-from-db
+
     / TODO Make Buttons to click on
+    -# link_to "Level Up", update_stats_path(:level => @level), :method => :post, :class => "levelup", :remote => true, 'data-no-turbolink' => true
+    = link_to "Level Up", "#", :class => "levelup", 'data-no-turbolink' => true
