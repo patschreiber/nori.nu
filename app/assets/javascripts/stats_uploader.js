@@ -3,12 +3,10 @@ $(document).ready(function() {
   $('.levelup, .light-button, .medium-button, .heavy-button').click(function() { 
 
     var level = $('.playerlevel').text();
-    var current_exp = $('.current_experience').text();
-    var total_exp = $('.total_experience').text();
+    var current_exp = $('.current-experience').text();
 
     data = {  level : level, 
               current_experience : current_exp, 
-              total_experience : total_exp 
            }
 
     $.ajax({
@@ -27,8 +25,8 @@ $(document).ready(function() {
         console.log("Worked" + data.message);
         $('.playerlevel').text(data.level);
         $('.level-from-db').append(data.message);
-        $('.current_experience').text(data.current_exp);
-        $('.total_experience').text(data.total_exp);
+        $('.current-experience').text(data.current_exp);
+        $('.next-level-exp').text(data.exp_to_level);
       },
       error: function(xhr, status, error) {
         console.log(xhr);
