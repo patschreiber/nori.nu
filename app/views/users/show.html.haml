@@ -1,6 +1,36 @@
 - provide :title, "#{@user.username}#{@user_title}".html_safe
 
-= @user.last_name
-= @user.first_name
-= @user.username
-= @user.email
+.container
+  .row
+    .col-md-6.text-center
+      = @user.id
+      = @user.username
+      = @user.email
+      Level: 
+      = @user_stats.player_level
+  .row
+    .col-md-6.text-center
+      .col-md-6.col-xs-6
+        .row
+          Gold  
+          = @user_stats.current_gold
+        .row
+          Attack
+          .badge
+            = @user_stats.attack
+        .row
+          Stealth
+          .badge
+            = @user_stats.stealth
+      .col-md-6.col-xs-6
+        .row
+          Current Experience
+          = @user_stats.current_experience
+        .row
+          Defense
+          .badge
+            = @user_stats.defense
+        .row
+          Luck
+          .badge
+            = @user_stats.luck

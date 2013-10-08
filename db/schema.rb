@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925214438) do
+ActiveRecord::Schema.define(version: 20131008182426) do
+
+  create_table "levels", force: true do |t|
+    t.integer "level"
+    t.integer "experience_required"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"

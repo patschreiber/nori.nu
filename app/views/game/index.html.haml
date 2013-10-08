@@ -2,13 +2,24 @@
   /#map-canvas
 .row
   .container
-    #{@user.username} #{@user_id}
+    #{@user.username} 
     %br
-    Player Level
-    .playerlevel
+    %hr
+    Player Level: 
+    %span{ :class => 'playerlevel' }  
       #{@level}
+
+    .experience
+      Experience: 
+      %span{ :class => 'current_experience' } 
+        = @current_experience
+      \/
+      %span{ :class => 'total_experience' }
+        = @next_level_experience
     .level-from-db
 
     / TODO Make Buttons to click on
-    -# link_to "Level Up", update_stats_path(:level => @level), :method => :post, :class => "levelup", :remote => true, 'data-no-turbolink' => true
     = link_to "Level Up", "#", :class => "levelup", 'data-no-turbolink' => true
+    = link_to "Light Training", "#", :class => 'light-button', 'data-no-turbolink' => true
+    = link_to "Medium Training", "#", :class => 'medium-button', 'data-no-turbolink' => true
+    = link_to "Heavy Training", "#", :class => 'heavy-button', 'data-no-turbolink' => true

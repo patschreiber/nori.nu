@@ -13,16 +13,36 @@ class UsersController < ApplicationController
   end
 
   def new
-  	@user = User.new
+    if signed_in?
+      redirect_to root_url
+    else
+      @user = User.new
+    end
   end
 
   def create
     action = "Create"
-  	@user = User.new(user_params)
+  	@user = User.new( user_params )
+
   	if @user.save
+      @user_stats = UsersStat.new(  :user_id => @user.id, 
+                                    :player_level => 1, 
+                                    :current_experience => 0, 
+                                    :total_experience => 0, 
+                                    :current_gold => 0,
+                                    :health => 100,
+                                    :attack => 1,
+                                    :defense => 1,
+                                    :stealth => 1,
+                                    :luck => 1,
+                                    :total_items_found => 0,
+                                    :total_buttons_clicked => 0,
+                                    :total_gold_collected => 0 )
+      @user_stats.save!
+
       sign_in @user
       flash[:success] = "Welcome to nori.nu, #{@user.username}"
-    	redirect_to @user
+    	redirect_to game_path
   	else
   	  render 'new'
   	end
@@ -33,7 +53,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Successfully updated information"
+      flash.now[:success] = "Successfully updated information"
       sign_in @user
       redirect_to @user
     else
@@ -46,10 +66,14 @@ class UsersController < ApplicationController
 
   def show
     @user_title = "\'s Profile"
-    @user = User.find(params[:id])
+    @user = User.find( params[:id] )
+    @user_stats = UsersStat.find_by user_id: @user.id
+    @level = @user_stats.player_level
   end
 
+
   private
+
 
   def user_params
   	params.require(:user).permit(:last_name, :first_name, :username, :email, :password, :password_confirmation)
@@ -66,8 +90,9 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.find( params[:id] )
     redirect_to(root_url) unless current_user?(@user)
   end
+
 end
 
