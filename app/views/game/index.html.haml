@@ -24,14 +24,7 @@
     .progress
       .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "1000", :style => "width: #{@percent_to_level}%;", :title => "Fuck You"} 
 
-    .btn-group.hidden-xs
-      = link_to "Level Up (10 exp)", "#", :class => 'material-button btn btn-default', :value => 10, 'data-no-turbolink' => true
-      = link_to "Light Training (50 exp)", "#", :class => 'light-button btn btn-default', :value => 50, 'data-no-turbolink' => true
-      = link_to "Medium Training (250 exp)", "#", :class => 'medium-button btn btn-default', :value => 250, 'data-no-turbolink' => true
-      = link_to "Heavy Training (500 exp)", "#", :class => 'heavy-button btn btn-default', :value => 500, 'data-no-turbolink' => true
-
-    .hidden-sm.hidden-md.visible-xs
-      = link_to "Level Up (10 exp)", "#", :class => 'material-button btn btn-default btn-block', :value => 10, 'data-no-turbolink' => true
-      = link_to "Light Training (50 exp)", "#", :class => 'light-button btn btn-default btn-block', :value => 50, 'data-no-turbolink' => true
-      = link_to "Medium Training (250 exp)", "#", :class => 'medium-button btn btn-default btn-block', :value => 250, 'data-no-turbolink' => true
-      = link_to "Heavy Training (500 exp)", "#", :class => 'heavy-button btn btn-default btn-block', :value => 500, 'data-no-turbolink' => true
+    .btn-group.hidden-xs.visible-sm.visible-md.visible-lg
+      = render 'shared/add_experience_buttons', :add_class => ""
+    .hidden-sm.hidden-md.hidden-lg.visible-xs
+      = render 'shared/add_experience_buttons', :add_class => "btn-block"

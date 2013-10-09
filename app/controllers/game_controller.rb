@@ -23,6 +23,7 @@ class GameController < ApplicationController
       
       # Used for experience progress bar
       @percent_to_level = percent_to_next_level(@current_experience, @next_level_experience)
+
     end
   end
 

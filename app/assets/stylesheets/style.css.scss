@@ -24,7 +24,8 @@ $default_paragraph_padding: .5em;
 body { 
   color: darken($grey, 10%);
   font-family: 'Open Sans', sans-serif;
-  background-color: lighten($red_orange, 44%);
+
+  background-color: $light_grey;
   background-image: radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
   background-image: -webkit-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
   background-image: -moz-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
