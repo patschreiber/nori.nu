@@ -26,6 +26,7 @@ $(document).ready(function() {
 
         $('.level-from-db').text(data.percent_to_level);
         $('.progress-bar, .progress-bar-warning').width(data.percent_to_level + "%");
+        $('.progress, .progress-bar').prop('title', data.percent_to_level + "% to next level")
       },
       error: function(xhr, status, error) {
 

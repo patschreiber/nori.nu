@@ -21,8 +21,8 @@
       = @percent_to_level
 
     / Start exp progress bar
-    .progress
-      .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "1000", :style => "width: #{@percent_to_level}%;", :title => "Fuck You"} 
+    .progress{:title => "#{@percent_to_level}% to next level"}
+      .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next level"} 
 
     .btn-group.hidden-xs.visible-sm.visible-md.visible-lg
       = render 'shared/add_experience_buttons', :add_class => ""
