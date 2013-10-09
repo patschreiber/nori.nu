@@ -9,15 +9,20 @@ class GameController < ApplicationController
     if signed_in?
       @user = User.find(current_user)
       @user_id = @user.id
-
       @user_stats = UsersStat.find_by user_id: @user.id
       @level = @user_stats.player_level 
       @current_experience = @user_stats.current_experience
 
       unless @level == 99
         @level_table = Level.find_by level: @user_stats.player_level + 1    # Finds experience required for next level
+      else
+        @level_table = Level.find_by level: @user_stats.player_level
       end
+
       @next_level_experience = @level_table.experience_required 
+      
+      # Used for experience progress bar
+      @percent_to_level = percent_to_next_level(@current_experience, @next_level_experience)
     end
   end
 
@@ -30,38 +35,27 @@ class GameController < ApplicationController
 
     level = params[:level].to_i
     current_exp = params[:current_experience].to_i
+    exp_to_add = params[:experience_to_add].to_i
     next_level_experience = @level_table.experience_required 
 
-    current_exp, next_level_experience, level = levelup( current_exp, next_level_experience, level ) 
-    Rails.logger.debug("Yeah #{current_exp} #{level}")
+    current_exp, next_level_experience, level = levelup( current_exp, next_level_experience, level, exp_to_add ) 
+    percent_to_level = percent_to_next_level(current_exp, next_level_experience)
 
-    #unless level == 99
-      #level = level + 1
-      three = 3000
-
-      @user_stats.player_level = level
-      @user_stats.current_experience = current_exp
-      @user_stats.save!
+    @user_stats.player_level = level
+    @user_stats.current_experience = current_exp
+    @user_stats.total_experience = @user_stats.total_experience + exp_to_add
+    @user_stats.save!
 
 
-      data = { :message => "You leveled up!", :level => level, :current_exp => current_exp, :exp_to_level => next_level_experience } #:exp_to_level => next_level_experience }    # Sends data back to the AJAX request
-      render :json => data, :status => :ok
-    
-    #else
-    #  data = { :message => "You've reached the max level!", :level => level }
-    #  render :json => data, :status => :ok
-    #end
+    data = { :message => "You leveled up!", :level => level, :current_exp => current_exp, :exp_to_level => next_level_experience, :percent_to_level => percent_to_level }  # Sends data back to the AJAX request
+    render :json => data, :status => :ok
   end
 
 
-
-
-
-
-  def levelup(current_exp, next_level_required_exp, level)
+  def levelup(current_exp, next_level_required_exp, level, exp_to_add)
     #Pseudo Code
 
-    current_exp = current_exp + 10
+    current_exp = current_exp + exp_to_add
 
     unless level == 99
 
@@ -82,9 +76,11 @@ class GameController < ApplicationController
         # Implicit Return
         [current_exp, next_level_experience, level]
       end
-      
 
     end
   end
 
+  def percent_to_next_level(current_exp, next_level_exp)
+    return (current_exp.to_f / next_level_exp.to_f * 100).round(1)
+  end
 end

@@ -8,6 +8,7 @@
     Player Level: 
     %span{ :class => 'playerlevel' }  
       #{@level}
+      #{@passed_exp}
 
     .experience
       Experience: 
@@ -17,9 +18,14 @@
       %span{ :class => 'next-level-exp' }
         = @next_level_experience
     .level-from-db
+      = @percent_to_level
 
-    / TODO Make Buttons to click on
-    = link_to "Level Up", "#", :class => "levelup", 'data-no-turbolink' => true
-    = link_to "Light Training", "#", :class => 'light-button', 'data-no-turbolink' => true
-    = link_to "Medium Training", "#", :class => 'medium-button', 'data-no-turbolink' => true
-    = link_to "Heavy Training", "#", :class => 'heavy-button', 'data-no-turbolink' => true
+    / Start exp progress bar
+    .progress
+      .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "1000", :style => "width: #{@percent_to_level}%;", :title => "Fuck You"} 
+
+    .btn-group
+      = link_to "Level Up (10 exp)", "#", :class => "material-button btn btn-default", :value => 10, 'data-no-turbolink' => true
+      = link_to "Light Training (50 exp)", "#", :class => 'light-button btn btn-default', :value => 50, 'data-no-turbolink' => true
+      = link_to "Medium Training (250 exp)", "#", :class => 'medium-button btn btn-default', :value => 250, 'data-no-turbolink' => true
+      = link_to "Heavy Training (500 exp)", "#", :class => 'heavy-button btn btn-default', :value => 500, 'data-no-turbolink' => true
