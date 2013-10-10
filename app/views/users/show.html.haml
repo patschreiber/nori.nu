@@ -2,35 +2,111 @@
 
 .container
   .row
-    .col-md-6.text-center
-      = @user.id
-      = @user.username
-      = @user.email
-      Level: 
-      = @user_stats.player_level
+    .col-md-6
+      %h2
+        = @user.username
+      %hr{ :class => "hr-margin" }
+
   .row
-    .col-md-6.text-center
-      .col-md-6.col-xs-6
-        .row
-          Gold  
-          = @user_stats.current_gold
-        .row
+    .col-sm-6.col-md-6
+      .col-sm-6.col-md-3
+        .thumbnail
+          -# Level-Based picture goes in replacement of these brs. img src...
+          %br
+          %br
+          %br
+        %h3
+          Lv. 
+          = @user_stats.player_level
+        Gold  
+        = @user_stats.current_gold
+
+      .col-md-9
+        / TODO add inventory
+        Inventory Goes here
+    
+
+
+
+    .col-sm-6.col-md-6
+      %h4
+        Skills
+      .row
+        .col-md-3
           Attack
-          .badge
+          .label.label-default.pull-right
             = @user_stats.attack
-        .row
-          Stealth
-          .badge
-            = @user_stats.stealth
-      .col-md-6.col-xs-6
-        .row
-          Current Experience
-          = @user_stats.current_experience
-        .row
+      .row
+        .col-md-3
           Defense
-          .badge
+          .label.label-default.pull-right
             = @user_stats.defense
-        .row
+      .row
+        .col-md-3
+          Stealth
+          .label.label-default.pull-right
+            = @user_stats.stealth
+      .row
+        .col-md-3
           Luck
-          .badge
+          .label.label-default.pull-right
             = @user_stats.luck
+  .wide-margin-top
+  
+  .row
+    .col-sm-12.col-md-12.well
+      Inventory
+
+  .row
+    .col-sm-6.col-md-6.border-left.border-right
+      %h4
+        Achievements
+      -# TODO These are hardcoded for now, pull from DB in future
+      .row
+        .col-md-12
+          .label.label-danger
+            Level 10
+      .row
+        .col-md-12
+          .label.label-danger
+            Level 20
+      .row
+        .col-md-12
+          .label.label-danger
+            Level 30
+      .row
+        .col-md-12
+          .label.label-danger
+            Level 40
+      .row
+
+    .col-sm-6.col-md-6.border-right
+      %h4
+        Completed Collections
+      -# TODO These are hardcoded for now, pull from DB in future
+      .row
+        Set #1
+        .row
+          .label.label-warning
+            Set Item #1
+          .label.label-warning
+            Set Item #2
+          .label.label-warning
+            Set Item #3
+          .label.label-default
+            Set Item #4
+          .label.label-default
+            Set Item #5
+      .row
+        Set #2
+        .row
+          .label.label-success
+            Set Item #1
+          .label.label-success
+            Set Item #2
+          .label.label-success
+            Set Item #3
+          .label.label-success
+            Set Item #4
+
+  .wide-margin-top

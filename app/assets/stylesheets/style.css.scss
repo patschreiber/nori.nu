@@ -17,6 +17,8 @@ $default_paragraph_padding: .5em;
   margin: 0;
 }
 
+
+
 #map-canvas {
         height: 500px;
       }
@@ -80,6 +82,26 @@ label {
 
 .width-100 {
   width: 100%;
+}
+
+.hr-margin {
+  margin: 10px 0 10px 0;
+}
+
+.border-top {
+  border-top: 1px solid $grey_sleek;
+}
+
+.border-right {
+  border-right: 1px solid $grey_sleek;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $grey_sleek;
+}
+
+.border-left {
+  border-left: 1px solid $grey_sleek;
 }
 
 
@@ -325,11 +347,13 @@ label {
   border: 0px;
   border-radius: 0px;
   background-image: none;
+  min-height: 35px;
 }
 .navbar-brand
 {
   background: url(nori_logo_light.svg) no-repeat left center;
-  height: 50px;
+  margin: 3px 0 0 10px;
+  height: 35px;
   width: 150px;
   background-color: $grey_sleek;
 }
