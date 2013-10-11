@@ -30,7 +30,7 @@
 
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
-  has_one :user_stat
+  has_one :users_stat
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token

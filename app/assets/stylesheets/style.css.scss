@@ -295,6 +295,7 @@ label {
   color: $light_grey;
   background-color: $grey_sleek;
   margin: $wide_margin_top_bottom;
+  z-index: 9;
 
   p {
     padding: $default_paragraph_padding;
@@ -349,11 +350,16 @@ label {
   background-image: none;
   min-height: 35px;
 }
-.navbar-brand
-{
+.navbar-brand {
   background: url(nori_logo_light.svg) no-repeat left center;
   margin: 3px 0 0 10px;
   height: 35px;
   width: 150px;
   background-color: $grey_sleek;
+}
+
+
+
+
+.highscores {
 }

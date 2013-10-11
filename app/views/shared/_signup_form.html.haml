@@ -1,5 +1,5 @@
 .row
-  = form_for(@user) do |f|
+  = form_for @user, :url => { :controller => 'users', :action => 'create' }  do |f|
     = render 'shared/error_messages'
 
     = f.label :first_name
@@ -8,18 +8,16 @@
     = f.label :last_name
     = f.text_field :last_name, placeholder: 'Appleseed', :size => 25
 
-    - if edit == "false"
-      = f.label :username
-      = f.text_field :username, placeholder: 'Appleseeder123'
+    = f.label :username
+    = f.text_field :username, placeholder: 'Appleseeder123'
 
     = f.label :email
     = f.text_field :email, placeholder: 'example@example.com', :size => 40
 
-    - if edit == "false"
-      = f.label :password, 'Password'
-      = f.password_field :password
+    = f.label :password, 'Password'
+    = f.password_field :password
 
-      = f.label :password_confirmation, 'Confirm Password'
-      = f.password_field :password_confirmation
+    = f.label :password_confirmation, 'Confirm Password'
+    = f.password_field :password_confirmation
 
-    = f.submit "#{button_action} Account", :class => 'btn btn-success'
+    = f.submit "Create Account", :class => 'btn btn-success'

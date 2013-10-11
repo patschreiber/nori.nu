@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
   def index
     @time = Time.now
-  end
-
-  def map
-    unless signed_in?
-      redirect_to root_url
+    @user = User.new
+    
+    if signed_in?
+      @highscores = User.select("users.id, users.username, users_stats.player_level").joins(:users_stat).order("users_stats.player_level DESC")
     end
   end
+
 end

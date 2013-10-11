@@ -11,7 +11,7 @@ Public::Application.routes.draw do
   root 'pages#index'
 
   match '/game' => 'game#index', via: [:get, :post], :as => :game
-  match '/signup' => 'users#new', via: 'get'
+  match '/signup' => 'users#new', via: 'get', :as => :signup
   match '/signin' => 'sessions#new', via: 'get'
   match '/signout' => 'sessions#destroy', via: 'delete'
   match '/update-stats' => 'game#update_stats', via: [:get, :post], :as => :update_stats
