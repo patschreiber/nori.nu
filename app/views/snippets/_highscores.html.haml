@@ -1,7 +1,11 @@
-%section{ :class => 'highscores' }
+.visible-md.visible-lg
   %p
     -# .each returns whole array. Use - not = so it doesn't render. http://stackoverflow.com/questions/6946206/ruby-on-rails-3-each-do-problem
     - @highscores.each do |user| 
-      %p
-        = user.username
-        = user.player_level
+      .row
+        .col-md-6
+          = user.username
+        .col-md-4.pull-left
+          Lv.
+          %span{ :class => "label label-default" }
+            = user.player_level

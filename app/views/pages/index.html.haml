@@ -9,16 +9,26 @@
           %p
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         .col-md-4
-          -# TODO Signup here
-          = render 'shared/signup_form'
-    .row
-      = render 'shared/feature_list_main_page'
+          .row
+            %h3
+              Sign me up!
+            = render 'shared/signup_form'
+          .row
+            .wide-margin-top
+            %h3
+              Let me try first
+            = link_to 'Try it!', "#", :class => 'btn btn-default btn-block'
+        .row
+          = render 'shared/feature_list_main_page'
 
 
-    
-.col-md-3.pull-right    
-  - if @highscores
-    = render 'snippets/highscores'
+  .row
+    .col-md-2.pull-right.highscores
+      - if @highscores
+        %h4   
+          Current High Scores
+        %hr
+        = render 'snippets/highscores'
 
 
 -#= render 'shared/login_form'  = render 'shared/announcements'

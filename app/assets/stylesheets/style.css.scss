@@ -80,6 +80,21 @@ label {
   margin: $logged_in_margin_top;
 }
 
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+.margin-left-10 {
+  margin-left: 10px;
+}
+
 .width-100 {
   width: 100%;
 }
@@ -108,20 +123,13 @@ label {
 /* Input Fields 
 ===================== */
 
-.login-form {
-
-  padding: 15px 0 0 0;
+.new_user {
 
   input[type=text], 
   input[type=password] {
-    background: transparent;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 3px solid $grey_dark;
-    border-bottom-left-radius: 4px;
-    border-left: 3px solid $grey_dark;
+    border: 1px solid $light_grey;
+    border-radius: 4px;
     color: $grey_dark;
-    margin: 1em 0 0 0;
     padding: .3em;
     z-index: 3;
   }
@@ -132,11 +140,10 @@ label {
 
   input[type=text]:focus, 
   input[type=password]:focus {
-    border-bottom: 3px solid $blue;
+    border: 1px solid $red_orange;
   }
 
   textarea:focus, input:focus{
-    outline: 0;
   }
 
   .forgot-password-margin {
@@ -360,6 +367,11 @@ label {
 
 
 
-
 .highscores {
+  background-color: $light_grey;
+  height: 100%;
+
+  .label, .label-default {
+    background-color: $grey_dark
+  }
 }
