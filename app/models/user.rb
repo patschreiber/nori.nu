@@ -28,6 +28,21 @@
 #  updated_at      :datetime
 #
 
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  last_name       :string(255)
+#  first_name      :string(255)
+#  username        :string(255)
+#  email           :string(255)
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_one :users_stat

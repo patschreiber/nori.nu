@@ -11,10 +11,143 @@ puts "Seeding the database..."
 
 # Resets the seeds for static tables
 Level.delete_all
+Item.delete_all
+ItemPrefix.delete_all
+ItemSuffix.delete_all
+
+puts "Adding base items to the database..."
+
+# == Schema Information
+#
+# Table name: items
+#
+#  id                     :integer          not null, primary key
+#  name                   :string(255)
+#  is_equippable          :boolean
+#  min_equip_player_level :integer
+#  equip_slot             :integer
+#  uses_ammo              :boolean
+#  ammo_type              :integer
+#  is_consumable          :boolean
+#  is_currency            :boolean
+#  is_set                 :boolean
+#  set_id                 :integer
+#  set_item_number        :integer
+#  value                  :integer
+#  is_unique              :boolean
+#  can_have_prefix        :boolean
+#  can_have_suffix        :boolean
+#  attack_min             :integer
+#  attack_max             :integer
+#  defense_min            :integer
+#  defense_max            :integer
+#  stealth_min            :integer
+#  stealth_max            :integer
+#  luck_min               :integer
+#  luck_max               :integer
+#  flavor_text            :text
+#
+
+# EQUIP SLOTS
+#Head    1
+#Body    2
+#Legs    3
+#Feet    4
+#Weapon  5
+#Defense Item  6
+#Ammo    7
+
+
+  lambda {
+    item = Item.new
+    item.id = 10001
+    item.name = "Gold"
+    item.is_consumable = true
+    item.is_currency = true
+    item.value = 1
+    item.can_have_prefix = false
+    item.can_have_suffix = false
+    item.flavor_text = "Plain old currency"
+    item.save!
+
+    item = Item.new
+    item.id = 10002
+    item.name = "Test Hoodie"
+    item.min_equip_player_level = 1
+    item.equip_slot = 2
+    item.is_set = true  
+    item.set_item_number = 1
+    item.value = 1000
+    item.can_have_prefix = true
+    item.can_have_suffix = true
+    item.defense_min = 1
+    item.defense_max = 100
+    item.stealth_min = 1
+    item.stealth_max = 100
+    item.luck_min = 1
+    item.luck_max = 100
+    item.flavor_text = "Gold jacket, green jacket, who gives a shit?"
+    item.save!
+
+  }.call
+
+
+
+# == Schema Information
+#
+# Table name: item_prefixes
+#
+#  id           :integer          not null, primary key
+#  base_item_id :integer
+#  name         :string(255)
+#  attack_mod   :integer
+#  defense_mod  :integer
+#  stealth_mod  :integer
+#  luck_mod     :integer
+#
+
+#Seed Prefixes DB
+puts "Adding prefixes for items to the database..."
+
+  lambda { 
+    prefix = ItemPrefix.new
+    prefix.base_item_id = 10002
+    prefix.name = "Developer's"
+    prefix.defense_mod = -10
+    prefix.stealth_mod = 10
+    prefix.luck_mod = 50
+    prefix.save!
+  }.call
+
+# == Schema Information
+#
+# Table name: item_suffixes
+#
+#  id           :integer          not null, primary key
+#  base_item_id :integer
+#  name         :string(255)
+#  attack_mod   :integer
+#  defense_mod  :integer
+#  stealth_mod  :integer
+#  luck_mod     :integer
+#
+
+#Seed Prefixes DB
+puts "Adding suffixes for items to the database..."
+
+  lambda { 
+    prefix = ItemSuffix.new
+    prefix.base_item_id = 10002
+    prefix.name = "of Development"
+    prefix.defense_mod = 17
+    prefix.stealth_mod = -6
+    prefix.luck_mod = -12
+    prefix.save!
+  }.call
 
 
 #Seed Level DB
-puts "Adding level requirements to database..."
+puts "Adding level requirements to the database..."
 
   lambda {
     level = Level.new

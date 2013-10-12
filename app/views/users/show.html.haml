@@ -36,6 +36,9 @@
           Attack
           .label.label-default.pull-right
             = @user_stats.attack
+        .col-md-6
+          .progress{:title => "#{@percent_to_level}% to next skill level"}
+            .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
       .row
         .col-md-3
           Defense
@@ -63,19 +66,19 @@
         Achievements
       -# TODO These are hardcoded for now, pull from DB in future
       .row
-        .col-md-12
+        .col-md-12.margin-top-10
           .label.label-danger
             Level 10
       .row
-        .col-md-12
+        .col-md-12.margin-top-10
           .label.label-danger
             Level 20
       .row
-        .col-md-12
+        .col-md-12.margin-top-10
           .label.label-danger
             Level 30
       .row
-        .col-md-12
+        .col-md-12.margin-top-10
           .label.label-danger
             Level 40
       .row

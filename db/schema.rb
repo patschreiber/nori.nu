@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011212923) do
+ActiveRecord::Schema.define(version: 20131012063637) do
+
+  create_table "item_prefixes", force: true do |t|
+    t.integer "base_item_id"
+    t.string  "name"
+    t.integer "attack_mod"
+    t.integer "defense_mod"
+    t.integer "stealth_mod"
+    t.integer "luck_mod"
+  end
+
+  add_index "item_prefixes", ["base_item_id"], name: "index_item_prefixes_on_base_item_id", using: :btree
+
+  create_table "item_suffixes", force: true do |t|
+    t.integer "base_item_id"
+    t.string  "name"
+    t.integer "attack_mod"
+    t.integer "defense_mod"
+    t.integer "stealth_mod"
+    t.integer "luck_mod"
+  end
+
+  add_index "item_suffixes", ["base_item_id"], name: "index_item_suffixes_on_base_item_id", using: :btree
 
   create_table "items", force: true do |t|
     t.string  "name"

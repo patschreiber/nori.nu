@@ -9,10 +9,22 @@
         %li
           = link_to 'Game', game_path, 'data-no-turbolink' => true
         %li
+          %span{ :class => 'ss-icon header-icons' }
+            &#x1F464;
           = link_to "Profile", current_user
+        %li
+          %span{ :class => 'ss-icon header-icons' }
+            &#x2709;
+          = link_to "Inbox", "#"
+        %li
+          %span{ :class => 'ss-icon header-icons' }
+            &#x1F465;
+          = link_to "Friends", "#"
         %li
           = link_to "Settings", edit_user_path(current_user)
         %li
+          %span{ :class => 'ss-icon header-icons' }
+            &#x2026;
           = link_to "Sign out", signout_path, method: "delete"
     #marker
 - else 
