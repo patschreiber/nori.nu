@@ -6,6 +6,7 @@
 #  name                   :string(255)
 #  is_equippable          :boolean
 #  min_equip_player_level :integer
+#  tier                   :integer
 #  equip_slot             :integer
 #  uses_ammo              :boolean
 #  ammo_type              :integer

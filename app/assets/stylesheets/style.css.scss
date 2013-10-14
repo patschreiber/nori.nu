@@ -57,16 +57,6 @@ html:hover [class^="ss-"]{-ms-zoom: 1;}
 
 
 
-
-
-
-
-
-
-
-
-
-
 /* Universal Stylings
 ===================== */
 
@@ -244,12 +234,32 @@ label {
   }
 }
 
+.main-user-menu-sm {
+  a {
+  color: $light_grey;
+  }
+
+  a:hover {
+  color: darken($light_grey, 15%);
+  }
+
+  li { 
+    float: left; 
+    padding: 10px; 
+    width: 50px; 
+    border: 0 px solid blue; 
+    text-align: center; 
+    list-style-type: none; 
+  }
+}
+
 
 
 /* Icons  
 ===================== */
 
 .header-icons {
+  color: $grey_dark;
   font-size: 1.2em;
   margin: 0 2px 0 0;
 }
@@ -325,7 +335,7 @@ label {
   }
 
   a:hover {
-    color: $blue;
+    color: $light_grey;
   }
 }
 
@@ -433,16 +443,36 @@ label {
   border: 0px;
   border-radius: 0px;
   background-image: none;
-  min-height: 35px;
+  min-height: 42px;
+  height: 42px;
 }
+
 .navbar-brand {
   background: url(nori_logo_light.svg) no-repeat left center;
-  margin: 3px 0 0 10px;
+  margin: 3px 0 0 0;
   height: 35px;
   width: 150px;
   background-color: $grey_sleek;
 }
 
+.dropdown, .dropdown-menu {
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  background-color: $grey_sleek;
+  background: rgba(0, 0, 0, 0.8);
+
+  a {
+    color: #FFF;
+  }
+
+}
+/*
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+*/
 
 
 .highscores {

@@ -1,32 +1,66 @@
 - if signed_in?
   .navbar
-    .navbar-header
-      %a{:href => root_path, :alt => "Home Path"}
-        .navbar-brand
+    .container
+      .navbar-header
+        %a{:href => root_path, :alt => "Home Path"}
+          .navbar-brand
 
-    .col-md-6.pull-right
-      %ul.main-user-menu
+      %ul.main-user-menu.pull-right.hidden-xs.hidden-sm
         %li
-          = link_to 'Game', game_path, 'data-no-turbolink' => true
+          = link_to game_path, 'data-no-turbolink' => true do 
+            Game
         %li
-          %span{ :class => 'ss-icon header-icons' }
-            &#x1F464;
-          = link_to "Profile", current_user
+          = link_to current_user do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x1F464;
+            Profile
         %li
-          %span{ :class => 'ss-icon header-icons' }
-            &#x2709;
-          = link_to "Inbox", "#"
+          = link_to "#" do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x2709;
+            Inbox
         %li
-          %span{ :class => 'ss-icon header-icons' }
-            &#x1F465;
-          = link_to "Friends", "#"
+          = link_to "#" do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x1F465;
+            Friends
         %li
-          = link_to "Settings", edit_user_path(current_user)
+          = link_to edit_user_path(current_user) do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x2026;            
+            Settings
         %li
-          %span{ :class => 'ss-icon header-icons' }
-            &#x2026;
-          = link_to "Sign out", signout_path, method: "delete"
-    #marker
+          = link_to signout_path, method: "delete" do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x21A9;
+            Signout
+        %li.dropdown
+          = link_to "#", :class => "dropdown-toggle", "data-toggle"=>"dropdown" do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x2026;  
+          %ul.dropdown-menu
+            %li= link_to 'Settings', edit_user_path(current_user)
+            %li= link_to 'Signout', signout_path, method: "delete"
+
+
+      %ul.main-user-menu-sm.pull-right.visible-xs.visible-sm
+        %li
+          = link_to current_user do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x1F464;
+        %li
+          = link_to current_user do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x2709;
+        %li
+          = link_to "#" do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x1F465;
+        %li
+          = link_to edit_user_path(current_user) do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x2026; 
+      #marker
 - else 
   .container
     .row
@@ -44,3 +78,18 @@
         .btn.btn-default
           = link_to "Sign In", signin_path
       #marker
+
+
+      -#%ul.main-user-menu.pull-right
+
+/        %ul
+/    %li.dropdown
+/      = link_to "#", :class => "dropdown-toggle", "data-toggle"=>"dropdown" do
+/        User
+/        %b.caret
+/      %ul.dropdown-menu
+/        %li= link_to 'list', '#'
+/        %li= link_to 'test', '#'
+/        %li.divider
+/        %li.nav-header= "Users"
+/        %li= link_to 'list', users_path

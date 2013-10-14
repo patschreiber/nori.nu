@@ -25,6 +25,7 @@ puts "Adding base items to the database..."
 #  name                   :string(255)
 #  is_equippable          :boolean
 #  min_equip_player_level :integer
+#  tier                   :integer
 #  equip_slot             :integer
 #  uses_ammo              :boolean
 #  ammo_type              :integer
@@ -74,6 +75,7 @@ puts "Adding base items to the database..."
     item.id = 10002
     item.name = "Test Hoodie"
     item.min_equip_player_level = 1
+    item.tier = 1
     item.equip_slot = 2
     item.is_set = true  
     item.set_item_number = 1
