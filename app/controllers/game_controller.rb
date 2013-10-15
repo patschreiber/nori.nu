@@ -13,26 +13,47 @@ class GameController < ApplicationController
       @level = @user_stats.player_level 
       @current_experience = @user_stats.current_experience
 
-      unless @level == 99
+      if @level < 99
         @level_table = Level.find_by level: @user_stats.player_level + 1    # Finds experience required for next level
-      else
-        @level_table = Level.find_by level: @user_stats.player_level
+      elsif @level == 99
+        @level_table = Level.find(99)
       end
 
       @next_level_experience = @level_table.experience_required 
       
       # Used for experience progress bar
       @percent_to_level = percent_to_next_level(@current_experience, @next_level_experience)
-
     end
   end
 
+  def item_roll
+    @user = User.find(current_user)
+    @user_stats = UsersStat.find_by user_id: @user.id
+    @player_level = @user_stats.player_level
+    @max_item_tier = 0
 
+    # First, get item_tier player is allowed to roll from
+    if @user_stats.player_level <= 25
+      @max_item_tier = 3
+    elsif @user_stats.player_level <= 45
+      @max_item_tier = 4
+    elsif @user_stats.player_level <= 75
+      @max_item_tier = 5  
+    end
+      
+    # Gets the item_tier that the pool of items will be drawn from
+    #item_tier = rand(1..@max_item_tier).round
+  end
 
   def update_stats
     @user = User.find(current_user)
     @user_stats = UsersStat.find_by user_id: @user.id
-    @level_table = Level.find_by level: @user_stats.player_level + 1
+
+    if @user_stats.player_level < 99
+      @level_table = Level.find_by level: @user_stats.player_level + 1
+    else
+      @level_table = Level.find(99)
+    end
 
     level = params[:level].to_i
     current_exp = params[:current_experience].to_i
@@ -54,30 +75,49 @@ class GameController < ApplicationController
 
 
   def levelup(current_exp, next_level_required_exp, level, exp_to_add)
-    #Pseudo Code
+    # If current level < 99 -
+    # Check to see if the current experience > the required exp for the next level
+    # If it is, add the remainer and find the next level experience required
+    # If next level experience != enough to level up, set the level the same and the next level experience
+    # 
+    # If current level = 99
+    # Next level experience = 99
 
     current_exp = current_exp + exp_to_add
 
-    unless level == 99
+    if level < 99
+      @next_level_if_leveled_up = Level.find_by level: level + 1
 
       if current_exp >= next_level_required_exp
         level = level + 1
         remainder = current_exp - next_level_required_exp
         current_exp = 0 + remainder
-        @next_level_if_leveled_up = Level.find_by level: level + 1
         next_level_experience = @next_level_if_leveled_up.experience_required
        
         # Implicit Return
         [current_exp, next_level_experience, level]
       else
         level = level
-        @next_level_if_leveled_up = Level.find_by level: level + 1
-        next_level_experience = @next_level_if_leveled_up.experience_required
 
         # Implicit Return
-        [current_exp, next_level_experience, level]
+        [current_exp, level]
       end
 
+    elsif level == 99
+      @level_experience = Level.find(99)
+
+      level = level
+      next_level_experience = @level_experience.experience_required
+      current_exp = @level_experience.experience_required
+
+      Rails.logger.debug "current_exp= #{current_exp}"
+      Rails.logger.debug "next_level_exp = #{next_level_experience}"
+
+      #Implicit Return
+      [current_exp, next_level_experience, level]
+
+    else
+      Rails.logger.debug "Logic Error: Not less than or equal to 99"
     end
   end
 
