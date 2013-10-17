@@ -12,54 +12,30 @@ class GameController < ApplicationController
       @user_stats = UsersStat.find_by user_id: @user.id
       @level = @user_stats.player_level 
       @current_experience = @user_stats.current_experience
-
+      
       if @level < 99
         @level_table = Level.find_by level: @user_stats.player_level + 1    # Finds experience required for next level
       elsif @level == 99
         @level_table = Level.find(99)
       end
 
-      @next_level_experience = @level_table.experience_required 
-      
       # Used for experience progress bar
+      @next_level_experience = @level_table.experience_required      
       @percent_to_level = percent_to_next_level(@current_experience, @next_level_experience)
     end
   end
 
-  def item_roll
-    @user = User.find(current_user)
-    @user_stats = UsersStat.find_by user_id: @user.id
-    @player_level = @user_stats.player_level
-    @max_item_tier = 0
-
-    # First, get item_tier player is allowed to roll from
-    if @user_stats.player_level <= 25
-      @max_item_tier = 3
-    elsif @user_stats.player_level <= 45
-      @max_item_tier = 4
-    elsif @user_stats.player_level <= 75
-      @max_item_tier = 5  
-    end
-      
-    # Gets the item_tier that the pool of items will be drawn from
-    #item_tier = rand(1..@max_item_tier).round
-  end
 
   def update_stats
     @user = User.find(current_user)
     @user_stats = UsersStat.find_by user_id: @user.id
 
-    if @user_stats.player_level < 99
-      @level_table = Level.find_by level: @user_stats.player_level + 1
-    else
-      @level_table = Level.find(99)
-    end
-
     level = params[:level].to_i
     current_exp = params[:current_experience].to_i
     exp_to_add = params[:experience_to_add].to_i
-    next_level_experience = @level_table.experience_required 
+    next_level_experience = (Level.find_by level: @user_stats.player_level + 1).experience_required
 
+    # Now we update the values with the levelup and percent to level methods
     current_exp, next_level_experience, level = levelup( current_exp, next_level_experience, level, exp_to_add ) 
     percent_to_level = percent_to_next_level(current_exp, next_level_experience)
 
@@ -69,38 +45,31 @@ class GameController < ApplicationController
     @user_stats.save!
 
 
-    data = { :message => "You leveled up!", :level => level, :current_exp => current_exp, :exp_to_level => next_level_experience, :percent_to_level => percent_to_level }  # Sends data back to the AJAX request
+    data = { :message => "You leveled up!", :level => level, :current_exp => current_exp, :exp_to_level => next_level_experience, :percent_to_level => percent_to_level }
     render :json => data, :status => :ok
   end
 
 
-  def levelup(current_exp, next_level_required_exp, level, exp_to_add)
-    # If current level < 99 -
-    # Check to see if the current experience > the required exp for the next level
-    # If it is, add the remainer and find the next level experience required
-    # If next level experience != enough to level up, set the level the same and the next level experience
-    # 
-    # If current level = 99
-    # Next level experience = 99
+  def levelup(current_exp, next_level_experience, level, exp_to_add)
 
     current_exp = current_exp + exp_to_add
 
     if level < 99
-      @next_level_if_leveled_up = Level.find_by level: level + 1
-
-      if current_exp >= next_level_required_exp
+      if current_exp >= next_level_experience
         level = level + 1
-        remainder = current_exp - next_level_required_exp
+        next_level = Level.find_by level: level + 1
+        remainder = current_exp - next_level_experience
         current_exp = 0 + remainder
-        next_level_experience = @next_level_if_leveled_up.experience_required
+        next_level_experience = next_level.experience_required
        
         # Implicit Return
         [current_exp, next_level_experience, level]
-      else
-        level = level
+      else 
+        level = level    
+        next_level_experience = (Level.find_by level: level + 1).experience_required
 
         # Implicit Return
-        [current_exp, level]
+        [current_exp, next_level_experience, level]
       end
 
     elsif level == 99
@@ -125,3 +94,8 @@ class GameController < ApplicationController
     return (current_exp.to_f / next_level_exp.to_f * 100).round(1)
   end
 end
+
+
+
+
+     # @level_table = Level.find_by level: @user_stats.player_level + 1
