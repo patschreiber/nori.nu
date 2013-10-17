@@ -33,7 +33,12 @@ class GameController < ApplicationController
     level = params[:level].to_i
     current_exp = params[:current_experience].to_i
     exp_to_add = params[:experience_to_add].to_i
-    next_level_experience = (Level.find_by level: @user_stats.player_level + 1).experience_required
+
+    if level < 99
+      next_level_experience = (Level.find_by level: @user_stats.player_level + 1).experience_required
+    else
+      next_level_experience = Level.find(99)
+    end
 
     # Now we update the values with the levelup and percent to level methods
     current_exp, next_level_experience, level = levelup( current_exp, next_level_experience, level, exp_to_add ) 
@@ -54,7 +59,7 @@ class GameController < ApplicationController
 
     current_exp = current_exp + exp_to_add
 
-    if level < 99
+    if level < 98
       if current_exp >= next_level_experience
         level = level + 1
         next_level = Level.find_by level: level + 1
@@ -72,15 +77,29 @@ class GameController < ApplicationController
         [current_exp, next_level_experience, level]
       end
 
+    elsif level === 98
+      if current_exp >= next_level_experience
+        level = level + 1
+        next_level = Level.find(99)
+        current_exp = next_level.experience_required
+
+        # Implicit Return
+        [current_exp, next_level_experience, level]
+      else
+        level = level    
+        next_level_experience = (Level.find_by level: level + 1).experience_required
+
+        # Implicit Return
+        [current_exp, next_level_experience, level]
+      end 
+
+
     elsif level == 99
       @level_experience = Level.find(99)
 
       level = level
       next_level_experience = @level_experience.experience_required
       current_exp = @level_experience.experience_required
-
-      Rails.logger.debug "current_exp= #{current_exp}"
-      Rails.logger.debug "next_level_exp = #{next_level_experience}"
 
       #Implicit Return
       [current_exp, next_level_experience, level]
