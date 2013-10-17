@@ -178,6 +178,30 @@ label {
   border-left: 1px solid $grey_sleek;
 }
 
+.bordered {
+  border: 1px solid $grey_sleek;
+}
+
+/* Font Sizes 
+===================== */
+
+.font-size-sm {
+  font-size: 10px;
+}
+
+.font-size-medium {
+  font-size: 15px;
+}
+
+.font-size-lg {
+  font-size: 16px;
+}
+
+.font-size-xl {
+  font-size: 24px;
+}
+
+
 
 /* Input Fields 
 ===================== */
@@ -474,7 +498,6 @@ label {
 .dropdown-menu > .active > a:focus {
 */
 
-
 .highscores {
   background-color: $light_grey;
   height: 100%;
@@ -484,5 +507,8 @@ label {
   }
 }
 
+.progress {
+    margin-bottom: 0px;
+}
 
 

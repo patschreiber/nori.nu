@@ -8,6 +8,8 @@
       %ul.main-user-menu.pull-right.hidden-xs.hidden-sm
         %li
           = link_to game_path, 'data-no-turbolink' => true do 
+            %span{ :class => 'ss-icon header-icons' }
+              &#xE800;
             Game
         %li
           = link_to current_user do
@@ -24,16 +26,6 @@
             %span{ :class => 'ss-icon header-icons' }
               &#x1F465;
             Friends
-        %li
-          = link_to edit_user_path(current_user) do
-            %span{ :class => 'ss-icon header-icons' }
-              &#x2026;            
-            Settings
-        %li
-          = link_to signout_path, method: "delete" do
-            %span{ :class => 'ss-icon header-icons' }
-              &#x21A9;
-            Signout
         %li.dropdown
           = link_to "#", :class => "dropdown-toggle", "data-toggle"=>"dropdown" do
             %span{ :class => 'ss-icon header-icons' }

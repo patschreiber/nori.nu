@@ -2,30 +2,27 @@
   /#map-canvas
 .row
   .container
-    #{@user.username} 
-    %br
-    %hr
-    Player Level: 
-    %span{ :class => 'playerlevel' }  
-      #{@level}
-      #{@passed_exp}
+    .row
+      .col-md-4.bordered.pull-right
+        %span{ :class => "font-size-medium" }
+          = @user.username.capitalize
+        %span{ :class => "font-size-lg margin-left-10" }
+        %span{ :class => "playerlevel font-size-xl" }  
+          #{@level}
 
-    .experience
-      Experience: 
-      %span{ :class => 'current-experience' } 
-        = @current_experience
-      \/
-      %span{ :class => 'next-level-exp' }
-        = @next_level_experience
-    .level-from-db
-      = @percent_to_level
+        / Start exp progress bar
+        .progress{:title => "#{@percent_to_level}% to next level"}
+          .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next level"} 
 
-    / Start exp progress bar
-    .progress{:title => "#{@percent_to_level}% to next level"}
-      .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next level"} 
+        .experience 
+          Experience: 
+          %span{ :class => 'current-experience' } 
+            = @current_experience
+          \/
+          %span{ :class => 'next-level-exp' }
+            = @next_level_experience
 
     .btn-group.hidden-xs.visible-sm.visible-md.visible-lg
       = render 'shared/add_experience_buttons', :add_class => ""
     .hidden-sm.hidden-md.hidden-lg.visible-xs
       = render 'shared/add_experience_buttons', :add_class => "btn-block"
-    .vend-percent

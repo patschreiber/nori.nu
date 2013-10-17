@@ -18,7 +18,8 @@
         %h3
           Lv. 
           = @user_stats.player_level
-        Gold  
+        %span{ :class => 'ss-icon header-icons' }
+          &#x1F4B2;
         = @user_stats.current_gold
 
       .col-md-9
@@ -37,23 +38,32 @@
           .label.label-default.pull-right
             = @user_stats.attack
         .col-md-6
-          .progress{:title => "#{@percent_to_level}% to next skill level"}
-            .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
       .row
         .col-md-3
           Defense
           .label.label-default.pull-right
             = @user_stats.defense
+        .col-md-6
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
       .row
         .col-md-3
           Stealth
           .label.label-default.pull-right
             = @user_stats.stealth
+        .col-md-6
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
       .row
         .col-md-3
           Luck
           .label.label-default.pull-right
             = @user_stats.luck
+        .col-md-6
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
   .wide-margin-top
   
   .row
