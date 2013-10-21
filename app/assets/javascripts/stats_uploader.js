@@ -14,7 +14,7 @@ $(document).ready(function() {
     $.ajax({
       type: 'POST',
       url: '/update-stats',
-      data: data,
+      data: data, //Data to submit
       beforeSend: function(data, xhr, settings) {
         $('.material-button').prop('disabled', true);
       },

@@ -73,6 +73,7 @@ puts "Adding base items to the database..."
 
     item = Item.new
     item.id = 10002
+    item.is_equippable = true
     item.name = "Test Hoodie"
     item.min_equip_player_level = 1
     item.tier = 1
