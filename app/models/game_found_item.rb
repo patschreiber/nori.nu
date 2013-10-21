@@ -1,12 +1,11 @@
 # == Schema Information
 #
-# Table name: items
+# Table name: game_found_items
 #
 #  id                     :integer          not null, primary key
-#  name                   :string(255)
+#  base_item_id           :integer
 #  is_equippable          :boolean
 #  min_equip_player_level :integer
-#  tier                   :integer
 #  equip_slot             :integer
 #  uses_ammo              :boolean
 #  ammo_type              :integer
@@ -21,15 +20,18 @@
 #  can_have_suffix        :boolean
 #  attack_min             :integer
 #  attack_max             :integer
+#  computed_attack        :integer
 #  defense_min            :integer
 #  defense_max            :integer
+#  computed_defense       :integer
 #  stealth_min            :integer
 #  stealth_max            :integer
+#  computed_stealth       :integer
 #  luck_min               :integer
 #  luck_max               :integer
-#  drop_percentage        :float
+#  computed_luck          :integer
 #  flavor_text            :text
 #
 
-class Item < ActiveRecord::Base
+class GameFoundItem < ActiveRecord::Base
 end
