@@ -27,6 +27,7 @@
 #  stealth_max            :integer
 #  luck_min               :integer
 #  luck_max               :integer
+#  drop_percentage        :float
 #  flavor_text            :text
 #
 
