@@ -21,14 +21,50 @@
           \/
           %span{ :class => 'next-level-exp' }
             = @next_level_experience
-    .item_dump
-      -# When an item is rolled, it shows up here
-      
+    .col-md-4
+      .item-found
+        .col-md-12
+          .bordered
+            %br
+            %br
+            %br
+            %br
+            
+        -# When an item is rolled, it shows up here
+        -# Make a button that saves the item to the users inventory via ajax
+        .name
+        .attack
+          Attack
+          %span{ :class => "attack-val" }
+        .defense
+          Defense
+          %span{ :class => "defense-val" }
+        .luck
+          Luck
+          %span{ :class => "luck-val" }
+        .stealth
+          Stealth
+          %span{ :class => "stealth-val" }
+        .min-equip-player-level
+          Required Level
+          %span{ :class => "min-equip-player-level-val" }
+        .tier
+          Tier
+          %span{ :class => "tier-val" }
+        .value
+          Value
+          %span{ :class => "monetary-val" }
+        .flavor-text
 
+        .save
+          = link_to "Save", "#"
+        .trash
+          = link_to "Discard", "#"
 
+    .col-md-12
 
-    .btn-group.hidden-xs.visible-sm.visible-md.visible-lg
-      = render 'shared/add_experience_buttons', :add_class => ""
-    .hidden-sm.hidden-md.hidden-lg.visible-xs
-      = render 'shared/add_experience_buttons', :add_class => "btn-block"
+      .btn-group.hidden-xs.visible-sm.visible-md.visible-lg
+        = render 'shared/add_experience_buttons', :add_class => ""
+      .hidden-sm.hidden-md.hidden-lg.visible-xs
+        = render 'shared/add_experience_buttons', :add_class => "btn-block"
 

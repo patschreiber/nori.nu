@@ -13,7 +13,22 @@ $(document).ready(function() {
       },
       success: function(data, status, xhr) {
         console.log(data);
-        $('.item_dump').text(data.name);
+        $('.name').text(data.name);
+        $('.attack-val').text(data.computed_attack);
+
+        $('.defense-val').text(data.computed_defense);
+
+        $('.luck-val').text(data.computed_luck);
+
+        $('.stealth-val').text(data.computed_stealth);
+        
+        $('.min-equip-player-level-val').text(data.min_equip_player_level);
+        
+        $('.tier-val').text(data.tier);
+
+        $('.monetary-val').text(data.value);
+        
+        $('.flavor-text').text(data.flavor_text);
       },
       error: function(xhr, status, error) {
       },

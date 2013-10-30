@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014221017) do
+ActiveRecord::Schema.define(version: 20131029050215) do
+
+  create_table "game_found_items", force: true do |t|
+    t.integer "base_item_id"
+    t.string  "name"
+    t.boolean "is_equippable"
+    t.integer "min_equip_player_level"
+    t.integer "tier"
+    t.integer "equip_slot"
+    t.boolean "uses_ammo"
+    t.integer "ammo_type"
+    t.boolean "is_consumable"
+    t.boolean "is_currency"
+    t.boolean "is_set"
+    t.integer "set_id"
+    t.integer "set_item_number"
+    t.integer "value"
+    t.boolean "is_unique"
+    t.boolean "can_have_prefix"
+    t.boolean "can_have_suffix"
+    t.integer "attack_min"
+    t.integer "attack_max"
+    t.integer "computed_attack"
+    t.integer "defense_min"
+    t.integer "defense_max"
+    t.integer "computed_defense"
+    t.integer "stealth_min"
+    t.integer "stealth_max"
+    t.integer "computed_stealth"
+    t.integer "luck_min"
+    t.integer "luck_max"
+    t.integer "computed_luck"
+    t.text    "flavor_text"
+  end
 
   create_table "item_prefixes", force: true do |t|
     t.integer "base_item_id"
@@ -93,6 +126,12 @@ ActiveRecord::Schema.define(version: 20131014221017) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+
+  create_table "users_current_inventory", force: true do |t|
+    t.integer "item_id",         limit: 8
+    t.integer "quantity"
+    t.integer "inventory_place"
+  end
 
   create_table "users_stats", force: true do |t|
     t.integer  "user_id"

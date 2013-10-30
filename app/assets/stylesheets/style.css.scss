@@ -516,3 +516,20 @@ label {
 }
 
 
+.item-found {
+  background-color: $off_white;
+  color: $grey_sleek;
+  border: 1px solid $light_grey;
+
+  .name {}
+  .attack-val {}
+  .defense-val {}
+  .luck-val {}
+  .stealth-val {}
+  .min-equip-player-level-val {}
+  .tier-val {}
+  .monetary-val {}
+  .flavor-text {}
+}
+
+
