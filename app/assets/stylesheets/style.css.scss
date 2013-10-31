@@ -206,7 +206,7 @@ label {
 /* Input Fields 
 ===================== */
 
-.new_user {
+.new_user, .login-user {
 
   input[type=text], 
   input[type=password] {
@@ -231,6 +231,15 @@ label {
 
   .forgot-password-margin {
     margin: 1em 0 0 0;
+  }
+}
+
+.login-user {
+
+  input[type=text], 
+  input[type=password] {
+    width: 100%;
+    margin: 10px 0 0 0;
   }
 }
 

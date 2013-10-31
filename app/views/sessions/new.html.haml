@@ -1,7 +1,10 @@
 - provide :title, "Sign in"
 
-%h1
-  Sign In
-
-%div
-  = render 'shared/login_form'
+.container
+  .row
+    .col-xs-6.col-sm-5.col-md-5.col-lg-4.col-xs-offset-4.col-sm-offset-4.col-md-offset-4
+      %h1
+        Sign In
+      .login-user
+        = render 'shared/login_form'
+.margin-bottom-10
