@@ -21,45 +21,48 @@
           \/
           %span{ :class => 'next-level-exp' }
             = @next_level_experience
-    .col-md-4
+    .col-md-5
       .item-found
-        .col-md-12
-          .bordered
-            %br
-            %br
-            %br
-            %br
-            
-        -# When an item is rolled, it shows up here
-        -# Make a button that saves the item to the users inventory via ajax
-        .name
-        .attack
-          Attack
-          %span{ :class => "attack-val" }
-        .defense
-          Defense
-          %span{ :class => "defense-val" }
-        .luck
-          Luck
-          %span{ :class => "luck-val" }
-        .stealth
-          Stealth
-          %span{ :class => "stealth-val" }
-        .min-equip-player-level
-          Required Level
-          %span{ :class => "min-equip-player-level-val" }
-        .tier
-          Tier
-          %span{ :class => "tier-val" }
-        .value
-          Value
-          %span{ :class => "monetary-val" }
-        .flavor-text
-
-        .save
-          = link_to "Save", "#"
-        .trash
-          = link_to "Discard", "#"
+        .row
+          .col-md-6
+            .item-image
+              %br
+              %br
+          .col-md-6
+            -# When an item is rolled, it shows up here
+            -# Make a button that saves the item to the users inventory via ajax
+            .name
+            .attack
+              Attack
+              %span{ :class => "attack-val" }
+            .defense
+              Defense
+              %span{ :class => "defense-val" }
+            .luck
+              Luck
+              %span{ :class => "luck-val" }
+            .stealth
+              Stealth
+              %span{ :class => "stealth-val" }
+            .min-equip-player-level
+              Required Level
+              %span{ :class => "min-equip-player-level-val" }
+            .tier
+              Tier
+              %span{ :class => "tier-val" }
+            .value
+              Value
+              %span{ :class => "monetary-val" }
+        .row
+          .col-md-12
+            .flavor-text
+        .row
+          .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+            .save.pull-left
+              = link_to "Save", "#"
+          .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+            .trash.pull-right
+              = link_to "Discard", "#"
 
     .col-md-12
 

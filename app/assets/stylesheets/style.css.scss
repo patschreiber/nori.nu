@@ -520,6 +520,11 @@ label {
   background-color: $off_white;
   color: $grey_sleek;
   border: 1px solid $light_grey;
+  padding: 15px 0 0 0;
+
+  .item-image {
+    border: 4px solid $grey_dark;
+  }
 
   .name {}
   .attack-val {}
@@ -529,7 +534,17 @@ label {
   .min-equip-player-level-val {}
   .tier-val {}
   .monetary-val {}
-  .flavor-text {}
+  .flavor-text {
+    border: 1px solid $light_grey;
+    border-radius: 5px;
+    font-family: serif;
+    font-style: italic;
+    padding: 10px;
+  }
+
+  .action {
+    margin: 10px 0 10px 0;
+  }
 }
 
 
