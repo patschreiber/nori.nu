@@ -24,44 +24,44 @@
 
       .col-md-9
         / TODO add inventory
-        Inventory Goes here
+        Inventory Goes here 
     
 
 
 
-    .col-sm-6.col-md-6
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6
       %h4
         Skills
       .row
-        .col-md-3
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
           Attack
           .label.label-default.pull-right
             = @user_stats.attack
-        .col-md-6
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
           .progress
             .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
       .row
-        .col-md-3
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
           Defense
           .label.label-default.pull-right
             = @user_stats.defense
-        .col-md-6
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
           .progress
             .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
       .row
-        .col-md-3
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
           Stealth
           .label.label-default.pull-right
             = @user_stats.stealth
-        .col-md-6
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
           .progress
             .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
       .row
-        .col-md-3
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
           Luck
           .label.label-default.pull-right
             = @user_stats.luck
-        .col-md-6
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
           .progress
             .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
   .wide-margin-top
