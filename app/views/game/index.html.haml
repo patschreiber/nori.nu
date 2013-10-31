@@ -1,73 +1,74 @@
-.row
-  /#map-canvas
-.row
-  .container
-    .row
-      .col-md-4.bordered.pull-right
-        %span{ :class => "font-size-medium" }
-          = @user.username.capitalize
-        %span{ :class => "font-size-lg margin-left-10" }
-        %span{ :class => "playerlevel font-size-xl" }  
-          #{@level}
+.bg-game
+  .row
+    /#map-canvas
+  .row
+    .container
+      .row
+        .col-md-4.bordered.pull-right
+          %span{ :class => "font-size-medium" }
+            = @user.username.capitalize
+          %span{ :class => "font-size-lg margin-left-10" }
+          %span{ :class => "playerlevel font-size-xl" }  
+            #{@level}
 
-        / Start exp progress bar
-        .progress{:title => "#{@percent_to_level}% to next level"}
-          .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next level"} 
+          / Start exp progress bar
+          .progress{:title => "#{@percent_to_level}% to next level"}
+            .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next level"} 
 
-        .experience 
-          Experience: 
-          %span{ :class => 'current-experience' } 
-            = @current_experience
-          \/
-          %span{ :class => 'next-level-exp' }
-            = @next_level_experience
-    .col-sm-5.col-md-5
-      .item-found
-        .row
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6
-            .item-image
-              %br
-              %br
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6
-            -# When an item is rolled, it shows up here
-            -# Make a button that saves the item to the users inventory via ajax
-            .name
-            .attack
-              Attack
-              %span{ :class => "attack-val" }
-            .defense
-              Defense
-              %span{ :class => "defense-val" }
-            .luck
-              Luck
-              %span{ :class => "luck-val" }
-            .stealth
-              Stealth
-              %span{ :class => "stealth-val" }
-            .min-equip-player-level
-              Required Level
-              %span{ :class => "min-equip-player-level-val" }
-            .tier
-              Tier
-              %span{ :class => "tier-val" }
-            .value
-              Value
-              %span{ :class => "monetary-val" }
-        .row
-          .col-md-12
-            .flavor-text
-        .row
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
-            .save.pull-left
-              = link_to "Save", "#"
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
-            .trash.pull-right
-              = link_to "Discard", "#"
+          .experience 
+            Experience: 
+            %span{ :class => 'current-experience' } 
+              = @current_experience
+            \/
+            %span{ :class => 'next-level-exp' }
+              = @next_level_experience
+      .col-sm-5.col-md-5
+        .item-found
+          .row
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6
+              .item-image
+                %br
+                %br
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6
+              -# When an item is rolled, it shows up here
+              -# Make a button that saves the item to the users inventory via ajax
+              .name
+              .attack
+                Attack
+                %span{ :class => "attack-val" }
+              .defense
+                Defense
+                %span{ :class => "defense-val" }
+              .luck
+                Luck
+                %span{ :class => "luck-val" }
+              .stealth
+                Stealth
+                %span{ :class => "stealth-val" }
+              .min-equip-player-level
+                Required Level
+                %span{ :class => "min-equip-player-level-val" }
+              .tier
+                Tier
+                %span{ :class => "tier-val" }
+              .value
+                Value
+                %span{ :class => "monetary-val" }
+          .row
+            .col-md-12
+              .flavor-text
+          .row
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+              .save.pull-left
+                = link_to "Save", "#"
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+              .trash.pull-right
+                = link_to "Discard", "#"
 
-    .col-md-12
+      .col-md-12
 
-      .btn-group.hidden-xs.visible-sm.visible-md.visible-lg
-        = render 'shared/add_experience_buttons', :add_class => ""
-      .hidden-sm.hidden-md.hidden-lg.visible-xs
-        = render 'shared/add_experience_buttons', :add_class => "btn-block"
+        .btn-group.hidden-xs.visible-sm.visible-md.visible-lg
+          = render 'shared/add_experience_buttons', :add_class => ""
+        .hidden-sm.hidden-md.hidden-lg.visible-xs
+          = render 'shared/add_experience_buttons', :add_class => "btn-block"
 
