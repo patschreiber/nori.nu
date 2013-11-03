@@ -537,10 +537,16 @@ label {
   padding: 15px 0 0 0;
 
   .item-image {
-    border: 4px solid $grey_dark;
+    border: 4px solid $red_orange;
   }
 
-  .name {}
+  .tier {
+    font-size: 11px;
+  }
+
+  .name {
+    font-family: serif;
+  }
   .attack-val {}
   .defense-val {}
   .luck-val {}
@@ -554,6 +560,13 @@ label {
     font-family: serif;
     font-style: italic;
     padding: 10px;
+    background-color: lighten($goldish, 15%);
+
+    background-image: radial-gradient(left bottom,ellipse cover,lighten($goldish, 7%) 0,lighten($goldish, 30%) 100%);
+    background-image: -webkit-radial-gradient(left bottom,ellipse cover,lighten($goldish, 7%) 0,lighten($goldish, 30%) 100%);
+    background-image: -moz-radial-gradient(left bottom,ellipse cover,lighten($goldish, 7%) 0,lighten($goldish, 30%) 100%);
+    background-image: -o-radial-gradient(left bottom,ellipse cover,lighten($goldish, 7%) 0,lighten($goldish, 30%) 100%);
+    background-image: -ms-radial-gradient(left bottom,ellipse cover,lighten($goldish, 7%) 0,lighten($goldish, 30%) 100%);
   }
 
   .action {
