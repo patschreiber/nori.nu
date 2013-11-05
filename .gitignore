@@ -17,7 +17,9 @@
 
 # Ignore other unneeded files.
 database.yml
-doc/
+doc/*
+log/*.log
+tmp/**/*
 *.swp
 *~
 .project
