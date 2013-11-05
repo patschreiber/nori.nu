@@ -5,7 +5,7 @@
         .navbar-brand.pull-left
       .navbar-header.pull-right
         .pull-right
-          %ul.main-user-menu.pull-right.hidden-xs.hidden-sm
+          %ul.main-user-menu.pull-right.hidden-xs
             %li
               = link_to game_path, 'data-no-turbolink' => true do 
                 %span{ :class => 'ss-icon header-icons' }
@@ -35,7 +35,7 @@
                 %li= link_to 'Signout', signout_path, method: "delete"
 
 
-        %ul.main-user-menu-sm.pull-right.visible-xs.visible-sm
+        %ul.main-user-menu-sm.pull-right.visible-xs
           %li
             = link_to game_path, 'data-no-turbolink' => true do 
               %span{ :class => 'ss-icon header-icons' }

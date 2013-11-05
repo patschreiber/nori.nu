@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
-  $('.material-button, .light-button, .medium-button, .heavy-button').click(function() { 
-
+  $('.material-button, .light-button, .medium-button, .heavy-button').click(function() { q
     item_data = {} // We're not sending any data on this request, only receiving data. 
 
     $.ajax({
@@ -15,19 +14,12 @@ $(document).ready(function() {
         console.log(data);
         $('.name').text(data.name);
         $('.attack-val').text(data.computed_attack);
-
         $('.defense-val').text(data.computed_defense);
-
         $('.luck-val').text(data.computed_luck);
-
         $('.stealth-val').text(data.computed_stealth);
-        
         $('.min-equip-player-level-val').text(data.min_equip_player_level);
-        
         $('.tier-val').text(data.tier);
-
         $('.monetary-val').text(data.value);
-        
         $('.flavor-text').text(data.flavor_text);
       },
       error: function(xhr, status, error) {
@@ -38,4 +30,9 @@ $(document).ready(function() {
     });
 
   });
+
+  $('.save').click(function() {
+    alert("Yeah");
+  });
+
 });

@@ -37,8 +37,19 @@ class UsersController < ApplicationController
                                     :luck => 1,
                                     :total_items_found => 0,
                                     :total_buttons_clicked => 0,
-                                    :total_gold_collected => 0 )
+                                    :total_gold_collected => 0 
+                                  )
       @user_stats.save!
+      @users_equipped_items = UserEquippedItem.new( :user_id => @user.id,
+                                                    :slot_1_is_equipped => false,
+                                                    :slot_2_is_equipped => false,
+                                                    :slot_3_is_equipped => false,
+                                                    :slot_4_is_equipped => false,
+                                                    :slot_5_is_equipped => false,
+                                                    :slot_6_is_equipped => false,
+                                                    :slot_7_is_equipped => false 
+                                                  )
+      @users_equipped_items.save!
 
       sign_in @user
       flash[:success] = "Welcome to nori.nu, #{@user.username}"
