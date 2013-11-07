@@ -46,15 +46,6 @@ ActiveRecord::Schema.define(version: 20131105000804) do
     t.text    "flavor_text"
   end
 
-  create_table "item_prefixes", force: true do |t|
-    t.integer "base_item_id"
-    t.string  "name"
-    t.integer "attack_mod"
-    t.integer "defense_mod"
-    t.integer "stealth_mod"
-    t.integer "luck_mod"
-  end
-
   add_index "item_prefixes", ["base_item_id"], name: "index_item_prefixes_on_base_item_id", using: :btree
 
   create_table "item_suffixes", force: true do |t|
