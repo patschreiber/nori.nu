@@ -16,6 +16,7 @@ Public::Application.routes.draw do
   match '/signout' => 'sessions#destroy', via: 'delete'
   match '/update-stats' => 'game#update_stats', via: [:get, :post], :as => :update_stats
   match 'item-cranks' => 'items#item_crank', via: [:get, :post], :as => :item_cranks
+  match '/inventory-add' => 'inventory#inventory_add', via: [:get, :post], :as => :inventory_add
 
   namespace :admin do 
     resources :users

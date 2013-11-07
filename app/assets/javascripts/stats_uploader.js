@@ -19,7 +19,6 @@ $(document).ready(function() {
         $('.material-button').prop('disabled', true);
       },
       success: function(data, status, xhr) {
-        console.log(data);
         $('.playerlevel').text(data.level);
         $('.current-experience').text(data.current_exp);
         $('.next-level-exp').text(data.exp_to_level);

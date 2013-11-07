@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('.material-button, .light-button, .medium-button, .heavy-button').click(function() { q
+  $('.material-button, .light-button, .medium-button, .heavy-button').click(function() {
     item_data = {} // We're not sending any data on this request, only receiving data. 
 
     $.ajax({
@@ -12,6 +12,7 @@ $(document).ready(function() {
       },
       success: function(data, status, xhr) {
         console.log(data);
+        $('.item-id').text(data.id);
         $('.name').text(data.name);
         $('.attack-val').text(data.computed_attack);
         $('.defense-val').text(data.computed_defense);
@@ -32,7 +33,29 @@ $(document).ready(function() {
   });
 
   $('.save').click(function() {
-    alert("Yeah");
+    //TODO Add hidden field with Item ID in it. This js will need to grab the item ID and place it in the users Inventory
+    var item_id = $('.item-id').text();
+
+    new_inventory_item = {
+      id : item_id
+    }
+
+    $.ajax({ 
+      type: 'POST',
+      url: '/inventory-add',
+      data: new_inventory_item,
+      success: function(data, status, xhr) {
+        console.log(data);
+        //TODO Place inventory items actually in the inventory
+      }, 
+      error: function(xhr, status, error) {
+
+      },
+      complete: function() {
+
+      }
+    });
+
   });
 
 });

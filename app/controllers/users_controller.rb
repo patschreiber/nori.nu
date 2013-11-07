@@ -40,7 +40,7 @@ class UsersController < ApplicationController
                                     :total_gold_collected => 0 
                                   )
       @user_stats.save!
-      @users_equipped_items = UserEquippedItem.new( :user_id => @user.id,
+      @users_equipped_items = UsersEquippedItem.new( :user_id => @user.id,
                                                     :slot_1_is_equipped => false,
                                                     :slot_2_is_equipped => false,
                                                     :slot_3_is_equipped => false,
