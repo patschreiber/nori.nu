@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105000804) do
+ActiveRecord::Schema.define(version: 20131109050941) do
 
   create_table "game_found_items", force: true do |t|
     t.integer "base_item_id"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20131105000804) do
     t.integer "luck_max"
     t.integer "computed_luck"
     t.text    "flavor_text"
+  end
+
+  create_table "item_prefixes", force: true do |t|
+    t.integer "base_item_id"
+    t.string  "name"
+    t.integer "attack_mod"
+    t.integer "defense_mod"
+    t.integer "stealth_mod"
+    t.integer "luck_mod"
   end
 
   add_index "item_prefixes", ["base_item_id"], name: "index_item_prefixes_on_base_item_id", using: :btree
@@ -125,7 +134,6 @@ ActiveRecord::Schema.define(version: 20131105000804) do
   end
 
   create_table "users_equipped_items", force: true do |t|
-    t.integer  "user_id"
     t.integer  "slot_1",             limit: 8
     t.boolean  "slot_1_is_equipped"
     t.integer  "slot_2",             limit: 8

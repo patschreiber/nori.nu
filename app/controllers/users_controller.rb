@@ -25,7 +25,8 @@ class UsersController < ApplicationController
   	@user = User.new( user_params )
 
   	if @user.save
-      @user_stats = UsersStat.new(  :user_id => @user.id, 
+      @user_stats = UsersStat.new(  :id => @user.id,
+                                    :user_id => @user.id,
                                     :player_level => 1, 
                                     :current_experience => 0, 
                                     :total_experience => 0, 
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
                                     :total_gold_collected => 0 
                                   )
       @user_stats.save!
-      @users_equipped_items = UsersEquippedItem.new( :user_id => @user.id,
+      @users_equipped_items = UsersEquippedItem.new( :id => @user.id,
                                                     :slot_1_is_equipped => false,
                                                     :slot_2_is_equipped => false,
                                                     :slot_3_is_equipped => false,

@@ -46,7 +46,7 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_one :users_stat
-  has_one :users_equipped_item
+  has_one :users_equipped_items
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
