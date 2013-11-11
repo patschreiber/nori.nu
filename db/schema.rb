@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105000804) do
+ActiveRecord::Schema.define(version: 20131111215937) do
 
   create_table "game_found_items", force: true do |t|
     t.integer "base_item_id"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20131105000804) do
     t.integer "luck_max"
     t.integer "computed_luck"
     t.text    "flavor_text"
+  end
+
+  create_table "item_prefixes", force: true do |t|
+    t.integer "base_item_id"
+    t.string  "name"
+    t.integer "attack_mod"
+    t.integer "defense_mod"
+    t.integer "stealth_mod"
+    t.integer "luck_mod"
   end
 
   add_index "item_prefixes", ["base_item_id"], name: "index_item_prefixes_on_base_item_id", using: :btree
@@ -99,24 +108,36 @@ ActiveRecord::Schema.define(version: 20131105000804) do
     t.datetime "updated_at"
   end
 
-  create_table "roles_users", id: false, force: true do |t|
-    t.integer "role_id"
-    t.integer "user_id"
+  create_table "sessions", force: true do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
   create_table "users", force: true do |t|
+    t.string   "username"
     t.string   "last_name"
     t.string   "first_name"
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "remember_token"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_current_inventory", force: true do |t|
     t.integer "item_id",         limit: 8

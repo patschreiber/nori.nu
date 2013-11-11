@@ -11,6 +11,12 @@
     = render 'snippets/shim'
   %body
     = render 'layouts/header'
+    - if notice
+      .notice
+        = notice
+    - if alert
+      .alert
+        = alert
     = yield 
     = render 'layouts/footer'
 
