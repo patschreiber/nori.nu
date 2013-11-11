@@ -1,6 +1,6 @@
 .row
   .visible-md.visible-xs
-    = form_for @user, { :url => { :controller => 'users', :action => 'create' }, :class => 'signup-form' }  do |f|
+    = form_for @user, { :url => { :controller => 'registrations', :action => 'create' }, :class => 'signup-form' }  do |f|
       = render 'shared/error_messages'
 
       .pull-left

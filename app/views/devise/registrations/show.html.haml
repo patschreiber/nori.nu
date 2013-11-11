@@ -1,0 +1,125 @@
+- provide :title, "#{@user.username}#{@user_title}".html_safe
+
+.container
+  .row
+    .col-md-6
+      %h2
+        = @user.username.capitalize
+      %hr{ :class => "hr-margin" }
+
+  .row
+    .col-sm-6.col-md-6
+      .col-sm-6.col-md-3
+        .thumbnail
+          -# Level-Based picture goes in replacement of these brs. img src...
+          %br
+          %br
+          %br
+        %h3
+          Lv. 
+          = @user_stats.player_level
+        %span{ :class => 'ss-icon header-icons' }
+          &#x1F4B2;
+        = @user_stats.current_gold
+
+      .col-md-9
+        / TODO add inventory
+        Inventory Goes here 
+    
+
+
+
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+      %h4
+        Skills
+      .row
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
+          Attack
+          .label.label-default.pull-right
+            = @user_stats.attack
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
+      .row
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
+          Defense
+          .label.label-default.pull-right
+            = @user_stats.defense
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
+      .row
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
+          Stealth
+          .label.label-default.pull-right
+            = @user_stats.stealth
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
+      .row
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
+          Luck
+          .label.label-default.pull-right
+            = @user_stats.luck
+        .col-xs-6.col-sm-6.col-md-6.col-lg-6
+          .progress
+            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
+  .wide-margin-top
+  
+  .row
+    .col-sm-12.col-md-12.well
+      Inventory Trunk
+
+  .row
+    .col-sm-6.col-md-6.border-left.border-right
+      %h4
+        Achievements
+      -# TODO These are hardcoded for now, pull from DB in future
+      .row
+        .col-md-12.margin-top-10
+          .label.label-danger
+            Level 10
+      .row
+        .col-md-12.margin-top-10
+          .label.label-danger
+            Level 20
+      .row
+        .col-md-12.margin-top-10
+          .label.label-danger
+            Level 30
+      .row
+        .col-md-12.margin-top-10
+          .label.label-danger
+            Level 40
+      .row
+
+    .col-sm-6.col-md-6.border-right
+      %h4
+        Completed Collections
+      -# TODO These are hardcoded for now, pull from DB in future
+      .row
+        Set #1
+        .row
+          .label.label-warning.margin-right-10
+            Set Item #1
+          .label.label-warning.margin-right-10
+            Set Item #2
+          .label.label-warning.margin-right-10
+            Set Item #3
+          .label.label-default.margin-right-10
+            Set Item #4
+          .label.label-default.margin-right-10
+            Set Item #5
+      .row
+        Set #2
+        .row
+          .label.label-success.margin-right-10
+            Set Item #1
+          .label.label-success.margin-right-10
+            Set Item #2
+          .label.label-success.margin-right-10
+            Set Item #3
+          .label.label-success.margin-right-10
+            Set Item #4
+
+  .wide-margin-top

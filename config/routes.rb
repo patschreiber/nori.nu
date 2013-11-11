@@ -1,7 +1,13 @@
 Public::Application.routes.draw do
-  devise_for :users
-  resources :users
-  resources :sessions, only: [ :new, :create, :destroy ]
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  
+  devise_scope :user do
+    match '/profile' => 'registrations#show', via: [:get, :post], :as => :profile
+    match '/signup' => 'registrations#new', via: 'get', :as => :signup
+    match '/signin' => 'sessions#new', via: 'get'
+    match '/signout' => 'sessions#destroy', via: 'delete'
+  end
+  #resources :sessions, only: [ :new, :create, :destroy ]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,16 +18,9 @@ Public::Application.routes.draw do
   root 'pages#index'
 
   match '/game' => 'game#index', via: [:get, :post], :as => :game
-  match '/signup' => 'users#new', via: 'get', :as => :signup
-  match '/signin' => 'sessions#new', via: 'get'
-  match '/signout' => 'sessions#destroy', via: 'delete'
   match '/update-stats' => 'game#update_stats', via: [:get, :post], :as => :update_stats
   match 'item-cranks' => 'items#item_crank', via: [:get, :post], :as => :item_cranks
   match '/inventory-add' => 'inventory#inventory_add', via: [:get, :post], :as => :inventory_add
-
-  namespace :admin do 
-    resources :users
-  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
