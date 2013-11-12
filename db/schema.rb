@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131109050941) do
+ActiveRecord::Schema.define(version: 20131109220130) do
 
   create_table "game_found_items", force: true do |t|
     t.integer "base_item_id"
@@ -127,7 +127,8 @@ ActiveRecord::Schema.define(version: 20131109050941) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
-  create_table "users_current_inventory", force: true do |t|
+  create_table "users_current_inventories", force: true do |t|
+    t.integer "user_id"
     t.integer "item_id",         limit: 8
     t.integer "quantity"
     t.integer "inventory_place"
