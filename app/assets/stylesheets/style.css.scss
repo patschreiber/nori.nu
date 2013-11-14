@@ -120,6 +120,9 @@ label {
 .logo {
   background:url(nori_logo.svg);
 }
+.logo-light {
+  background:url(nori_logo_light.svg);
+}
 
 #marker { position: fixed; display: none; height: 3px; width: 100px; border-top: 3px solid $red_orange; }
 
