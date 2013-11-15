@@ -4,6 +4,10 @@ module ApplicationHelper
     "nori_logo.svg"
   end
 
+  def logo_light_image_path
+    "nori_logo_light.svg"
+  end
+
   def current_year
     "2013"
   end

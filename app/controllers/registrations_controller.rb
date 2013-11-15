@@ -28,7 +28,6 @@ class RegistrationsController < Devise::RegistrationsController
                                   :total_buttons_clicked => 0,
                                   :total_gold_collected => 0 
                                 )
-    @user_stats.save!
     @users_equipped_items = UsersEquippedItem.new( :user_id => @user.id,
                                                   :slot_1_is_equipped => false,
                                                   :slot_2_is_equipped => false,
@@ -38,10 +37,14 @@ class RegistrationsController < Devise::RegistrationsController
                                                   :slot_6_is_equipped => false,
                                                   :slot_7_is_equipped => false 
                                                 )
-    @users_equipped_items.save!
-
-    sign_in @user
-    flash[:success] = "Welcome to nori.nu, #{@user.username}"
+    if resource.save
+      @user_stats.save
+      @users_equipped_items.save
+      sign_in @user
+      flash[:success] = "Welcome to nori.nu, #{@user.username}"
+    else
+      flash[:error] = "There was an error during signup. Please try again."
+    end
   end
 
   def edit
