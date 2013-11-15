@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :roles
+  has_many :users_current_inventory
   has_one :users_stat
   has_one :users_equipped_item
 end

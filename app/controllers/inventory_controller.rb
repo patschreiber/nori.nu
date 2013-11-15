@@ -2,9 +2,24 @@ class InventoryController < ApplicationController
 
   def inventory_add
     @user = User.find current_user
-    @users_inventory = UsersCurrentInventory.find_by id: @user.id #This may not work to find the user ID
-    item_id = params[:id].to_i
+    @item_id = params[:id].to_i
+    @is_in_inventory = UsersCurrentInventory.find_by_user_id_and_item_id( @user.id, @item_id )
+    Rails.logger.debug "@users_inventory=#{@users_inventory}"
 
+    if @is_in_inventory.nil?
+      @item = UsersCurrentInventory.new(
+        :user_id => @user.id,
+        :item_id => @item_id,
+        :quantity => 1
+      )
+      @item.save!
+    elsif @is_in_inventory.item_id == 10001 #Make this more robust so you dont have to hardcode values 
+      @item = @is_in_inventory
+      @item.quantity = @item.quantity + 1
+      @item.save!
+    else
+      return
+    end
 
   end
 

@@ -33,7 +33,6 @@ $(document).ready(function() {
   });
 
   $('.save').click(function() {
-    //TODO Add hidden field with Item ID in it. This js will need to grab the item ID and place it in the users Inventory
     var item_id = $('.item-id').text();
 
     new_inventory_item = {

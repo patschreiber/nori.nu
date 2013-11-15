@@ -21,7 +21,6 @@ Public::Application.routes.draw do
   match '/update-stats' => 'game#update_stats', via: [:get, :post], :as => :update_stats
   match 'item-cranks' => 'items#item_crank', via: [:get, :post], :as => :item_cranks
   match '/inventory-add' => 'inventory#inventory_add', via: [:get, :post], :as => :inventory_add
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
