@@ -69,6 +69,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user_stats = UsersStat.find_by user_id: @user.id
     @level = @user_stats.player_level
     @user_inventory = UsersCurrentInventory.where( user_id: @user.id )
+    Rails.logger.debug "User inventory array= #{@user_inventory}"
   end
 
 end
