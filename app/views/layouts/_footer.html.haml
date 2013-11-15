@@ -5,22 +5,24 @@
         .footer.wide-margin-top
           .col-md-4
             .header-border
-              %p
-                -# TODO Make this pull from the database of announcements
-                .row
-                  .col-md-6
-                    = link_to image_tag(logo_light_image_path), root_path
-                  .col-md-5
-                    %h3
-                      About
-                .col-md-6.col-md-offset-2
-                  %ul
-                    %li About Nori
-                    %li Account
-                    %li High Scores
-                    %li Create
-                    %li Forum
-                    %li 
+              .row
+                .skinny-margin-top
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6
+                  = link_to image_tag(logo_light_image_path), root_path
+
+              .row
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6
+                  %br
+                  = link_to "About Nori", "#"
+                  %br
+                  = link_to "Account", "#"
+                  %br
+                  = link_to "High Scores", "#"
+                  %br
+                  = link_to "Create", "#"
+                  %br
+                  = link_to "Forum", "#"
+                  .skinny-margin-top
 
           .col-md-4
             .header-border
@@ -34,17 +36,14 @@
                     Support
                 .row
                   Need help? Found a bug?
-                .row 
-                  .skinny-margin-top
-                  %ul
-                    %li 
-                      = link_to "Help", "#"
-                    %li 
-                      = link_to "Blog", "#"
-                    %li 
-                      = link_to "Forum", "#"
-                    %li 
-                      = link_to "Submit a bug", "#"
+                  %br
+                  = link_to "Help", "#"
+                  %br
+                  = link_to "Blog", "#"
+                  %br
+                  = link_to "Forum", "#"
+                  %br
+                  = link_to "Submit a bug", "#"
 
       .footer.wide-margin-top 
         .row.footer-closing
