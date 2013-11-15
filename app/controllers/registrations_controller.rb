@@ -68,6 +68,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.find( current_user )
     @user_stats = UsersStat.find_by user_id: @user.id
     @level = @user_stats.player_level
+    @user_inventory = UsersCurrentInventory.where( user_id: @user.id )
   end
 
 end

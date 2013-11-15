@@ -24,8 +24,11 @@
 
       .col-md-9
         / TODO add inventory
-        Inventory Goes here 
-    
+        - @user_inventory.each do |item|
+          .item
+            = item.id
+            %p
+              Item
 
 
 
