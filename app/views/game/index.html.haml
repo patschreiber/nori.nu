@@ -69,10 +69,16 @@
         .row
           .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
             .save.pull-left
-              = link_to "Save", "#"
+              = link_to "#" do
+                %span{ :class => 'ss-icon header-icons' }
+                  &#x21AA;
+                Save
           .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
             .trash.pull-right
-              = link_to "Discard", "#"
+              = link_to "#" do
+                %span{ :class => 'ss-icon header-icons' }
+                  &#xE0D0;
+                Discard
   .row
     .col-sm-11.col-md-10.col-lg-10.col-sm-offset-1.col-md-offset-2.col-lg-offset-2
       .btn-group.hidden-xs.visible-sm.visible-md.visible-lg.text
