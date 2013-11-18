@@ -70,6 +70,50 @@ class RegistrationsController < Devise::RegistrationsController
     @level = @user_stats.player_level
     @user_inventory = UsersCurrentInventory.where( user_id: @user.id )
     Rails.logger.debug "User inventory array= #{@user_inventory}"
+
+    @user_equipped_items = UsersEquippedItem.find_by user_id: @user.id
+
+    if @user_equipped_items.slot_1_is_equipped?
+      @slot_1_item = @user_equipped_items.slot_1
+    else
+      @slot_1_item = nil
+    end
+
+    if @user_equipped_items.slot_2_is_equipped?
+      @slot_2_item = @user_equipped_items.slot_2
+    else
+      @slot_2_item = nil
+    end
+
+    if @user_equipped_items.slot_3_is_equipped?
+      @slot_3_item = @user_equipped_items.slot_3
+    else
+      @slot_3_item = nil
+    end
+
+    if @user_equipped_items.slot_4_is_equipped?
+      @slot_4_item = @user_equipped_items.slot_4
+    else
+      @slot_4_item = nil
+    end
+
+    if @user_equipped_items.slot_5_is_equipped?
+      @slot_5_item = @user_equipped_items.slot_5
+    else
+      @slot_5_item = nil
+    end
+
+    if @user_equipped_items.slot_6_is_equipped?
+      @slot_6_item = @user_equipped_items.slot_6
+    else
+      @slot_6_item = nil
+    end
+
+    if @user_equipped_items.slot_7_is_equipped?
+      @slot_7_item = @user_equipped_items.slot_7
+    else
+      @slot_7_item = nil
+    end
   end
 
 end
