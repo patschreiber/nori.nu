@@ -12,7 +12,7 @@ $(document).ready(function() {
            }
 
     $.ajax({
-      type: 'POST',
+      type: 'PUT',
       url: '/update-stats',
       data: data, //Data to submit
       beforeSend: function(data, xhr, settings) {

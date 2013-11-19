@@ -122,6 +122,8 @@ label {
   border-radius: 1px;
 }
 
+
+
 #marker { position: fixed; display: none; height: 3px; width: 100px; border-top: 3px solid $red_orange; }
 
 
@@ -208,6 +210,7 @@ label {
 ===================== */
 .alert {
   border-radius: 0px;
+  height: .5em;
 }
 
 

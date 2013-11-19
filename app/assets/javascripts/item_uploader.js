@@ -4,7 +4,7 @@ $(document).ready(function() {
     item_data = {} // We're not sending any data on this request, only receiving data. 
 
     $.ajax({
-      type: 'POST',
+      type: 'PUT',
       url: 'item-cranks',
       data: item_data,
       beforeSend: function(data, xhr, settings) {
@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
 
     $.ajax({ 
-      type: 'POST',
+      type: 'PUT',
       url: '/inventory-add',
       data: new_inventory_item,
       success: function(data, status, xhr) {
