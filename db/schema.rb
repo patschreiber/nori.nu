@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115190907) do
+ActiveRecord::Schema.define(version: 20131120231929) do
 
   create_table "game_found_items", force: true do |t|
     t.integer "base_item_id"
@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20131115190907) do
     t.integer  "total_items_found"
     t.integer  "total_buttons_clicked"
     t.integer  "total_gold_collected"
+    t.integer  "areas_unlocked"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
