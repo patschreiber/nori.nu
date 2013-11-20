@@ -47,16 +47,6 @@ html:hover [class^="ss-"]{-ms-zoom: 1;}
 
 
 
-
-
-
-
-
-
-
-
-
-
 /* Universal Stylings
 ===================== */
 
@@ -122,6 +112,23 @@ label {
   border-radius: 1px;
 }
 
+.btn-default {
+  text-shadow: none;
+  background-image: none;
+}
+
+.btn-success, .btn-success:hover {
+  background-color: $very_light_green;
+}
+
+
+.item-buttons {
+  .save, .trash {
+    a {
+      color: $grey_dark;
+    }
+  }
+}
 
 
 #marker { position: fixed; display: none; height: 3px; width: 100px; border-top: 3px solid $red_orange; }
@@ -210,7 +217,6 @@ label {
 ===================== */
 .alert {
   border-radius: 0px;
-  height: .5em;
 }
 
 

@@ -3,8 +3,20 @@
     .row
       -# visible-xs margin for mobile devices
       .visible-xs
-        .margin-top-10 
-      .col-xs-12.col-sm-4.col-md-4.col-lg-4.col-sm-offset-8.col-md-offset-8.col-lg-offset-8.bordered
+        .margin-top-10
+      .col-xs-12.col-sm-7.col-md-7.col-lg-7
+        .btn-group.btn-group-justified
+          %a.btn.btn-default
+            Area 1
+          %a.btn.btn-default
+            Area 2
+          %a.btn.btn-default
+            Area 3
+          %a.btn.btn-default
+            Area 4
+          %a.btn.btn-default
+            Area 5
+      .col-xs-12.col-sm-4.col-md-4.col-lg-4.col-sm-offset-1.col-md-offset-1.col-lg-offset-1.bordered
         %span{ :class => "font-size-medium" }
           = @user.username.capitalize
         %span{ :class => "font-size-lg margin-left-10" }
@@ -23,66 +35,69 @@
           %span{ :class => 'next-level-exp' }
             = @next_level_experience
 
-    .col-sm-5.col-md-5.col-sm-offset-42.col-md-offset-4.col-lg-offset-4
-      .item-found
-        .hidden-xs.hidden-sm.hidden-md.hidden-lg
-          .item-id
-        .row
-          .col-xs-12.col-sm-12.col-md-12.col-lg-12
-            %h4
-              .name
-        .row
-          .col-xs-12.col-sm-12.col-md-12.col-lg-12
-            .pull-right
-              .tier
-                Tier
-                %span{ :class => "tier-val" }
-        .row
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6
-            .item-image
-              %br
-              %br
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6
-            -# When an item is rolled, it shows up here
-            -# Make a button that saves the item to the users inventory via ajax
-            .attack
-              Attack
-              %span{ :class => "attack-val" }
-            .defense
-              Defense
-              %span{ :class => "defense-val" }
-            .luck
-              Luck
-              %span{ :class => "luck-val" }
-            .stealth
-              Stealth
-              %span{ :class => "stealth-val" }
-            .min-equip-player-level
-              Required Level
-              %span{ :class => "min-equip-player-level-val" }
-            .value
-              Value
-              %span{ :class => "monetary-val" }
-        .row
-          .col-md-12
-            .flavor-text
-        .row
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
-            .save.pull-left
-              = link_to "#" do
-                %span{ :class => 'ss-icon header-icons' }
-                  &#x21AA;
-                Save
-          .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
-            .trash.pull-right
-              = link_to "#" do
-                %span{ :class => 'ss-icon header-icons' }
-                  &#xE0D0;
-                Discard
-  .row
-    .col-sm-11.col-md-10.col-lg-10.col-sm-offset-1.col-md-offset-2.col-lg-offset-2
-      .btn-group.hidden-xs.visible-sm.visible-md.visible-lg.text
-        = render 'shared/add_experience_buttons', :add_class => ""
-      .hidden-sm.hidden-md.hidden-lg.visible-xs
-        = render 'shared/add_experience_buttons', :add_class => "btn-block"
+    .row
+      .col-sm-5.col-md-5.col-sm-offset-1.col-md-offset-1.col-lg-offset-1
+        .item-found
+          .hidden-xs.hidden-sm.hidden-md.hidden-lg
+            .item-id
+          .row
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
+              %h4
+                .name
+          .row
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .pull-right
+                .tier
+                  Tier
+                  %span{ :class => "tier-val" }
+          .row
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6
+              .item-image
+                %br
+                %br
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6
+              -# When an item is rolled, it shows up here
+              .attack
+                Attack
+                %span{ :class => "attack-val" }
+              .defense
+                Defense
+                %span{ :class => "defense-val" }
+              .luck
+                Luck
+                %span{ :class => "luck-val" }
+              .stealth
+                Stealth
+                %span{ :class => "stealth-val" }
+              .min-equip-player-level
+                Req. Level
+                %span{ :class => "min-equip-player-level-val" }
+              .value
+                Value
+                %span{ :class => "monetary-val" }
+          .row
+            .col-md-12
+              .flavor-text
+          .row
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+              .item-buttons
+                .save.pull-left.btn.btn-default
+                  = link_to "#" do
+                    %span{ :class => 'ss-icon header-icons' }
+                      &#x21AA;
+                    Save
+            .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+              .item-buttons
+                .trash.pull-right.btn.btn-default
+                  = link_to "#" do
+                    %span{ :class => 'ss-icon header-icons' }
+                      &#xE0D0;
+                    Discard
+    .row
+      .skinny-margin-top
+      .col-sm-11.col-md-10.col-lg-10
+        .btn-group.hidden-xs.visible-sm.visible-md.visible-lg.text
+          = render 'shared/add_experience_buttons', :add_class => ""
+        .hidden-sm.hidden-md.hidden-lg.visible-xs
+          = render 'shared/add_experience_buttons', :add_class => "btn-block"
 
