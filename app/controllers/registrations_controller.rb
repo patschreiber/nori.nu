@@ -25,6 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
                                   :stealth => 1,
                                   :luck => 1,
                                   :total_items_found => 0,
+                                  :areas_unlocked => 1,
                                   :total_buttons_clicked => 0,
                                   :total_gold_collected => 0 
                                 )
