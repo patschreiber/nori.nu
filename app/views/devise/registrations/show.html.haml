@@ -23,7 +23,6 @@
         = @user_stats.current_gold
 
       .col-md-9
-        / TODO add EQUIPPED inventory
         -# Head
         .row
           .col-md-3
@@ -111,14 +110,14 @@
             .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
   .wide-margin-top
   
-  .row
-    .col-sm-12.col-md-12.well
+  .row.well
+    .col-sm-12.col-md-12
       - @user_inventory.in_groups_of(1).each do |item_array|
-        .col-xs-1.col-sm-1.col-md-1.col-lg-1
+        .col-xs-1.col-sm-1.col-md-1.col-lg-1.well
           - item_array.each do |item|
             %p.text-center
               = item.id
-      .wide-margin-top  
+    .wide-margin-top  
 
 
   .row

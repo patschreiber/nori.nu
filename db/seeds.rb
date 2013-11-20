@@ -60,16 +60,17 @@ puts "Adding base items to the database..."
 
 
   lambda {
-    item = Item.new
-    item.id = 10001
-    item.name = "Gold"
-    item.is_consumable = true
-    item.is_currency = true
-    item.value = 1
-    item.can_have_prefix = false
-    item.can_have_suffix = false
-    item.flavor_text = "Plain old currency"
-    item.save!
+    # Gold is going to be value based, not item based
+    #item = Item.new
+    #item.id = 10001
+    #item.name = "Gold"
+    #item.is_consumable = true
+    #item.is_currency = true
+    #item.value = 1
+    #item.can_have_prefix = false
+    #item.can_have_suffix = false
+    #item.flavor_text = "Plain old currency"
+    #item.save!
 
     item = Item.new
     item.id = 10002

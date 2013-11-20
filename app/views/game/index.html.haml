@@ -36,7 +36,7 @@
             = @next_level_experience
 
     .row
-      .col-sm-5.col-md-5.col-sm-offset-1.col-md-offset-1.col-lg-offset-1
+      .col-sm-5.col-md-5
         .item-found
           .hidden-xs.hidden-sm.hidden-md.hidden-lg
             .item-id
@@ -93,11 +93,10 @@
                     %span{ :class => 'ss-icon header-icons' }
                       &#xE0D0;
                     Discard
-    .row
-      .skinny-margin-top
-      .col-sm-11.col-md-10.col-lg-10
-        .btn-group.hidden-xs.visible-sm.visible-md.visible-lg.text
-          = render 'shared/add_experience_buttons', :add_class => ""
-        .hidden-sm.hidden-md.hidden-lg.visible-xs
-          = render 'shared/add_experience_buttons', :add_class => "btn-block"
+        .skinny-margin-top
+        .btn-group.btn-group-justified
+          .hidden-xs.visible-sm.visible-md.visible-lg.text
+            = render 'shared/add_experience_buttons', :add_class => ""
+          .hidden-sm.hidden-md.hidden-lg.visible-xs
+            = render 'shared/add_experience_buttons', :add_class => "btn-block"
 
