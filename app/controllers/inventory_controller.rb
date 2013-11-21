@@ -4,7 +4,6 @@ class InventoryController < ApplicationController
     @user = User.find current_user
     @item_id = params[:id].to_i
     @is_in_inventory = UsersCurrentInventory.find_by_user_id_and_item_id( @user.id, @item_id )
-    Rails.logger.debug "@users_inventory=#{@users_inventory}"
 
     if @is_in_inventory.nil?
       @item = UsersCurrentInventory.new(
