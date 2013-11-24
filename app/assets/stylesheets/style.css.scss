@@ -93,7 +93,7 @@ a:hover {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 2.286em;
   font-weight: 200;
 }
 
@@ -133,7 +133,12 @@ label {
 
 #marker { position: fixed; display: none; height: 3px; width: 100px; border-top: 3px solid $red_orange; }
 
+/* Bootstrap overrides
+===================== */
 
+.well {
+  border-radius: 1px;
+}
 
 /* Utility Stylings (Margins, backgrounds for divs, etc.)
 ===================== */
