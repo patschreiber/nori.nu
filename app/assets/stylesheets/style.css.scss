@@ -66,6 +66,10 @@ $default_paragraph_padding: .5em;
   margin: 0;
 }
 
+p {
+  font-size: 1em;
+}
+
 body { 
   color: darken($grey, 10%);
   font-family: 'Open Sans', sans-serif;
