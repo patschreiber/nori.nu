@@ -556,7 +556,9 @@ label {
   color: $grey_sleek;
   border: 1px solid $light_grey;
 
-  .name {}
+  .name {
+    font-family: serif;
+  }
   .attack-val {}
   .defense-val {}
   .luck-val {}
@@ -564,7 +566,15 @@ label {
   .min-equip-player-level-val {}
   .tier-val {}
   .monetary-val {}
-  .flavor-text {}
+  .flavor-text {
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 0.5em;
+    font-family: serif; 
+    font-style: italic;
+    font-size: 0.9em;
+    margin: 5px 0 5px 0;
+  }
 }
 
 

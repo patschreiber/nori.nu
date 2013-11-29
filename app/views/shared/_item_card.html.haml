@@ -1,0 +1,56 @@
+.item-found
+  .hidden-xs.hidden-sm.hidden-md.hidden-lg
+    .item-id
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      %h4
+        .name
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      .pull-right
+        .tier
+          Tier
+          %span{ :class => "tier-val" }
+  .row
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+      .item-image
+        %br
+        %br
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+      -# When an item is rolled, it shows up here
+      .attack
+        Attack
+        %span{ :class => "attack-val" }
+      .defense
+        Defense
+        %span{ :class => "defense-val" }
+      .luck
+        Luck
+        %span{ :class => "luck-val" }
+      .stealth
+        Stealth
+        %span{ :class => "stealth-val" }
+      .min-equip-player-level
+        Req. Level
+        %span{ :class => "min-equip-player-level-val" }
+      .value
+        Value
+        %span{ :class => "monetary-val" }
+  .row
+    .col-md-12
+      .flavor-text
+  .row
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+      .item-buttons
+        .save.pull-left.btn.btn-default
+          = link_to "#" do
+            %span{ :class => 'ss-icon header-icons' }
+              &#x21AA;
+            Save
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+      .item-buttons
+        .trash.pull-right.btn.btn-default
+          = link_to "#" do
+            %span{ :class => 'ss-icon header-icons' }
+              &#xE0D0;
+            Discard

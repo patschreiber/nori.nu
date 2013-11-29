@@ -20,6 +20,8 @@
       .col-xs-6.col-sm-6.col-md-6.col-lg-6
         .pull-right
           = f.password_field :password_confirmation, placeholder: 'Confirm Password', :size => 18, :class => 'skinny-margin-top'
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12
+        = f.submit "Create it!", :class => 'btn btn-success width-100 skinny-margin-top'
     
     .visible-md
       .col-md-6
@@ -28,6 +30,8 @@
       .col-md-6
         .pull-right
           = f.password_field :password_confirmation, placeholder: 'Confirm Password', :size => 13, :class => 'skinny-margin-top'
+      .col-md-12
+        = f.submit "Create it!", :class => 'btn btn-success width-100 skinny-margin-top'
 
     .visible-sm
       .col-sm-6
@@ -36,6 +40,8 @@
       .col-sm-6
         .pull-right
           = f.password_field :password_confirmation, placeholder: 'Confirm Password', :size => 32, :class => 'skinny-margin-top'
+      .col-sm-12
+        = f.submit "Create it!", :class => 'btn btn-success width-100 skinny-margin-top'
     
     .visible-xs
       .col-xs-12
@@ -44,6 +50,5 @@
       .col-xs-12
         .pull-right.width-100
           = f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => 'skinny-margin-top width-100'
-
-    .row
-      = f.submit "Create it!", :class => 'btn btn-success width-100 skinny-margin-top'
+      .col-xs-12
+        = f.submit "Create it!", :class => 'btn btn-success width-100 skinny-margin-top'
