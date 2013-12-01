@@ -7,10 +7,15 @@
         .name
   .row
     .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      .pull-left
+        .min-equip-player-level
+          Req. Level
+          %span{ :class => "min-equip-player-level-val" }
       .pull-right
         .tier
           Tier
           %span{ :class => "tier-val" }
+    .wide-margin-top
   .row
     .col-xs-6.col-sm-6.col-md-6.col-lg-6
       .item-image
@@ -19,23 +24,30 @@
     .col-xs-6.col-sm-6.col-md-6.col-lg-6
       -# When an item is rolled, it shows up here
       .attack
-        Attack
-        %span{ :class => "attack-val" }
+        .col-xs-8.col-sm-8.col-md-8
+          Attack
+        .col-xs-4.col-sm-4.col-md-4
+          %span{ :class => "attack-val" }
       .defense
-        Defense
-        %span{ :class => "defense-val" }
+        .col-xs-8.col-sm-8.col-md-8
+          Defense
+        .col-xs-4.col-sm-4.col-md-4
+          %span{ :class => "defense-val" }
       .luck
-        Luck
-        %span{ :class => "luck-val" }
+        .col-xs-8.col-sm-8.col-md-8
+          Luck
+        .col-xs-4.col-sm-4.col-md-4  
+          %span{ :class => "luck-val" }
       .stealth
-        Stealth
-        %span{ :class => "stealth-val" }
-      .min-equip-player-level
-        Req. Level
-        %span{ :class => "min-equip-player-level-val" }
+        .col-xs-8.col-sm-8.col-md-8
+          Stealth
+        .col-xs-4.col-sm-4.col-md-4
+          %span{ :class => "stealth-val" }
       .value
-        Value
-        %span{ :class => "monetary-val" }
+        .col-xs-8.col-sm-8.col-md-8
+          Value
+        .col-xs-4.col-sm-4.col-md-4
+          %span{ :class => "monetary-val" }
   .row
     .col-md-12
       .flavor-text

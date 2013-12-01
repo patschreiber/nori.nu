@@ -17,10 +17,14 @@ Public::Application.routes.draw do
 
   root 'pages#index'
 
+  match '/about' => 'pages#about', via: 'get', :as => :about
+
   match '/game' => 'game#index', via: [:get, :post], :as => :game
   match '/update-stats' => 'game#update_stats', via: [:put], :as => :update_stats
   match '/item-cranks' => 'items#item_crank', via: [:put], :as => :item_cranks
   match '/inventory-add' => 'inventory#inventory_add', via: [:put], :as => :inventory_add
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

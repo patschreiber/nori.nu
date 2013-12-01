@@ -3,18 +3,19 @@
     %h2 Sign in
 
     = form_for @user, { :url => { :controller => 'devise/sessions', :action => 'create' }, :class => 'signin-form' }  do |f|
-      = f.label :email
+      =# f.label :email
       %br
-      = f.email_field :email, :autofocus => true
+      = f.email_field :email, placeholder: 'Email', :autofocus => true
       %br
-      = f.label :password
+      =# f.label :password
       %br
-      = f.password_field :password
+      = f.password_field :password, placeholder: 'Password'
       %br
+
       - if devise_mapping.rememberable?
         = f.check_box :remember_me 
         = f.label :remember_me
 
       = f.submit "Sign in", :class => 'btn btn-success width-100 skinny-margin-top'
-
+    .skinny-margin-top
     = render "devise/shared/links"

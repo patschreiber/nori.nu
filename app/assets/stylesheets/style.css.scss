@@ -14,6 +14,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "ProximaNova";
+  src: url('ProximaNova/ProximaNova-Regular.otf');
+  src: url('ProximaNova/ProximaNova-RegItalic.otf');
+  src: url('ProximaNova/ProximaNova-Light.otf');
+  src: url('ProximaNova/ProximaNova-LightItalic.otf');
+  src: url('ProximaNova/ProximaNova-Semibold.otf');
+}
+
 /* This triggers a redraw in IE to Fix IE8's :before content rendering. */
 html:hover [class^="ss-"]{-ms-zoom: 1;}
 
@@ -98,7 +107,11 @@ a:hover {
 
 h1 {
   font-size: 2.286em;
-  font-weight: 200;
+  font-family: "ProximaNova-Light"
+}
+
+h2, h3 {
+  font-family: "ProximaNova-Light";
 }
 
 label {
@@ -555,6 +568,12 @@ label {
   background-color: $off_white;
   color: $grey_sleek;
   border: 1px solid $light_grey;
+
+
+
+  .min-equip-player-level, .tier {
+    font-size: 0.8em;
+  }  
 
   .name {
     font-family: serif;

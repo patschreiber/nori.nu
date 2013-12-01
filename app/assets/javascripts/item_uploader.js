@@ -24,6 +24,7 @@ $(document).ready(function() {
         $('.flavor-text').text(data.flavor_text);
       },
       error: function(xhr, status, error) {
+        alert("The item failed to load correctly. Your item id was: " + data.id + ".");
       },
       complete: function() {
         $('.material-button').prop('disabled', false);
@@ -34,6 +35,11 @@ $(document).ready(function() {
 
   $('.save').click(function() {
     var item_id = $('.item-id').text();
+    var attack_val = $('.attack_val').text();
+    var defense_val = $('.defense_val').text();
+    var luck_val = $('.luck_val').text();
+    var stealth_val = $('.stealth_val').text();
+    $('.attack_val').text();
 
     new_inventory_item = {
       id : item_id
