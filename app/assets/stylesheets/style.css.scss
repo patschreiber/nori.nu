@@ -15,12 +15,12 @@
 }
 
 @font-face {
-  font-family: "ProximaNova";
-  src: url('ProximaNova/ProximaNova-Regular.otf');
-  src: url('ProximaNova/ProximaNova-RegItalic.otf');
+  font-family: "ProximaNova-Light";
+  /*src: url('ProximaNova/ProximaNova-Regular.otf');
+  src: url('ProximaNova/ProximaNova-RegItalic.otf');*/
   src: url('ProximaNova/ProximaNova-Light.otf');
-  src: url('ProximaNova/ProximaNova-LightItalic.otf');
-  src: url('ProximaNova/ProximaNova-Semibold.otf');
+  /*src: url('ProximaNova/ProximaNova-LightItalic.otf');
+  src: url('ProximaNova/ProximaNova-Semibold.otf');*/
 }
 
 /* This triggers a redraw in IE to Fix IE8's :before content rendering. */
