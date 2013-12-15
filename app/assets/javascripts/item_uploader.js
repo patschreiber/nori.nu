@@ -24,7 +24,7 @@ $(document).ready(function() {
         $('.flavor-text').text(data.flavor_text);
       },
       error: function(xhr, status, error) {
-        alert("The item failed to load correctly. Your item id was: " + data.id + ".");
+        alert("The item failed to load correctly. Your item id was: 2" + data.id + ".");
       },
       complete: function() {
         $('.material-button').prop('disabled', false);
@@ -35,14 +35,25 @@ $(document).ready(function() {
 
   $('.save').click(function() {
     var item_id = $('.item-id').text();
-    var attack_val = $('.attack_val').text();
-    var defense_val = $('.defense_val').text();
-    var luck_val = $('.luck_val').text();
-    var stealth_val = $('.stealth_val').text();
-    $('.attack_val').text();
+    var name = $('.name').text();
+    var tier = $('.tier-val').text();
+    var min_equip_player_level = $('.min-equip-player-level-val').text();
+    var attack_val = $('.attack-val').text();
+    var defense_val = $('.defense-val').text();
+    var luck_val = $('.luck-val').text();
+    var stealth_val = $('.stealth-val').text();
+    var flavor_text = $('.flavor-text').text();
 
     new_inventory_item = {
-      id : item_id
+      id : item_id,
+      name : name,
+      tier : tier,
+      min_equip_player_level : min_equip_player_level,
+      attack_val : attack_val,
+      defense_val : defense_val,
+      luck_val : luck_val,
+      stealth_val : stealth_val,
+      flavor_text : flavor_text
     }
 
     $.ajax({ 
