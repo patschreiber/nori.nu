@@ -13,6 +13,12 @@ $(document).ready(function() {
       success: function(data, status, xhr) {
         console.log(data);
         $('.item-id').text(data.id);
+        $('.is-set').text(data.is_set);
+        $('.set-id').text(data.set_id);
+        $('.set-item-number').text(data.set_item_number);
+        $('.is-unique').text(data.is_unique);
+        $('.prefix').text(data.prefix);
+        $('.suffix').text(data.suffix);
         $('.name').text(data.name);
         $('.attack-val').text(data.computed_attack);
         $('.defense-val').text(data.computed_defense);
@@ -35,8 +41,15 @@ $(document).ready(function() {
 
   $('.save').click(function() {
     var item_id = $('.item-id').text();
+    var is_set = $('.is-set').text();
+    var set_id = $('.set-id').text();
+    var set_item_number = $('.set-item-number').text();
+    var is_unique = $('.is-unique').text();
+    var prefix = $('.prefix').text();
+    var suffix = $('.suffix').text();
     var name = $('.name').text();
     var tier = $('.tier-val').text();
+    var monetary_val = $('.monetary-val').text();
     var min_equip_player_level = $('.min-equip-player-level-val').text();
     var attack_val = $('.attack-val').text();
     var defense_val = $('.defense-val').text();
@@ -46,6 +59,12 @@ $(document).ready(function() {
 
     new_inventory_item = {
       id : item_id,
+      is_set : is_set,
+      set_id : set_id,
+      set_item_number : set_item_number,
+      is_unique : is_unique,
+      prefix : prefix,
+      suffix : suffix,
       name : name,
       tier : tier,
       min_equip_player_level : min_equip_player_level,
@@ -53,6 +72,7 @@ $(document).ready(function() {
       defense_val : defense_val,
       luck_val : luck_val,
       stealth_val : stealth_val,
+      value : monetary_val,
       flavor_text : flavor_text
     }
 

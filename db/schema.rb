@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120234652) do
+ActiveRecord::Schema.define(version: 20131215021625) do
 
   create_table "game_found_items", force: true do |t|
     t.integer "base_item_id"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20131120234652) do
     t.string  "name"
     t.boolean "is_equippable"
     t.integer "min_equip_player_level"
+    t.integer "tier"
     t.integer "equip_slot"
     t.boolean "uses_ammo"
     t.integer "ammo_type"
@@ -156,7 +157,9 @@ ActiveRecord::Schema.define(version: 20131120234652) do
     t.integer "value"
     t.boolean "is_unique"
     t.boolean "can_have_prefix"
+    t.string  "prefix"
     t.boolean "can_have_suffix"
+    t.string  "suffix"
     t.boolean "attack_min"
     t.integer "attack_max"
     t.integer "computed_attack"
