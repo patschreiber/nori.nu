@@ -8,7 +8,7 @@ $(document).ready(function() {
       url: 'item-cranks',
       data: item_data,
       beforeSend: function(data, xhr, settings) {
-        $('.material-button').prop('disabled', true);
+        $('.material-button, .light-button, .medium-button, .heavy-button').attr('disabled', true);
       },
       success: function(data, status, xhr) {
         console.log(data);
@@ -30,10 +30,11 @@ $(document).ready(function() {
         $('.flavor-text').text(data.flavor_text);
       },
       error: function(xhr, status, error) {
-        alert("The item failed to load correctly. Your item id was: 2" + data.id + ".");
+        alert("It looks like grabbing the item is taking a long time. You might want to try again.");
       },
       complete: function() {
-        $('.material-button').prop('disabled', false);
+        $('.material-button, .light-button, .medium-button, .heavy-button').attr('disabled', false);
+        $('.item-found').
       }
     });
 
