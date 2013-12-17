@@ -34,7 +34,7 @@ $(document).ready(function() {
       },
       complete: function() {
         $('.material-button, .light-button, .medium-button, .heavy-button').attr('disabled', false);
-        $('.item-found').
+        $('.item-found').removeClass("hidden-element");
       }
     });
 
