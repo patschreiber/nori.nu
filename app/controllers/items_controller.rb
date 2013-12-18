@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
 
+  require 'digest/md5'
+
   def item_crank
 
     @item = generate_item()  # Gets the item from the database.
+
     render :json => @item, :status => :ok
   end
 
@@ -29,6 +32,8 @@ class ItemsController < ApplicationController
     base_item.is_unique              = item_from_database.is_unique
     base_item.can_have_prefix        = item_from_database.can_have_prefix
     base_item.can_have_suffix        = item_from_database.can_have_suffix
+    base_item.created_at             = Time.now
+    base_item.updated_at             = Time.now
 
     unless item_from_database.attack_min.nil? || item_from_database.attack_max.nil?
       base_item.computed_attack             = (item_from_database.attack_min..item_from_database.attack_max).to_a.sample

@@ -34,7 +34,7 @@ $(document).ready(function() {
       },
       complete: function() {
         $('.material-button, .light-button, .medium-button, .heavy-button').attr('disabled', false);
-        $('.item-found').removeClass("hidden-element");
+        $('.item-found').removeClass("hidden-element").find('.item-buttons').removeClass("hidden-element");
       }
     });
 
@@ -86,13 +86,23 @@ $(document).ready(function() {
         //TODO Place inventory items actually in the inventory
       }, 
       error: function(xhr, status, error) {
-
+        //TODO Test this
+        if (typeof new_inventory_item.item_id != "undefined") {
+          alert("There was an error and your item (ID: " + new_inventory_item.id + " ) was not saved!");
+        }
       },
       complete: function() {
-
+        $('.item-buttons').attr('disabled', true);
+        //TODO Add alert for user that item was saved successfully
       }
     });
+  });
 
+  $('.trash').click(function() {
+    if (confirm('This item will be destroyed. Is this ok?')) {
+      alert("Destroyed item.");
+      //TODO Actually remove item Information
+    }
   });
 
 });
