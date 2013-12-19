@@ -33,6 +33,5 @@
 #  flavor_text            :text
 #
 
-#TODO Remove min and max values for items. They go unused here. 
 class GameFoundItem < ActiveRecord::Base
 end
