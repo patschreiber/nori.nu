@@ -24,7 +24,8 @@ class InventoryController < ApplicationController
       @can_have_suffix = session[:can_have_suffix]
       @attack_val = session[:computed_attack]
       @defense_val = session[:computed_defense]
-      @stealth_val = session[:computed_luck]
+      @stealth_val = session[:computed_stealth]
+      @luck_val = session[:computed_luck]
       @flavor_text = session[:flavor_text]
 
       @is_in_inventory = UsersCurrentInventory.find_by_user_id_and_item_id( @user.id, @item_id )
@@ -43,8 +44,8 @@ class InventoryController < ApplicationController
           :min_equip_player_level => @min_equip_player_level,
           :computed_attack => @attack_val,
           :computed_defense => @defense_val,
-          :computed_luck => @luck_val,
           :computed_stealth => @stealth_val,
+          :computed_luck => @luck_val,
           :flavor_text => @flavor_text,
           :quantity => 1,
           :value => @value

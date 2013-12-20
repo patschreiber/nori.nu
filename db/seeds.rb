@@ -14,6 +14,7 @@ Level.delete_all
 Item.delete_all
 ItemPrefix.delete_all
 ItemSuffix.delete_all
+ExperienceButton.delete_all
 
 puts "Adding base items to the database..."
 
@@ -124,31 +125,64 @@ puts "Adding prefixes for items to the database..."
     prefix.save!
   }.call
 
-# == Schema Information
-#
-# Table name: item_suffixes
-#
-#  id           :integer          not null, primary key
-#  base_item_id :integer
-#  name         :string(255)
-#  attack_mod   :integer
-#  defense_mod  :integer
-#  stealth_mod  :integer
-#  luck_mod     :integer
-#
-
-#Seed Prefixes DB
+#Seed Suffixes DB
 puts "Adding suffixes for items to the database..."
 
-  lambda { 
-    prefix = ItemSuffix.new
-    prefix.base_item_id = 10002
-    prefix.name = "of Development"
-    prefix.defense_mod = 17
-    prefix.stealth_mod = -6
-    prefix.luck_mod = -12
-    prefix.save!
-  }.call
+lambda { 
+  suffix = ItemSuffix.new
+  suffix.base_item_id = 10002
+  suffix.name = "of Development"
+  suffix.defense_mod = 17
+  suffix.stealth_mod = -6
+  suffix.luck_mod = -12
+  suffix.save!
+}.call
+
+#Seed Experience Buttons DB
+puts "Adding experience button values to the database..."
+lambda {
+  experience_button = ExperienceButton.new
+  experience_button.id = 1
+  experience_button.name = "Material Button"
+  experience_button.class_name = "material-button"
+  experience_button.experience_value = 10
+  experience_button.description = "The material button only gives raw materials to build other items with."
+  experience_button.button_cooldown = 15
+  experience_button.save!
+}.call
+
+lambda {
+  experience_button = ExperienceButton.new
+  experience_button.id = 2
+  experience_button.name = "Light Button"
+  experience_button.class_name = "light-button"
+  experience_button.experience_value = 50
+  experience_button.description = "Gives common, uncommon, and rare items (very rarely)."
+  experience_button.button_cooldown = 2
+  experience_button.save!
+}.call
+
+lambda {
+  experience_button = ExperienceButton.new
+  experience_button.id = 3
+  experience_button.name = "Medium Button"
+  experience_button.class_name = "medium-button"
+  experience_button.experience_value = 250
+  experience_button.description = "Gives uncommon and rare items."
+  experience_button.button_cooldown = 30
+  experience_button.save!
+}.call
+
+lambda {
+  experience_button = ExperienceButton.new
+  experience_button.id = 4
+  experience_button.name = "Heavy Button"
+  experience_button.class_name = "heavy-button"
+  experience_button.experience_value = 500
+  experience_button.description = "Gives rare and legendary items."
+  experience_button.button_cooldown = 1
+  experience_button.save!
+}.call
 
 
 #Seed Level DB

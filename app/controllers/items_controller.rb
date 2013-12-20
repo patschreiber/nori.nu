@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
       session[:can_have_suffix] = @item.can_have_suffix
       session[:computed_attack] = @item.computed_attack  
       session[:computed_defense] = @item.computed_defense
+      session[:computed_stealth] = @item.computed_stealth
       session[:computed_luck] = @item.computed_luck
       session[:flavor_text] = @item.flavor_text
     end

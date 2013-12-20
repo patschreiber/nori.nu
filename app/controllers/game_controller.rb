@@ -29,10 +29,27 @@ class GameController < ApplicationController
   def update_stats
     @user = User.find(current_user)
     @user_stats = UsersStat.find_by user_id: @user.id
+    @item_button_clicked = params[:item_button_clicked].to_s
+    @material_button = ExperienceButton.find(1)
+    @light_button = ExperienceButton.find(2)
+    @medium_button = ExperienceButton.find(3)
+    @heavy_button = ExperienceButton.find(4)
 
-    level = params[:level].to_i
-    current_exp = params[:current_experience].to_i
-    exp_to_add = params[:experience_to_add].to_i
+    case @item_button_clicked
+    when @material_button.class_name
+      exp_to_add =  @material_button.experience_value
+    when @light_button.class_name
+      exp_to_add = @light_button.experience_value
+    when @medium_button.class_name
+      exp_to_add = @medium_button.experience_value
+    when @heavy_button.class_name
+      exp_to_add = @heavy_button.experience_value
+    else
+      exp_to_add = 0
+    end
+
+    level = @user_stats.player_level
+    current_exp = @user_stats.current_experience
 
     if level < 99
       next_level_experience = (Level.find_by level: @user_stats.player_level + 1).experience_required

@@ -16,6 +16,7 @@
 #  total_items_found     :integer
 #  total_buttons_clicked :integer
 #  total_gold_collected  :integer
+#  areas_unlocked        :integer
 #  created_at            :datetime
 #  updated_at            :datetime
 #

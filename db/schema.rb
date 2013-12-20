@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218210741) do
+ActiveRecord::Schema.define(version: 20131220174134) do
+
+  create_table "experience_buttons", force: true do |t|
+    t.string   "name"
+    t.string   "class_name"
+    t.integer  "experience_value"
+    t.string   "description"
+    t.integer  "button_cooldown"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "game_found_items", force: true do |t|
     t.integer  "base_item_id"

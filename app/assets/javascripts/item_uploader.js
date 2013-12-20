@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('.material-button, .light-button, .medium-button, .heavy-button').click(function() {
+  $('#material-button, #light-button, #medium-button, #heavy-button').click(function() {
     item_data = {} // We're not sending any data on this request, only receiving data. 
 
     $.ajax({
@@ -8,7 +8,7 @@ $(document).ready(function() {
       url: 'item-cranks',
       data: item_data,
       beforeSend: function(data, xhr, settings) {
-        $('.material-button, .light-button, .medium-button, .heavy-button').attr('disabled', true);
+        $('#material-button, #light-button, #medium-button, #heavy-button').attr('disabled', true);
       },
       success: function(data, status, xhr) {
         console.log(data);
@@ -33,7 +33,7 @@ $(document).ready(function() {
         alert("It looks like grabbing the item is taking a long time. You might want to try again.");
       },
       complete: function() {
-        $('.material-button, .light-button, .medium-button, .heavy-button').attr('disabled', false);
+        $('#material-button, #light-button, #medium-button, #heavy-button').attr('disabled', false);
         $('.item-found').removeClass("hidden-element").find('.item-buttons').removeClass("hidden-element");
       }
     });

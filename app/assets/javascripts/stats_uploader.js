@@ -1,14 +1,10 @@
 $(document).ready(function() {
 
-  $('.material-button, .light-button, .medium-button, .heavy-button').click(function() { 
+  $('#material-button, #light-button, #medium-button, #heavy-button').click(function() { 
+    var button_clicked = $(this).attr("id");
 
-    var level = $('.playerlevel').text();
-    var current_exp = $('.current-experience').text();
-    var exp = $(this).attr("value");
-
-    data = {  level : level, 
-              current_experience : current_exp,
-              experience_to_add : exp
+    data = {  
+              item_button_clicked : button_clicked
            }
 
     $.ajax({
@@ -16,7 +12,6 @@ $(document).ready(function() {
       url: '/update-stats',
       data: data, //Data to submit
       beforeSend: function(data, xhr, settings) {
-        $('.material-button').prop('disabled', true);
       },
       success: function(data, status, xhr) {
         $('.playerlevel').text(data.level);
@@ -28,10 +23,9 @@ $(document).ready(function() {
         $('.progress, .progress-bar').prop('title', data.percent_to_level + "% to next level")
       },
       error: function(xhr, status, error) {
-
+        alert("It looks like the experience value has been modified. You will not receive experience for this click.");
       },
       complete: function() {
-        $('.material-button').prop('disabled', false);
       }
     });
   }); 
