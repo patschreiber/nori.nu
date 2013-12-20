@@ -110,66 +110,13 @@
             .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
   .wide-margin-top
   
-  .row.well
-    .col-sm-12.col-md-12
-      - @user_inventory.in_groups_of(1).each do |item_array|
-        .col-xs-1.col-sm-1.col-md-1.col-lg-1.well
-          - item_array.each do |item|
-            %p.text-center
-              = item.id
-    .wide-margin-top  
-
+  .row.inventory-chest
+    = render 'shared/users/user_inventory'
 
   .row
     .col-sm-6.col-md-6.border-left.border-right
-      %h4
-        Achievements
-      -# TODO These are hardcoded for now, pull from DB in future
-      .row
-        .col-md-12.margin-top-10
-          .label.label-danger
-            Level 10
-      .row
-        .col-md-12.margin-top-10
-          .label.label-danger
-            Level 20
-      .row
-        .col-md-12.margin-top-10
-          .label.label-danger
-            Level 30
-      .row
-        .col-md-12.margin-top-10
-          .label.label-danger
-            Level 40
-      .row
-
+      = render 'shared/users/user_achievements'
     .col-sm-6.col-md-6.border-right
-      %h4
-        Completed Collections
-      -# TODO These are hardcoded for now, pull from DB in future
-      .row
-        Set #1
-        .row
-          .label.label-warning.margin-right-10
-            Set Item #1
-          .label.label-warning.margin-right-10
-            Set Item #2
-          .label.label-warning.margin-right-10
-            Set Item #3
-          .label.label-default.margin-right-10
-            Set Item #4
-          .label.label-default.margin-right-10
-            Set Item #5
-      .row
-        Set #2
-        .row
-          .label.label-success.margin-right-10
-            Set Item #1
-          .label.label-success.margin-right-10
-            Set Item #2
-          .label.label-success.margin-right-10
-            Set Item #3
-          .label.label-success.margin-right-10
-            Set Item #4
+      = render 'shared/users/user_collections'
 
   .wide-margin-top

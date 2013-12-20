@@ -1,0 +1,15 @@
+.col-sm-12.col-md-12
+  %h2
+    My Inventory
+  = div_for(@user_inventory, :class => "col-xs-1 col-sm-1 col-md-1 col-lg-1 item-thumbnail") do |item_array|
+    = item_array.id
+  
+
+
+
+
+-#  - @user_inventory.in_groups_of(1).each do |item_array|
+-#    .col-xs-1.col-sm-1.col-md-1.col-lg-1.item-thumbnail
+-#      - item_array.each do |item|
+-#        .text-center
+-#          = item.id 
