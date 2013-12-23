@@ -11,34 +11,15 @@
         -#= f.text_field :first_name, placeholder: 'First Name', :size => 17
       -#.pull-right
         -#= f.text_field :last_name, placeholder: 'Last Name', :size => 18
-      .pull-left.width-100
-        = f.text_field :username, placeholder: 'Desired Username', :size => 53, :class => 'skinny-margin-top width-100'
-      .pull-left.width-100
-        = f.text_field :email, placeholder: 'Email', :size => 53, :class => 'skinny-margin-top width-100' 
-
-      .visible-lg
-        .pull-left
-          = f.password_field :password, placeholder: 'Password', :size => 17,  :class => 'skinny-margin-top'
-        .pull-right
-          = f.password_field :password_confirmation, placeholder: 'Confirm Password', :size => 18, :class => 'skinny-margin-top'
-      
-      .visible-md
-        .pull-left
-          = f.password_field :password, placeholder: 'Password', :size => 13,  :class => 'skinny-margin-top'
-        .pull-right
-          = f.password_field :password_confirmation, placeholder: 'Confirm Password', :size => 13, :class => 'skinny-margin-top'
-
-      .visible-sm
-        .pull-left
-          = f.password_field :password, placeholder: 'Password', :size => 32,  :class => 'skinny-margin-top'
-        .pull-right
-          = f.password_field :password_confirmation, placeholder: 'Confirm Password', :size => 32, :class => 'skinny-margin-top'
-      
-      .visible-xs
-        .pull-left.width-100
-          = f.password_field :password, placeholder: 'Password', :class => 'skinny-margin-top width-100'  
-        .pull-right.width-100
-          = f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => 'skinny-margin-top width-100'
       .row
-      .skinny-margin-top
+        .pull-left.width-100
+          = f.text_field :username, placeholder: 'Desired Username', :size => 53, :class => 'skinny-margin-top width-100'
+      .row
+        .pull-left.width-100
+          = f.text_field :email, placeholder: 'Email', :size => 53, :class => 'skinny-margin-top width-100' 
+
+      .row
+        = f.password_field :password, placeholder: 'Password', :class => 'skinny-margin-top pull-left'
+        = f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => 'skinny-margin-to pull-right'
+      .row
         = f.submit "Create it!", :class => 'btn btn-success btn-block'

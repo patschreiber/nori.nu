@@ -9,7 +9,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def new
-    super
   end
 
   def create

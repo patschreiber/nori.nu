@@ -1,11 +1,21 @@
 $(document).ready(function() {
 
-  $(".users_current_inventory").mouseenter(function() {
+    var hoverHTMLDemoBasic = '<p>sup</p>'
 
-    var fullId = (this.id);
-    var id = fullId.substring(24);
-    alert(id);
-  });
+    $(".users_current_inventory")
+    .hovercard({
+      detailsHTML: hoverHTMLDemoBasic,
+        openOnBottom: true,
+        width: 500,
+        cardImgSrc: 'http://ejohn.org/files/short.sm.jpg'
+    });
+//    .hoverintent({
+//        sensitivity: 7,
+//      interval:500,timeout:0,
+//      over: openFancybox,
+//      out: closeFancybox 
+//    });
+
   //Hover effect for items in the inventory
   //Equip Items
   //Unequip items
@@ -13,3 +23,17 @@ $(document).ready(function() {
 
 
 });
+
+
+
+
+
+//      $(this.id).hovercard({
+//          detailsHTML: hoverHTMLDemoBasic,
+//          openOnTop: true,
+//          width: 500,
+//          cardImgSrc: 'http://ejohn.org/files/short.sm.jpg',
+//          onHoverOut: function() {
+//
+//          }
+//      });

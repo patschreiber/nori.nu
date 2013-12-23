@@ -190,6 +190,10 @@ label {
   width: 100%;
 }
 
+.width-50 {
+  width: 50%;
+}
+
 .hr-margin {
   margin: 10px 0 10px 0;
 }
@@ -261,7 +265,8 @@ label {
   }
 
   input[type=submit] {
-    margin: 1em 0 0 0;
+
+    margin: $skinny_margin_top;
 
   }
 
@@ -287,6 +292,12 @@ label {
   }
 }
 
+.new_user {
+  input[type=password] {
+    width: 45%;
+    margin: $skinny_margin_top;
+  }
+}
 
 
 /* Links  
