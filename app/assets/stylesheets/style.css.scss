@@ -609,15 +609,6 @@ label {
   }
 }
 
-.item-thumbnail {
-  background-color: #FFF;
-  border: 3px solid #000;
-  border-radius: 4px;
-  margin: 5px 5px 0 0;
-  height: 50px;
-  width: 50px;
-}
-
 .inventory-chest {
   /* TODO Temp Background, change */
   background:
@@ -632,6 +623,30 @@ label {
 
   h2 {
     color: $light_grey;
+  }
+
+  .inventory-item {
+    background-color: #FFF;
+    border: 3px solid #000;
+    border-radius: 4px;
+    margin: 5px 5px 0 0;
+    height: 50px;
+    width: 50px;
+  }
+
+  .inventory-item:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px $red_orange;
+    -webkit-box-shadow: 0 0 8px $red_orange;
+    -moz-box-shadow: 0 0 8px $red_orange;
+    -o-box-shadow: 0 0 8px $red_orange;
+  }
+
+  .active {
+    box-shadow: 0 0 10px 5px $red_orange;
+    -webkit-box-shadow: 0 0 8px $red_orange;
+    -moz-box-shadow: 0 0 8px $red_orange;
+    -o-box-shadow: 0 0 8px $red_orange;
   }
 }
 

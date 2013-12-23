@@ -3,8 +3,10 @@
     My Inventory
   - @user_inventory.in_groups_of(1).each do |item_array|
     - item_array.each do |item|
-      - @id = item.id
-      %a{ :rel => "popover", :class => "inventory-item col-xs-1 col-sm-1 col-md-1 col-lg-1 item-thumbnail", :id => @id, :data => {:content => "This button was specified in the initial HTML document"} }
+      - @id = item.id.to_s
+      %a{ :rel => "popover", :class => "inventory-item col-xs-1 col-sm-1 col-md-1 col-lg-1 item-thumbnail", :id => "item-" + @id, :data => {} }
+        - if item.quantity > 1
+          = item.quantity
 
 
 -#  = div_for(@user_inventory, :class => "col-xs-1 col-sm-1 col-md-1 col-lg-1 item-thumbnail" + ) do |item_array|
