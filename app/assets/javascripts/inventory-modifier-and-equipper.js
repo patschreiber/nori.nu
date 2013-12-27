@@ -1,11 +1,16 @@
 $(document).ready(function() {
   $('.inventory-item').on('mouseenter', function() {
+
     $(this).popover({
       html: true,
       trigger: 'manual', 
       delay: {show: 300, hide: 0},
-      title: 'sup',
-      content: 'This button was specified in the initial HTML document'
+      title: function() {
+        return $(this).find('.item-name').text();
+      },
+      content: function() {
+        return $(this).find('.popover-content').html();
+      }
     }).popover('show');
   })
   .on('mouseleave', function() {

@@ -5,19 +5,45 @@
     - item_array.each do |item|
       - @id = item.id.to_s
       %a{ :rel => "popover", :class => "inventory-item col-xs-1 col-sm-1 col-md-1 col-lg-1 item-thumbnail", :id => "item-" + @id, :data => {} }
+        .hide
+          .item-name
+            = item.name
+          .popover-content
+            - unless item.computed_attack == nil
+              .row
+                .col-sm-6.col-md-6.col-lg-6.pull-left
+                  Attack
+                .col-sm-6.col-md-6.col-lg-6.pull-right
+                  = item.computed_attack
+            - unless item.computed_defense == nil
+              .row
+                .col-sm-6.col-md-6.col-lg-6.pull-left
+                  Defense
+                .col-sm-6.col-md-6.col-lg-6.pull-right
+                  = item.computed_defense
+            - unless item.computed_stealth == nil
+              .row
+                .col-sm-6.col-md-6.col-lg-6.pull-left
+                  Stealth
+                .col-sm-6.col-md-6.col-lg-6.pull-right
+                  = item.computed_stealth
+            - unless item.computed_luck == nil
+              .row                  
+                .col-sm-6.col-md-6.col-lg-6.pull-left
+                  Luck
+                .col-sm-6.col-md-6.col-lg-6.pull-right
+                  = item.computed_luck
+            - unless item.value == nil
+              .row            
+                .col-sm-6.col-md-6.col-lg-6.pull-left
+                  Value
+                .col-sm-6.col-md-6.col-lg-6.pull-right
+                  = item.value 
         - if item.quantity > 1
           = item.quantity
 
 
 -#  = div_for(@user_inventory, :class => "col-xs-1 col-sm-1 col-md-1 col-lg-1 item-thumbnail" + ) do |item_array|
 -#    = item_array.id
-  
 
-
-
-
--#  - @user_inventory.in_groups_of(1).each do |item_array|
--#    .col-xs-1.col-sm-1.col-md-1.col-lg-1.item-thumbnail
--#      - item_array.each do |item|
--#        .text-center
--#          = item.id 
+/*
