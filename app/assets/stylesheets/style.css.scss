@@ -636,18 +636,27 @@ label {
 
   .inventory-item:hover {
     cursor: pointer;
-    box-shadow: 0 0 10px 5px $red_orange;
+    box-shadow: 0 0 8px $red_orange;
     -webkit-box-shadow: 0 0 8px $red_orange;
     -moz-box-shadow: 0 0 8px $red_orange;
     -o-box-shadow: 0 0 8px $red_orange;
   }
 
   .active {
-    box-shadow: 0 0 10px 5px $red_orange;
+    box-shadow: 0 0 8px $red_orange;
     -webkit-box-shadow: 0 0 8px $red_orange;
     -moz-box-shadow: 0 0 8px $red_orange;
     -o-box-shadow: 0 0 8px $red_orange;
   }
+
+  .equip {
+    display: none;  
+  }
+
+  .quantity {
+    padding: 0 5px 0 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
-
-

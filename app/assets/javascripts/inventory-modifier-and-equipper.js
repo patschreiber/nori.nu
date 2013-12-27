@@ -1,17 +1,19 @@
 $(document).ready(function() {
   $('.inventory-item').on('mouseenter', function() {
 
-    $(this).popover({
-      html: true,
-      trigger: 'manual', 
-      delay: {show: 300, hide: 0},
-      title: function() {
-        return $(this).find('.item-name').text();
-      },
-      content: function() {
-        return $(this).find('.popover-content').html();
-      }
-    }).popover('show');
+    if(!$(this).hasClass('active')) {
+      $(this).popover({
+        html: true,
+        trigger: 'manual', 
+        delay: {show: 300, hide: 0},
+        title: function() {
+          return $(this).find('.item-name').text();
+        },
+        content: function() {
+          return $(this).find('.popover-content').html();
+        }
+      }).popover('show');
+    }
   })
   .on('mouseleave', function() {
     $(this).not('.active').popover('hide');
@@ -20,9 +22,17 @@ $(document).ready(function() {
 
     if ($(this).hasClass('active')) {
       $(this).removeClass('active');
+      $(this).find('.info').show();
+      $(this).find('.equip').hide();
+      $(this).popover('show');
+
     }
     else {
       $(this).addClass('active');
+      $(this).find('.info').hide();
+      $(this).find('.equip').show();
+
+      $(this).popover('show');
     }
   });
 

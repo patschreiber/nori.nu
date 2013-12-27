@@ -39,8 +39,20 @@
                   Value
                 .col-sm-6.col-md-6.col-lg-6.pull-right
                   = item.value 
+            %hr
+            .info
+              %span{ :class => 'ss-icon' }
+                &#x1F512;
+              Click the item to equip or delete.
+            .equip
+              %span{ :class => 'ss-icon' }
+                &#x1F513;
+              Click the item to lock changes.  
+              .btn.btn-warning.btn-block
+                Equip
         - if item.quantity > 1
-          = item.quantity
+          .quantity
+            = item.quantity
 
 
 -#  = div_for(@user_inventory, :class => "col-xs-1 col-sm-1 col-md-1 col-lg-1 item-thumbnail" + ) do |item_array|
