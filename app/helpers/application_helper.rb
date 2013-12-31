@@ -20,8 +20,4 @@ module ApplicationHelper
     "http://www.twitter.com/patschreiber"
   end
 
-  def item_salt
-    "salt!my!hash1234" 
-  end
-
 end

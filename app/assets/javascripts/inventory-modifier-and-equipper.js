@@ -24,13 +24,14 @@ $(document).ready(function() {
       $(this).removeClass('active');
       $(this).find('.info').show();
       $(this).find('.equip').hide();
+      $(this).find('.equip').hide();
       $(this).popover('show');
-
     }
     else {
       $(this).addClass('active');
       $(this).find('.info').hide();
       $(this).find('.equip').show();
+      $(this).find('.delete').show();
 
       $(this).popover('show');
     }

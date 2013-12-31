@@ -40,16 +40,26 @@
                 .col-sm-6.col-md-6.col-lg-6.pull-right
                   = item.value 
             %hr
-            .info
-              %span{ :class => 'ss-icon' }
-                &#x1F512;
-              Click the item to equip or delete.
-            .equip
-              %span{ :class => 'ss-icon' }
-                &#x1F513;
-              Click the item to lock changes.  
-              .btn.btn-warning.btn-block
-                Equip
+            .row
+              .info
+                %span{ :class => 'ss-icon' }
+                  &#x1F512;
+                Click the item to equip or delete.
+            .row
+              .skinny-margin-top
+              .equip
+                %span{ :class => 'ss-icon' }
+                  &#x1F513;
+                Click the item to lock changes.  
+                .btn.btn-warning.btn-block
+                  Equip
+            .row
+              .skinny-margin-top
+              .delete
+                .btn.btn-danger.btn-block
+                  %span{ :class => 'ss-icon margin-right-10' }
+                    &#xE0D0;
+                  Delete Item
         - if item.quantity > 1
           .quantity
             = item.quantity
