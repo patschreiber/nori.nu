@@ -9,11 +9,11 @@ module ApplicationHelper
   end
 
   def current_year
-    "2013"
+    "2014"
   end
 
   def copyright
-    "© 2013 nori.nu"
+    "© 2014 nori.nu"
   end
 
   def admin_social_websites
