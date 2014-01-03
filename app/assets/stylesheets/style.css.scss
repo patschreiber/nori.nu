@@ -584,6 +584,12 @@ label {
   color: $grey_sleek;
   border: 1px solid $light_grey;
 
+  transition-duration:400ms;
+  -ms-transition-duration:400ms;
+  -webkit-transition-duration:400ms;
+  -o-transition-duration:400ms;
+  -moz-transition-duration:400ms;
+
   .min-equip-player-level, .tier {
     font-size: 0.8em;
   }  
@@ -608,6 +614,15 @@ label {
     margin: 5px 0 5px 0;
   }
 }
+
+  .trash-item {
+    opacity:0;
+    transform:scale(1.2,1.2);
+    -ms-transform:scale(1.2,1.2); /* IE 9 */
+    -webkit-transform:scale(1.2,1.2); /* Safari and Chrome */
+    -o-transform:scale(1.2,1.2); /* Opera */
+    -moz-transform:scale(1.2,1.2); /* Firefox */
+  }
 
 .inventory-chest {
   /* TODO Temp Background, change */

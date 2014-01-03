@@ -34,7 +34,7 @@ $(document).ready(function() {
       },
       complete: function() {
         $('#material-button, #light-button, #medium-button, #heavy-button').attr('disabled', false);
-        $('.item-found').removeClass("hidden-element").find('.item-buttons').removeClass("hidden-element");
+        $('.item-found').removeClass("hidden-element trash-item").find('.item-buttons').removeClass("hidden-element");
       }
     });
 
@@ -68,10 +68,12 @@ $(document).ready(function() {
     });
   });
 
-  $('.trash').click(function() {
-    if (confirm('This item will be destroyed. Is this ok?')) {
-      alert("Destroyed item.");
-      //TODO Actually remove item Information
+  $('.trash').on('click', function() {
+    var hide_item_found;
+
+    if (confirm('This item will be destroyed. This cannot be undone. Is this ok?')) {
+      $('.item-found').addClass('trash-item');
+        hide_item_found = setTimeout(450);
     }
   });
 
