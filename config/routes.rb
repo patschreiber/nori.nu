@@ -18,6 +18,7 @@ Public::Application.routes.draw do
   root 'pages#index'
 
   match '/about' => 'pages#about', via: 'get', :as => :about
+  match '/help' => 'pages#help', via: 'get', :as => :help
 
   match '/game' => 'game#index', via: [:get, :post], :as => :game
   match '/update-stats' => 'game#update_stats', via: [:put], :as => :update_stats
