@@ -42,6 +42,9 @@ end
 gem 'mysql2', '>= 0.3.13'
 gem 'haml'
 
+# High performance pure Ruby client for accessing memcached servers.
+gem 'dalli'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
