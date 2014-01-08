@@ -37,9 +37,18 @@ class RegistrationsController < Devise::RegistrationsController
                                                   :slot_6_is_equipped => false,
                                                   :slot_7_is_equipped => false 
                                                 )
+    @users_areas = UsersArea.new( :user_id => @user.id,
+                                  :is_area_1_unlocked => true,
+                                  :is_area_1_unlocked => false,
+                                  :is_area_1_unlocked => false,
+                                  :is_area_1_unlocked => false,
+                                  :is_area_1_unlocked => false
+                                )
+
     if resource.save
       @user_stats.save
       @users_equipped_items.save
+      @users_areas.save
       sign_in @user
       flash[:success] = "Welcome to nori.nu, #{@user.username}"
     else

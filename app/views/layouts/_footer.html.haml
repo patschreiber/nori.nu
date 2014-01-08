@@ -15,19 +15,29 @@
                   %br
                   = link_to "About Nori", "#"
                   %br
-                  = link_to "Account", "#"
+                  = link_to "Game Guide", "#"
                   %br
                   = link_to "High Scores", "#"
                   %br
                   = link_to "Create", "#"
-                  %br
-                  = link_to "Forum", "#"
-                  .skinny-margin-top
 
           .col-md-4
             .header-border
-              %p
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+              .col-md-12
+                .row
+                  %h3
+                    Account
+                .row
+                  Manage your account
+                  %br
+                  = link_to "Manage Account", "#"
+                  %br
+                  = link_to "Forgot Password?", "#"
+                  %br
+                  = link_to "Change Password", "#"
+                  -#%br
+                  -# link_to "Deactivate Account", "#"
+
           .col-md-4
             .header-border
               .col-md-12
@@ -36,7 +46,7 @@
                     Support
                 .row
                   Need help? Found a bug?
-                  %br
+                  %br 
                   = link_to "Help", help_path
                   %br
                   = link_to "Blog", "#"

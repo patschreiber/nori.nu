@@ -9,7 +9,8 @@ class GameController < ApplicationController
     if signed_in?
       @user = User.find(current_user)
       @user_id = @user.id
-      @user_stats = UsersStat.find_by user_id: @user.id
+      @user_stats = @user.users_stat
+      @user_areas = @user.users_area
       @level = @user_stats.player_level 
       @current_experience = @user_stats.current_experience
       
@@ -60,16 +61,14 @@ class GameController < ApplicationController
     # Now we update the values with the levelup and percent to level methods
     current_exp, next_level_experience, level = levelup( current_exp, next_level_experience, level, exp_to_add ) 
     percent_to_level = percent_to_next_level(current_exp, next_level_experience)
-
     @user_stats.player_level = level
     @user_stats.current_experience = current_exp
     @user_stats.total_experience = @user_stats.total_experience + exp_to_add
     @user_stats.save!
-
-
     data = { :message => "You leveled up!", :level => level, :current_exp => current_exp, :exp_to_level => next_level_experience, :percent_to_level => percent_to_level }
     render :json => data, :status => :ok
   end
+
 
 
   def levelup(current_exp, next_level_experience, level, exp_to_add)

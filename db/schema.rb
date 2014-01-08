@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220174134) do
+ActiveRecord::Schema.define(version: 20140107231823) do
 
   create_table "experience_buttons", force: true do |t|
     t.string   "name"
@@ -142,6 +142,15 @@ ActiveRecord::Schema.define(version: 20131220174134) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_areas", force: true do |t|
+    t.integer "user_id"
+    t.boolean "is_area_1_unlocked"
+    t.boolean "is_area_2_unlocked"
+    t.boolean "is_area_3_unlocked"
+    t.boolean "is_area_4_unlocked"
+    t.boolean "is_area_5_unlocked"
+  end
 
   create_table "users_current_inventories", force: true do |t|
     t.integer  "user_id"
