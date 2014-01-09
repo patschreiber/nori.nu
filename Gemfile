@@ -18,6 +18,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # User accout manager
 gem 'devise'
 
+# Provides an easy way to configure Devise to send its emails asynchronously using your preferred queuing backend.
+gem 'devise-async'
+
 # Store session in DB not in cookie
 gem 'activerecord-session_store'
 
@@ -76,6 +79,9 @@ gem 'jquery-ui-rails'
 
 # Makes sample users
 gem 'faker'
+
+# Asynchronous processing 
+gem 'resque'
 
 # Authorization library for Ruby on Rails which restricts what resources a given user is allowed to access.
 gem 'cancan'

@@ -26,8 +26,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates :username, length: { in: 3..20 }
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :async
 
   has_and_belongs_to_many :roles
   has_many :users_current_inventories
