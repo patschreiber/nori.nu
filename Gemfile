@@ -82,6 +82,9 @@ gem 'faker'
 
 # Asynchronous processing 
 gem 'resque'
+gem 'resque_mailer'
+# Process a task at a certain time
+gem 'resque-scheduler'
 
 # Authorization library for Ruby on Rails which restricts what resources a given user is allowed to access.
 gem 'cancan'

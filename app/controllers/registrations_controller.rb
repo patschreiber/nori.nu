@@ -13,47 +13,59 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    @user_stats = UsersStat.new(  :user_id => @user.id, 
-                                  :player_level => 1, 
-                                  :current_experience => 0, 
-                                  :total_experience => 0, 
-                                  :current_gold => 0,
-                                  :health => 100,
-                                  :attack => 1,
-                                  :defense => 1,
-                                  :stealth => 1,
-                                  :luck => 1,
-                                  :total_items_found => 0,
-                                  :areas_unlocked => 1,
-                                  :total_buttons_clicked => 0,
-                                  :total_gold_collected => 0 
-                                )
-    @users_equipped_items = UsersEquippedItem.new( :user_id => @user.id,
-                                                  :slot_1_is_equipped => false,
-                                                  :slot_2_is_equipped => false,
-                                                  :slot_3_is_equipped => false,
-                                                  :slot_4_is_equipped => false,
-                                                  :slot_5_is_equipped => false,
-                                                  :slot_6_is_equipped => false,
-                                                  :slot_7_is_equipped => false 
-                                                )
-    @users_areas = UsersArea.new( :user_id => @user.id,
-                                  :is_area_1_unlocked => true,
-                                  :is_area_1_unlocked => false,
-                                  :is_area_1_unlocked => false,
-                                  :is_area_1_unlocked => false,
-                                  :is_area_1_unlocked => false
-                                )
+    @user_stats = UsersStat.new(  
+      :user_id => @user.id, 
+      :player_level => 1, 
+      :current_experience => 0, 
+      :total_experience => 0, 
+      :current_gold => 0,
+      :health => 100,
+      :attack => 1,
+      :defense => 1,
+      :stealth => 1,
+      :luck => 1,
+      :total_items_found => 0,
+      :areas_unlocked => 1,
+      :total_buttons_clicked => 0,
+      :total_gold_collected => 0)
 
-    if resource.save
-      @user_stats.save
-      @users_equipped_items.save
-      @users_areas.save
-      sign_in @user
-      flash[:success] = "Welcome to nori.nu, #{@user.username}"
-    else
+    @users_equipped_items = UsersEquippedItem.new( 
+      :user_id => @user.id,
+      :slot_1_is_equipped => false,
+      :slot_2_is_equipped => false,
+      :slot_3_is_equipped => false,
+      :slot_4_is_equipped => false,
+      :slot_5_is_equipped => false,
+      :slot_6_is_equipped => false,
+      :slot_7_is_equipped => false)
+
+    @users_areas = UsersArea.new( 
+      :user_id => @user.id,
+      :is_area_1_unlocked => true,
+      :is_area_1_unlocked => false,
+      :is_area_1_unlocked => false,
+      :is_area_1_unlocked => false,
+      :is_area_1_unlocked => false)
+
+    begin
+      if resource.save
+        @user_stats.save
+        @users_equipped_items.save
+        @users_areas.save
+        UserWelcomeMailer.user_welcome(resource.as_json).deliver
+        sign_in @user
+        flash[:success] = "Welcome to nori.nu, #{@user.username}"
+      else
+        flash[:error] = "There was an error during signup. Please try again."
+      end
+    rescue => e 
+      logger.error e.message
+      e.backtrace.each { |line| logger.error line }
       flash[:error] = "There was an error during signup. Please try again."
     end
+
+
+
   end
 
   def edit
