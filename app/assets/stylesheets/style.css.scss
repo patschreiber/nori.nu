@@ -161,6 +161,10 @@ label {
   border-radius: 1px;
 }
 
+.btn.disabled {
+  opacity: 0.85;
+}
+
 .btn-group-vertical > .btn:first-child:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -705,5 +709,11 @@ label {
 
 
 body.game {
-  background-color: #000;
+  .bg {
+    background: url(area_backgrounds/blurred_rainlands.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 }

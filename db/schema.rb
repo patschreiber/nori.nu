@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107231823) do
+ActiveRecord::Schema.define(version: 20140114024551) do
 
   create_table "experience_buttons", force: true do |t|
     t.string   "name"
@@ -210,6 +210,7 @@ ActiveRecord::Schema.define(version: 20140107231823) do
     t.integer  "current_experience"
     t.integer  "total_experience"
     t.integer  "current_gold"
+    t.integer  "current_area_selected"
     t.integer  "health"
     t.integer  "attack"
     t.integer  "defense"
