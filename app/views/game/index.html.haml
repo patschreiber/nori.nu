@@ -5,21 +5,13 @@
       .visible-sm.visible-md.visible-lg.hidden-xs
         .skinny-margin-top
         -# visible-xs margin for mobile devices
-        .col-xs-12.col-sm-6.col-md-6.col-lg-6
-          = render 'shared/game/user_areas'
-        .col-xs-12.col-sm-6.col-md-6.col-lg-6.bordered
+        .col-sm-6.col-md-6.col-lg-6
+        .col-sm-6.col-md-6.col-lg-6.bordered
           = render 'shared/game/user_stat_snapshot'
-
-      .visible-xs.hidden-sm.hidden-md.hidden-lg
-        .margin-top-10
-        .col-xs-12
-          = render 'shared/game/user_stat_snapshot'
-        .col-xs-12
-          = render 'shared/game/user_areas'
 
     .row
       .skinny-margin-top
-      .col-sm-6.col-md-4
+      .col-sm-6.col-md-6.col-lg-6
         = render 'shared/item_card'
         .skinny-margin-top
         .btn-group.btn-group-justified
@@ -27,4 +19,13 @@
             = render 'shared/add_experience_buttons', :add_class => ""
           .hidden-sm.hidden-md.hidden-lg.visible-xs
             = render 'shared/add_experience_buttons', :add_class => "btn-block"
+      
+      .visible-sm.visible-md.visible-lg.hidden-xs
+        .col-sm-6.col-md-6.col-lg-6
+          = render 'shared/game/user_areas'
+
+      .visible-xs.hidden-sm.hidden-md.hidden-lg
+        .col-xs-12
+          .margin-top-10
+            = render 'shared/game/user_areas'
 
