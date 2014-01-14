@@ -101,7 +101,7 @@ a {
 }
 
 a:hover {
-  color: $dark_blue;
+  color: lighten($blue, 10%);
   text-decoration: none;
 }
 
@@ -134,6 +134,10 @@ label {
   background-image: none;
 }
 
+.btn-group {
+  border-radius: 0px;
+}
+
 .btn-success, .btn-success:hover {
   background-color: $very_light_green;
 }
@@ -155,6 +159,18 @@ label {
 
 .well {
   border-radius: 1px;
+}
+
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 /* Utility Stylings (Margins, backgrounds for divs, etc.)
@@ -684,4 +700,10 @@ label {
     bottom: 0;
     right: 0;
   }
+}
+
+
+
+body.game {
+  background-color: #000;
 }

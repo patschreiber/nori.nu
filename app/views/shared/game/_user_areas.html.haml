@@ -1,45 +1,45 @@
-.btn-group.btn-group-justified
+.btn-block.btn-group.btn-group-vertical
   - if @user_areas.is_area_1_unlocked
     %a.btn.btn-default
-      Area 1
+      Tainted Grassland
   - else
     %a.btn.btn-default.disabled
-      Area 1
+      Tainted Grassland
       %span{ :class => 'ss-icon' }
         &#x1F512;
 
   - if @user_areas.is_area_2_unlocked
     %a.btn.btn-default
-      Area 2
+      Searing Desert
   - else
     %a.btn.btn-default.disabled
-      Area 2
+      Searing Desert
       %span{ :class => 'ss-icon' }
         &#x1F512;
 
   - if @user_areas.is_area_3_unlocked
     %a.btn.btn-default
-      Area 3
+      Rainlands
   - else
     %a.btn.btn-default.disabled
-      Area 3
+      Rainlands
       %span{ :class => 'ss-icon' }
         &#x1F512;
 
   - if @user_areas.is_area_4_unlocked
     %a.btn.btn-default.disabled
-      Area 4
+      Doomfields
   - else
     %a.btn.btn-default.disabled
-      Area 4
+      Doomfields
       %span{ :class => 'ss-icon' }
         &#x1F512;
 
   - if @user_areas.is_area_5_unlocked
     %a.btn.btn-default
-      Area 5
+      Spiritlands
   - else
     %a.btn.btn-default.disabled
-      Area 5
+      Spiritlands
       %span{ :class => 'ss-icon' }
         &#x1F512;

@@ -17,7 +17,7 @@
 
         ga('create', 'UA-46183736-1', 'nori.nu');
         ga('send', 'pageview');
-  %body
+  %body{ :class => "#{yield (:body_class)}" }
     = render 'layouts/header'
     - if notice
       .alert.alert-warning.text-center.alert-dismissable
@@ -30,4 +30,3 @@
         = alert
     = yield 
     = render 'layouts/footer'
-

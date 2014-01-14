@@ -1,37 +1,30 @@
-.bg-game
-  .container
-    .row
+- body_class "game"
+
+.container.bg
+  .row
+    .visible-sm.visible-md.visible-lg.hidden-xs
+      .skinny-margin-top
       -# visible-xs margin for mobile devices
-      .visible-xs
-        .margin-top-10
-      .col-xs-12.col-sm-7.col-md-7.col-lg-7
+      .col-xs-12.col-sm-6.col-md-6.col-lg-6
         = render 'shared/game/user_areas'
-      .col-xs-12.col-sm-4.col-md-4.col-lg-4.col-sm-offset-1.col-md-offset-1.col-lg-offset-1.bordered
-        %span{ :class => "font-size-medium" }
-          = @user.username.capitalize
-        %span{ :class => "font-size-lg margin-left-10" }
-        %span{ :class => "playerlevel font-size-xl" }  
-          #{@level}
+      .col-xs-12.col-sm-6.col-md-6.col-lg-6.bordered
+        = render 'shared/game/user_stat_snapshot'
 
-        / Start exp progress bar
-        .progress{:title => "#{@percent_to_level}% to next level"}
-          .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next level"} 
+    .visible-xs.hidden-sm.hidden-md.hidden-lg
+      .margin-top-10
+      .col-xs-12
+        = render 'shared/game/user_stat_snapshot'
+      .col-xs-12
+        = render 'shared/game/user_areas'
 
-        .experience 
-          Experience: 
-          %span{ :class => 'current-experience' } 
-            = @current_experience
-          \/
-          %span{ :class => 'next-level-exp' }
-            = @next_level_experience
-
-    .row
-      .col-sm-6.col-md-4
-        = render 'shared/item_card'
-        .skinny-margin-top
-        .btn-group.btn-group-justified
-          .hidden-xs.visible-sm.visible-md.visible-lg.text
-            = render 'shared/add_experience_buttons', :add_class => ""
-          .hidden-sm.hidden-md.hidden-lg.visible-xs
-            = render 'shared/add_experience_buttons', :add_class => "btn-block"
+  .row
+    .skinny-margin-top
+    .col-sm-6.col-md-4
+      = render 'shared/item_card'
+      .skinny-margin-top
+      .btn-group.btn-group-justified
+        .hidden-xs.visible-sm.visible-md.visible-lg.text
+          = render 'shared/add_experience_buttons', :add_class => ""
+        .hidden-sm.hidden-md.hidden-lg.visible-xs
+          = render 'shared/add_experience_buttons', :add_class => "btn-block"
 

@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def body_class(class_name="default_class")
+    content_for :body_class, class_name
+  end
+
   def logo_image_path
     "nori_logo.svg"
   end

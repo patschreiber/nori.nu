@@ -81,7 +81,7 @@ gem 'jquery-ui-rails'
 gem 'faker'
 
 # Asynchronous processing 
-gem 'resque'
+gem 'resque', :require => 'resque/server'
 gem 'resque_mailer'
 # Process a task at a certain time
 gem 'resque-scheduler'
