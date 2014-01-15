@@ -1,25 +1,29 @@
-.row.well
-  .col-xs-12.col-sm-12.col-md-12.col-lg-12
-    %h2
-      Sign me up!
-  .col-xs-12.col-sm-12.col-md-12.col-lg-12
-    = form_for @user, { :url => { :controller => 'registrations', :action => 'create' }, :class => 'signup-form' }  do |f|
-      = render 'shared/error_messages'
+.row
+  %h2
+    Sign me up!
+.row
+  = form_for @user, { :url => { :controller => 'registrations', :action => 'create' }, :class => 'signup-form' }  do |f|
+    = render 'shared/error_messages'
 
-      -# First Name and Last Name should be optional 
-      -#.pull-left
-        -#= f.text_field :first_name, placeholder: 'First Name', :size => 17
-      -#.pull-right
-        -#= f.text_field :last_name, placeholder: 'Last Name', :size => 18
-      .row
-        .pull-left.width-100
-          = f.text_field :username, placeholder: 'Desired Username', :size => 53, :class => 'skinny-margin-top width-100'
-      .row
-        .pull-left.width-100
-          = f.text_field :email, placeholder: 'Email', :size => 53, :class => 'skinny-margin-top width-100' 
+    -# First Name and Last Name should be optional 
+    -#.pull-left
+      -#= f.text_field :first_name, placeholder: 'First Name', :size => 17
+    -#.pull-right
+      -#= f.text_field :last_name, placeholder: 'Last Name', :size => 18
+    .row
+      .pull-left.width-100
+        = f.text_field :username, placeholder: 'Desired Username', :size => 53, :class => 'skinny-margin-top width-100'
+    .row
+      .pull-left.width-100
+        = f.text_field :email, placeholder: 'Email', :size => 53, :class => 'skinny-margin-top width-100' 
 
-      .row
-        = f.password_field :password, placeholder: 'Password', :class => 'skinny-margin-top pull-left'
-        = f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => 'skinny-margin-to pull-right'
-      .row
-        = f.submit "Create it!", :class => 'btn btn-success btn-block'
+    .row
+      = f.password_field :password, placeholder: 'Password', :class => 'skinny-margin-top pull-left'
+      = f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => 'skinny-margin-to pull-right'
+    .row
+      = f.submit "Create it!", :class => 'btn btn-success btn-block'
+    .row
+      .wide-margin-top
+      %h3
+        Let me try first
+      = link_to 'Try it!', "#", :class => 'btn btn-default btn-block'

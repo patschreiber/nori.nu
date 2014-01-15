@@ -1,58 +1,64 @@
+- content_for :body_class, "landing_page"
 - provide :title, 'Home'
+
+
 .width-100
   .container
     - unless user_signed_in?
       .row
-        .col-md-7
+        .col-sm-7.col-md-7.col-lg-7
           %h1.text-center 
             Collect items. Play with your friends. Trade around the world. 
           .wide-margin-top 
-        .col-md-5
-          .row
+        .col-sm-5.col-md-5.col-lg-5
+          .row.well
             = render 'shared/signup_form'
-          .row
-            .wide-margin-top
-            %h3
-              Let me try first
-            = link_to 'Try it!', "#", :class => 'btn btn-default btn-block'
       .wide-margin-top
-      .row
-        .col-md-12
-          %h2
-            Nori is a game about collecting, trading, and improving.
-          %br
-          %p
-            Players are constantly finding and trading items with friends and around the world to level up, improve their character, and become legendary. 
-            -# Possibly make this next paragraph into a feature blurb.
-            The quest to be the best is not a solo adventure, however, as certain items are only available in certain regions. In order to complete the most unique sets, you'll have to trade with people in different regions.
-      .row
-        .col-md-12
-          %h2
-            Fancy yourself as an artist?
-          %p
-            Nori is all about encouraging users to come forth with their ideas to better the game and community. If you think an item's graphic can be tweaked, by all means post your design on the forums. If a design gets enough positive feedback from the community, we'll put it into the game. Who knows, you may even become a prolific artist whos items are sought after by many.
-      .row
-        .col-md-4
-          .feature
-            .panel.panel-default
-              .panel.body
-                I am a body paragraph Put an image here in lieu of this text 
-              .panel.footer.text-center
-                This is a paragraph describing the first feature. It is a really good paragraph.
-        .col-md-4
-          .feature.text-center
-            .panel.panel-default
-              .panel.body
-                I am a body paragraph Put an image here in lieu of this text 
-              .panel.footer.text-center
-                This is a paragraph describing the first feature. It is a really good paragraph.
-        .col-md-4
-          .feature.text-center
-            .panel.panel-default
-              .panel.body
-                I am a body paragraph Put an image here in lieu of this text 
-              .panel.footer.text-center
-                This is a paragraph describing the first feature. It is a really good paragraph.
+      .row.feature-container
+        .row
+          .col-md-12.col-lg-12
+            %h2
+              %b
+              Nori is a game about collecting, trading, and improving.
+            %br
+            %p
+              Players are constantly finding and trading items with friends and around the world to level up, improve their character, and become legendary. 
+              -# Possibly make this next paragraph into a feature blurb.
+              The quest to be the best is not a solo adventure, however, as 
+              = link_to "certain items are only available in certain regions", help_path, :anchor => "about"
+              \. In order to complete the most unique sets, you'll have to trade with people in different regions.
+        .row
+          .col-md-4
+            .feature
+              .panel.panel-default
+                %p
+                  I am a body paragraph Put an image here in lieu of this text 
+                .panel.footer
+                  %p.text-center
+                    This is a paragraph describing the first feature. It is a really good paragraph.
+          .col-md-4
+            .feature.text-center
+              .panel.panel-default
+                %p
+                  I am a body paragraph Put an image here in lieu of this text 
+                .panel.footer
+                  %p.text-center
+                    This is a paragraph describing the first feature. It is a really good paragraph.
+          .col-md-4
+            .feature.text-center
+              .panel.panel-default
+                %p
+                  I am a body paragraph Put an image here in lieu of this text 
+                .panel.footer
+                  %p.text-center
+                    This is a paragraph describing the first feature. It is a really good paragraph.
+
+        .row
+          .col-md-12.col-lg-12
+            %h2
+              Fancy yourself as an artist?
+            %p
+              Nori is all about encouraging users to come forth with their ideas to better the game and community. If you think an item's graphic can be tweaked, by all means post your design on the forums. If a design gets enough positive feedback from the community, we'll put it into the game. Who knows, you may even become a prolific artist whos items are sought after by many.
     - else
       .row
         Announcements Here

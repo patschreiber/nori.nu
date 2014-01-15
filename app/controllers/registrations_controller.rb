@@ -19,6 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
       :current_experience => 0, 
       :total_experience => 0, 
       :current_gold => 0,
+      :current_area_selected => 1,
       :health => 100,
       :attack => 1,
       :defense => 1,
@@ -56,7 +57,7 @@ class RegistrationsController < Devise::RegistrationsController
         sign_in @user
         flash[:success] = "Welcome to nori.nu, #{@user.username}"
       else
-        flash[:error] = "There was an error during signup. Please try again."
+        redirect_to root_path
       end
     rescue => e 
       logger.error e.message
