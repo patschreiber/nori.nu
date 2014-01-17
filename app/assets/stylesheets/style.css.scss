@@ -273,7 +273,7 @@ label {
 /* Input Fields 
 ===================== */
 
-.new_user, .login-user {
+.new_user {
   input[type=email],
   input[type=text], 
   input[type=password] {
@@ -303,19 +303,22 @@ label {
   }
 }
 
-.login-user {
-
-  input[type=text], 
-  input[type=password] {
-    width: 100%;
-    margin: 10px 0 0 0;
-  }
-}
-
 .new_user {
   input[type=password] {
     width: 45%;
     margin: $skinny_margin_top;
+  }
+}
+
+.returning_user {
+  input[type=email],
+  input[type=text], 
+  input[type=password] {
+    border: 1px solid $light_grey;
+    border-radius: 4px;
+    color: $grey_dark;
+    padding: .3em;
+    z-index: 3;
   }
 }
 
@@ -608,61 +611,6 @@ label {
     -moz-transform:scale(1.2,1.2); /* Firefox */
   }
 
-.inventory-chest {
-  /* TODO Temp Background, change */
-  background:
-  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background-color: #131313;
-  background-size: 20px 20px;
-
-  h2 {
-    color: $light_grey;
-  }
-
-  .inventory-item {
-    background-color: #FFF;
-    border: 3px solid #000;
-    border-radius: 4px;
-    margin: 5px 5px 0 0;
-    height: 50px;
-    width: 50px;
-  }
-
-  .inventory-item:hover {
-    cursor: pointer;
-    box-shadow: 0 0 8px $red_orange;
-    -webkit-box-shadow: 0 0 8px $red_orange;
-    -moz-box-shadow: 0 0 8px $red_orange;
-    -o-box-shadow: 0 0 8px $red_orange;
-  }
-
-  .active {
-    box-shadow: 0 0 8px $red_orange;
-    -webkit-box-shadow: 0 0 8px $red_orange;
-    -moz-box-shadow: 0 0 8px $red_orange;
-    -o-box-shadow: 0 0 8px $red_orange;
-  }
-
-  .equip {
-    display: none;  
-  }
-
-  .delete {
-    display: none;  
-  }
-  .quantity {
-    padding: 0 5px 0 0;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-}
-
 
 body.landing_page {
 
@@ -728,6 +676,83 @@ body.game {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+  }
+}
+
+body.profile {
+
+  .profile-picture {
+    border: 3px solid #000;
+    width: 100px;
+    height: 100px;
+    margin: 15px 0 0 0;
+  }
+
+  .equip-item {
+    background-color: #FFF;
+    width: 50px;
+    height: 50px;
+    margin: 15px 0 0 0;
+    box-shadow: #888888 0 1px 4px;
+    -webkit-box-shadow: #888888 0 1px 4px;
+    -moz-box-shadow: #888888 0 1px 4px;
+    -webkit-box-shadow: #888888 0 1px 4px;
+    -o-box-shadow: #888888 0 1px 4px;
+  }
+
+  .inventory-chest {
+    /* TODO Temp Background, change */
+    background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+
+    h2 {
+      color: $light_grey;
+    }
+
+    .inventory-item {
+      background-color: #FFF;
+      border: 3px solid #000;
+      border-radius: 4px;
+      margin: 5px 5px 0 0;
+      height: 50px;
+      width: 50px;
+    }
+
+    .inventory-item:hover {
+      cursor: pointer;
+      box-shadow: 0 0 8px $red_orange;
+      -webkit-box-shadow: 0 0 8px $red_orange;
+      -moz-box-shadow: 0 0 8px $red_orange;
+      -o-box-shadow: 0 0 8px $red_orange;
+    }
+
+    .active {
+      box-shadow: 0 0 8px $red_orange;
+      -webkit-box-shadow: 0 0 8px $red_orange;
+      -moz-box-shadow: 0 0 8px $red_orange;
+      -o-box-shadow: 0 0 8px $red_orange;
+    }
+
+    .equip {
+      display: none;  
+    }
+
+    .delete {
+      display: none;  
+    }
+    .quantity {
+      padding: 0 5px 0 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
   }
 }
 

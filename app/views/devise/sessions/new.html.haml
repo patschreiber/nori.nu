@@ -1,21 +1,19 @@
 .container
-  .col-md-4.col-md-offset-4.well 
+  .col-sm-4.col-md-4.col-sm-offset-4.col-md-offset-4.well 
     %h2 Sign in
 
-    = form_for @user, { :url => { :controller => 'devise/sessions', :action => 'create' }, :class => 'signin-form' }  do |f|
-      =# f.label :email
-      %br
-      = f.email_field :email, placeholder: 'Email', :autofocus => true
-      %br
-      =# f.label :password
-      %br
-      = f.password_field :password, placeholder: 'Password'
-      %br
+    = form_for @user, { :url => { :controller => 'devise/sessions', :action => 'create' }, :html => { :class => 'returning_user'} }  do |f|
 
-      - if devise_mapping.rememberable?
-        = f.check_box :remember_me 
-        = f.label :remember_me
+      .row.width-100
+        = f.email_field :email, placeholder: 'Email', :autofocus => true,  :class => 'skinny-margin-top width-100'
+      .row.width-100
+        = f.password_field :password, placeholder: 'Password',  :class => 'skinny-margin-top width-100'
+      .row
+        .skinny-margin-top
+        - if devise_mapping.rememberable?
+          = f.check_box :remember_me 
+          = f.label :remember_me
 
-      = f.submit "Sign in", :class => 'btn btn-success width-100 skinny-margin-top'
-    .skinny-margin-top
+      = f.submit "Sign in", :class => 'btn btn-success width-100'
+
     = render "devise/shared/links"

@@ -1,20 +1,18 @@
 - provide :title, "#{@user.username}#{@user_title}".html_safe
+- content_for :body_class, "profile"
 
 .container
   .row
     .col-md-6
-      %h2
+      %h2.name
         = @user.username.capitalize
       %hr{ :class => "hr-margin" }
 
   .row
-    .col-sm-6.col-md-6
-      .col-sm-6.col-md-3
-        .thumbnail
+    .col-sm-6.col-md-6.col-lg-6
+      .col-xs-4.col-sm-4.col-md-4.col-lg-4
+        .profile-picture
           -# Level-Based picture goes in replacement of these brs. img src...
-          %br
-          %br
-          %br
         %h3
           Lv. 
           = @user_stats.player_level
@@ -22,101 +20,60 @@
           &#x1F4B2;
         = @user_stats.current_gold
 
-      .col-md-9
+      .col-xs-8.col-sm-8.col-md-8.col-md-8
         -# Head
+        -# Fit bg image to 100% of col-* width and height?
         .row
-          .col-md-3
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .neck
-              %br
-              %br
-          .col-md-3
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .head
-              %br
-              %br
-          .col-md-3 
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .ring
-              %br
-              %br
         -# Body
-        .wide-margin-top
         .row
-          .col-md-3
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .weapon
-              %br
-              %br
-          .col-md-3
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .body
-              %br
-              %br
-          .col-md-3
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .defense-item
-              %br
-              %br
         -# Feet
-        .wide-margin-top
         .row
-          .col-md-3.col-md-offset-3
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .legs
-              %br
-              %br
-          .col-md-3
-            .thumbnail
+          .col-xs-4.col-sm-4.col-md-4.col-lg-4
+            .equip-item
               .feet
-              %br
-              %br
 
-
-    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+    .col-sm-6.col-md-6.col-lg-6
       %h4
-        Skills
+        Crafting Table
       .row
         .col-xs-3.col-sm-3.col-md-3.col-lg-3
-          Attack
+          Crafting Level
           .label.label-default.pull-right
             = @user_stats.attack
         .col-xs-6.col-sm-6.col-md-6.col-lg-6
           .progress
             .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
-      .row
-        .col-xs-3.col-sm-3.col-md-3.col-lg-3
-          Defense
-          .label.label-default.pull-right
-            = @user_stats.defense
-        .col-xs-6.col-sm-6.col-md-6.col-lg-6
-          .progress
-            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
-      .row
-        .col-xs-3.col-sm-3.col-md-3.col-lg-3
-          Stealth
-          .label.label-default.pull-right
-            = @user_stats.stealth
-        .col-xs-6.col-sm-6.col-md-6.col-lg-6
-          .progress
-            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
-      .row
-        .col-xs-3.col-sm-3.col-md-3.col-lg-3
-          Luck
-          .label.label-default.pull-right
-            = @user_stats.luck
-        .col-xs-6.col-sm-6.col-md-6.col-lg-6
-          .progress
-            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
-  .wide-margin-top
-  
+
+  .wide-margin-top 
   .row.inventory-chest
     = render 'shared/users/user_inventory'
 
-  .row
-    .col-sm-6.col-md-6.border-left.border-right
+  .row.border-left.border-right
+    .wide-margin-top
+    .col-xs-6.col-sm-6.col-md-6.col-lg-6
       = render 'shared/users/user_achievements'
-    .col-sm-6.col-md-6.border-right
+    .col-xs-6.col-md-6.col-lg-6
       = render 'shared/users/user_collections'
 
   .wide-margin-top

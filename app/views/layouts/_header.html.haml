@@ -3,7 +3,6 @@
     %a{ :href => root_path, :alt => "Home Path" }
       .navbar-brand.pull-left
     .navbar-header.pull-right
-      .pull-right
       - if user_signed_in?
         %ul.main-user-menu.pull-right.hidden-xs
           %li
@@ -60,7 +59,7 @@
               %li= link_to 'Settings', "#"
               %li= link_to 'Signout', signout_path, method: "delete"
       - else
-        %ul.main-user-menu.pull-right.hidden-xs
+        %ul.main-user-menu.hidden-xs
           %li
             = link_to "Sign In", new_user_session_path
       #marker

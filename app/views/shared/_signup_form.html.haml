@@ -2,7 +2,7 @@
   %h2
     Sign me up!
 .row
-  = form_for @user, { :url => { :controller => 'registrations', :action => 'create' }, :class => 'signup-form' }  do |f|
+  = form_for @user, { :url => { :controller => 'registrations', :action => 'create' }}  do |f|
     = render 'shared/error_messages'
 
     -# First Name and Last Name should be optional 
@@ -18,8 +18,8 @@
         = f.text_field :email, placeholder: 'Email', :size => 53, :class => 'skinny-margin-top width-100' 
 
     .row
-      = f.password_field :password, placeholder: 'Password', :class => 'skinny-margin-top pull-left'
-      = f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => 'skinny-margin-to pull-right'
+      = f.password_field :password, placeholder: 'Password', :class => 'pull-left'
+      = f.password_field :password_confirmation, placeholder: 'Confirm Password', :class => 'pull-right'
     .row
       = f.submit "Create it!", :class => 'btn btn-success btn-block'
     .row
