@@ -527,11 +527,20 @@ label {
 .dropdown-menu {
   background-color: $grey_sleek;
   background: rgba(0, 0, 0, 0.8);
+}
 
-  a {
-    color: #FFF;
-  }
+.dropdown-menu > li > a {
+  color: $light_grey;
+}
 
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-color: transparent;
+  background-image: none;
+  color: darken($light_grey, 15%);
 }
 /*
 .dropdown-menu > .active > a,
@@ -550,7 +559,7 @@ label {
 
 .progress {
     margin-bottom: 0px;
-    height: 6px;
+    height: 8px;
     border-radius: 2px;
 }
 
