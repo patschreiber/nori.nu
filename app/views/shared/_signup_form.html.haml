@@ -3,7 +3,8 @@
     Sign me up!
 .row
   = form_for @user, { :url => { :controller => 'registrations', :action => 'create' }}  do |f|
-    = render 'shared/error_messages'
+    .row
+      = render 'shared/error_messages'
 
     -# First Name and Last Name should be optional 
     -#.pull-left

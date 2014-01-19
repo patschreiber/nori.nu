@@ -28,7 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
-      redirect_to root_path
+      render :template => 'pages/index'
     end
 
 

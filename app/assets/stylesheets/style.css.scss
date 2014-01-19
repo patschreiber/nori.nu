@@ -669,6 +669,7 @@ body.landing_page {
   }
 
   .feature:hover {
+    cursor: pointer;
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
     -ms-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
