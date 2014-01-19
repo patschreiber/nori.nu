@@ -62,10 +62,10 @@ class RegistrationsController < Devise::RegistrationsController
     @users_areas = UsersArea.new( 
       :user_id => @user.id,
       :is_area_1_unlocked => true,
-      :is_area_1_unlocked => false,
-      :is_area_1_unlocked => false,
-      :is_area_1_unlocked => false,
-      :is_area_1_unlocked => false)
+      :is_area_2_unlocked => false,
+      :is_area_3_unlocked => false,
+      :is_area_4_unlocked => false,
+      :is_area_5_unlocked => false)
 
     begin
       if resource.save

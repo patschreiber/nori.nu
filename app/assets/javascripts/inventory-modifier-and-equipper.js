@@ -32,11 +32,17 @@ $(document).ready(function() {
       $(this).find('.delete').show();
 
       $(this).popover('show');
-
-      $('.delete-button').on('click', function() {
-        alert("yeah");
-      });
     }
+
+    $('.delete-button').on('click', function() {
+      if (confirm('This item will be destroyed. This cannot be undone. Is this ok?')) {
+        console.log(this.parent);
+      }
+    });
+
+    $('.equip-button').on('click', function() {
+      // Find Parent and ID, then send that via AJAX with a 'true' so the item will be equipped.
+    });
   });
 
 

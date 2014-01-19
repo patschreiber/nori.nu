@@ -59,7 +59,9 @@ class InventoryController < ApplicationController
         return
       end
     end
+  end
 
+  def equip
   end
 
   def update
