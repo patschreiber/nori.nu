@@ -71,6 +71,10 @@ $logged_in_margin_top: 5px 0 0 0;
 
 $default_paragraph_padding: .5em;
 
+html, body {
+  height: 100%;
+}
+
 .row {
   margin: 0;
 }
@@ -451,11 +455,11 @@ label {
 }
 
 
-.footer {
+footer {
   color: $light_grey;
   background-color: $grey_sleek;
-  margin: $wide_margin_top_bottom;
   z-index: 9;
+  min-height: 100%;
 
   p {
     padding: $default_paragraph_padding;
