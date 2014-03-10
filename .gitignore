@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore other unneeded files.
-database.yml
+config/database.yml
 doc/*
 log/*.log
 tmp/**/*
@@ -26,3 +26,4 @@ tmp/**/*
 .DS_Store
 .idea
 .secret
+
