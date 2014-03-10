@@ -72,7 +72,10 @@ $logged_in_margin_top: 5px 0 0 0;
 $default_paragraph_padding: .5em;
 
 html, body {
+  /*
+  Uncomment this to get footer to stick to bottom
   height: 100%;
+  */
 }
 
 .row {
