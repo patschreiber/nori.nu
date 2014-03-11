@@ -13,11 +13,11 @@ module ApplicationHelper
   end
 
   def current_year
-    "2014"
+    DateTime.now.strftime("%Y")
   end
 
   def copyright
-    "© 2014 nori.nu"
+    "© #{current_year} nori.nu"
   end
 
   def admin_social_websites
