@@ -129,8 +129,3 @@ class GameController < ApplicationController
     return (current_exp.to_f / next_level_exp.to_f * 100).round(1)
   end
 end
-
-
-
-
-     # @level_table = Level.find_by level: @user_stats.player_level + 1
