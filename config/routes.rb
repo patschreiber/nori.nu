@@ -19,6 +19,7 @@ Public::Application.routes.draw do
 
   match '/about' => 'pages#about', via: 'get', :as => :about
   match '/help' => 'pages#help', via: 'get', :as => :help
+  get '/guide' => 'pages#game_guide', :as => :game_guide
 
   match '/game' => 'game#index', via: [:get, :post], :as => :game
   match '/update-stats' => 'game#update_stats', via: [:put], :as => :update_stats
