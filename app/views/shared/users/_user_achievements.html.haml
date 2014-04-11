@@ -1,141 +1,125 @@
 %h4
   Achievements
--# TODO These are hardcoded for now, pull from DB in future
-.col-xs-6.col-sm-6.col-md-6.col-lg-6
+-# TODO These are hardcoded for now
+.col-xs-6
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 10
-        .label.label-success
-          Level 10
-      - else
-        .label.label-danger
-          Level 10
+    - if @user_stats.player_level >= 10
+      .label.label-success
+        Level 10
+    - else
+      .label.label-danger
+        Level 10
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 20
-        .label.label-success
-          Level 20
-      - else
-        .label.label-danger
-          Level 20
+    - if @user_stats.player_level >= 20
+      .label.label-success
+        Level 20
+    - else
+      .label.label-danger
+        Level 20
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 30
-        .label.label-success
-          Level 30
-      - else
-        .label.label-danger
-          Level 30
+    - if @user_stats.player_level >= 30
+      .label.label-success
+        Level 30
+    - else
+      .label.label-danger
+        Level 30
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 40
-        .label.label-success
-          Level 40
-      - else
-        .label.label-danger
-          Level 40
+    - if @user_stats.player_level >= 40
+      .label.label-success
+        Level 40
+    - else
+      .label.label-danger
+        Level 40
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 50
-        .label.label-success
-          Level 50
-      - else
-        .label.label-danger
-          Level 50
+    - if @user_stats.player_level >= 50
+      .label.label-success
+        Level 50
+    - else
+      .label.label-danger
+        Level 50
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 60
-        .label.label-success
-          Level 60
-      - else
-        .label.label-danger
-          Level 60
+    - if @user_stats.player_level >= 60
+      .label.label-success
+        Level 60
+    - else
+      .label.label-danger
+        Level 60
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 70
-        .label.label-success
-          Level 70
-      - else
-        .label.label-danger
-          Level 70
+    - if @user_stats.player_level >= 70
+      .label.label-success
+        Level 70
+    - else
+      .label.label-danger
+        Level 70
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 80
-        .label.label-success
-          Level 80
-      - else
-        .label.label-danger
-          Level 80
+    - if @user_stats.player_level >= 80
+      .label.label-success
+        Level 80
+    - else
+      .label.label-danger
+        Level 80
   .row
-    .margin-top-10
-      - if @user_stats.player_level >= 90
-        .label.label-success
-          Level 90
-      - else
-        .label.label-danger
-          Level 90
+    - if @user_stats.player_level >= 90
+      .label.label-success
+        Level 90
+    - else
+      .label.label-danger
+        Level 90
   .row
-    .margin-top-10
-      - if @user_stats.player_level == 99
-        .label.label-success
-          Max Level
-      - else
-        .label.label-danger
-          Max Level
+    - if @user_stats.player_level == 99
+      .label.label-success
+        Max Level
+    - else
+      .label.label-danger
+        Max Level
 
-.col-xs-6.col-sm-6.col-md-6.col-lg-6
+.col-xs-6
   .row
-    .margin-top-10
-      - if @user_stats.total_experience >= 4500000
-        .label.label-success
-          Experienced
-      - else
-        .label.label-danger
-          Experienced
+    - if @user_stats.total_experience >= 4500000
+      .label.label-success
+        Experienced
+    - else
+      .label.label-danger
+        Experienced
   .row
-    .margin-top-10
-      - if @user_stats.current_gold >= 1000000
-        .label.label-success
-          Money Bags
-      - else
-        .label.label-danger
-          Money Bags
-    .margin-top-10
-      - if @user_stats.attack >= 100 && @user_stats.defense >= 100 && @user_stats.stealth >= 100 && @user_stats.luck >= 100
-        .label.label-success
-          Killer Stats
-      - else
-        .label.label-danger
-          Killer Stats
+    - if @user_stats.current_gold >= 1000000
+      .label.label-success
+        Money Bags
+    - else
+      .label.label-danger
+        Money Bags
   .row
-    .margin-top-10
-      - if @user_stats.total_items_found >= 1000
-        .label.label-success
-          Archaeologist
-      - else
-        .label.label-danger
-          Archaeologist
+    - if @user_stats.attack >= 100 && @user_stats.defense >= 100 && @user_stats.stealth >= 100 && @user_stats.luck >= 100
+      .label.label-success
+        Killer Stats
+    - else
+      .label.label-danger
+        Killer Stats
   .row
-    .margin-top-10
-      - if @user_stats.total_gold_collected >= 10000000
-        .label.label-success
-          Investor
-      - else
-        .label.label-danger
-          Investor
+    - if @user_stats.total_items_found >= 1000
+      .label.label-success
+        Archaeologist
+    - else
+      .label.label-danger
+        Archaeologist
   .row
-    .margin-top-10
-      - if @user_stats.total_buttons_clicked >= 100000
-        .label.label-success
-          Baked Goods Clicker
-      - else
-        .label.label-danger
-          Baked Goods Clicker
+    - if @user_stats.total_gold_collected >= 10000000
+      .label.label-success
+        Investor
+    - else
+      .label.label-danger
+        Investor
   .row
-    .margin-top-10
-      - if @user_stats.areas_unlocked == 5
-        .label.label-success
-          Traveler
-      - else
-        .label.label-danger
-          Traveler
+    - if @user_stats.total_buttons_clicked >= 100000
+      .label.label-success
+        Baked Goods Clicker
+    - else
+      .label.label-danger
+        Baked Goods Clicker
+  .row
+    - if @user_stats.areas_unlocked == 5
+      .label.label-success
+        Traveler
+    - else
+      .label.label-danger
+        Traveler

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def application_name
-    "nori.nu"
+    "nori"
   end
 
   def body_class(class_name="default_class")

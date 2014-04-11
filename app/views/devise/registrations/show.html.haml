@@ -1,79 +1,61 @@
-- provide :title, "#{@user.username}#{@user_title}".html_safe
+- provide :title, "#{@user.username.capitalize}#{@user_title}".html_safe
 - content_for :body_class, "profile"
 
 .container
   .row
-    .col-md-6
+    .col-xs-6
       %h2.name
         = @user.username.capitalize
-      %hr{ :class => "hr-margin" }
 
   .row
-    .col-sm-6.col-md-6.col-lg-6
-      .col-xs-4.col-sm-4.col-md-4.col-lg-4
-        .profile-picture
-          -# Level-Based picture goes in replacement of these brs. img src...
-        %h3
-          Lv. 
-          = @user_stats.player_level
-        %span{ :class => 'ss-icon header-icons' }
-          &#x1F4B2;
-        = @user_stats.current_gold
+    .col-xs-2
+      .profile-picture
+        -# TODO Level-Based picture goes in replacement of these brs. img src...
+      %h3
+        Lv. 
+        = @user_stats.player_level
+      %span{ :class => 'ss-icon header-icons' }
+        &#x1F4B2;
+      = @user_stats.current_gold
 
-      .col-xs-8.col-sm-8.col-md-8.col-md-8
+    .col-xs-4
+      .paperdoll
         -# Head
-        -# Fit bg image to 100% of col-* width and height?
         .row
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .neck
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .head
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .ring
+          .equip-item#neck
+          .equip-item#head
+          .equip-item#ring
         -# Body
         .row
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .weapon
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .body
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .defense-item
+          .equip-item#weapon
+          .equip-item#body
+          .equip-item#defense-item
         -# Feet
         .row
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .legs
-          .col-xs-4.col-sm-4.col-md-4.col-lg-4
-            .equip-item
-              .feet
+          .equip-item#legs
+          .equip-item#feet
 
-    .col-sm-6.col-md-6.col-lg-6
+    .col-xs-6.inventory-chest
+      %h2
+        The Loot Sack
+      #loot-scroll
+        = render 'shared/users/user_inventory'
+
+  .row
+    .col-xs-12
       %h4
         Crafting Table
       .row
-        .col-xs-3.col-sm-3.col-md-3.col-lg-3
+        .col-xs-3
           Crafting Level
           .label.label-default.pull-right
-            = @user_stats.attack
-        .col-xs-6.col-sm-6.col-md-6.col-lg-6
+            -# TODO Make this read from the crafting level table when it's done
+            100 
           .progress
-            .progress-bar.progress-margin-bottom-0.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
+            .progress-bar.progress-bar-warning{:role => "progressbar", :valuemin => "0", :valuemax => "100", :style => "width: #{@percent_to_level}%;", :title => "#{@percent_to_level}% to next skill level"} 
 
-  .wide-margin-top 
-  .row.inventory-chest
-    = render 'shared/users/user_inventory'
-
-  .row.border-left.border-right
-    .wide-margin-top
-    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+  .row
+    .col-xs-6
       = render 'shared/users/user_achievements'
-    .col-xs-6.col-md-6.col-lg-6
+    .col-xs-6
       = render 'shared/users/user_collections'
-
-  .wide-margin-top
