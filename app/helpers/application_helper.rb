@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def application_name
+    "nori.nu"
+  end
+
   def body_class(class_name="default_class")
     content_for :body_class, class_name
   end
