@@ -1,12 +1,13 @@
 .item-found.trash-item
   .hidden-xs.hidden-sm.hidden-md.hidden-lg
+    -# We don't want the item ID to be visible
     .item-id
   .row
-    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .col-xs-12
       %h4
         .name
   .row
-    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .col-xs-12
       .pull-left
         .min-equip-player-level
           Req. Level
@@ -15,51 +16,55 @@
         .tier
           Tier
           %span{ :class => "tier-val" }
-    .wide-margin-top
+
   .row
-    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+    .col-xs-2
       .item-image
-        %br
-        %br
-    .col-xs-6.col-sm-6.col-md-6.col-lg-6
+        Image goes here
+    .col-xs-6
       -# When an item is rolled, it shows up here
-      .attack
-        .col-xs-8.col-sm-8.col-md-8
-          Attack
-        .col-xs-4.col-sm-4.col-md-4
-          %span{ :class => "attack-val" }
-      .defense
-        .col-xs-8.col-sm-8.col-md-8
-          Defense
-        .col-xs-4.col-sm-4.col-md-4
-          %span{ :class => "defense-val" }
-      .luck
-        .col-xs-8.col-sm-8.col-md-8
-          Luck
-        .col-xs-4.col-sm-4.col-md-4  
-          %span{ :class => "luck-val" }
-      .stealth
-        .col-xs-8.col-sm-8.col-md-8
-          Stealth
-        .col-xs-4.col-sm-4.col-md-4
-          %span{ :class => "stealth-val" }
-      .value
-        .col-xs-8.col-sm-8.col-md-8
-          Value
-        .col-xs-4.col-sm-4.col-md-4
-          %span{ :class => "monetary-val" }
+      .row
+        .attack
+          .col-xs-3
+            Attack
+          .col-xs-4
+            %span{ :class => "attack-val" }
+      .row
+        .defense
+          .col-xs-3
+            Defense
+          .col-xs-4
+            %span{ :class => "defense-val" }
+      .row
+        .luck
+          .col-xs-3
+            Luck
+          .col-xs-4
+            %span{ :class => "luck-val" }
+      .row
+        .stealth
+          .col-xs-3
+            Stealth
+          .col-xs-4
+            %span{ :class => "stealth-val" }
+      .row
+        .value
+          .col-xs-3
+            Value
+          .col-xs-4
+            %span{ :class => "monetary-val" }
   .row
     .col-md-12
       .flavor-text
   .row
-    .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+    .col-xs-6.action
       .item-buttons.hidden-element
         .save.pull-left.btn.btn-default
           = link_to "#" do
             %span{ :class => 'ss-icon header-icons' }
               &#x21AA;
             Save
-    .col-xs-6.col-sm-6.col-md-6.col-lg-6.action
+    .col-xs-6.action
       .item-buttons.hidden-element
         .trash.pull-right.btn.btn-default
           = link_to "#" do

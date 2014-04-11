@@ -6,42 +6,62 @@
       Tainted Grassland
   - else
     %a.btn.btn-default.disabled
-      Tainted Grassland
-      %span{ :class => 'ss-icon' }
-        &#x1F512;
+      .row
+        .col-xs-3.col-xs-offset-4
+          .pull-right
+            Tainted Grassland
+        .col-xs-2
+          %span{ :class => 'ss-icon pull-left' }
+            &#x1F512;
 
   - if @user_areas.is_area_2_unlocked
     %a.btn.btn-default
       Searing Desert
   - else
     %a.btn.btn-default.disabled
-      Searing Desert
-      %span{ :class => 'ss-icon' }
-        &#x1F512;
+      .row
+        .col-xs-3.col-xs-offset-4
+          .pull-right
+            Searing Desert
+        .col-xs-2
+          %span{ :class => 'ss-icon pull-left' }
+            &#x1F512;
 
   - if @user_areas.is_area_3_unlocked
     %a.btn.btn-default
       Rainlands
   - else
     %a.btn.btn-default.disabled
-      Rainlands
-      %span{ :class => 'ss-icon' }
-        &#x1F512;
+      .row
+        .col-xs-3.col-xs-offset-4
+          .pull-right
+            Rainlands
+        .col-xs-2
+          %span{ :class => 'ss-icon pull-left' }
+            &#x1F512;
 
   - if @user_areas.is_area_4_unlocked
     %a.btn.btn-default.disabled
       Doomfields
   - else
     %a.btn.btn-default.disabled
-      Doomfields
-      %span{ :class => 'ss-icon' }
-        &#x1F512;
+      .row
+        .col-xs-3.col-xs-offset-4
+          .pull-right
+            Doomfields
+        .col-xs-2
+          %span{ :class => 'ss-icon pull-left' }
+            &#x1F512;
 
   - if @user_areas.is_area_5_unlocked
     %a.btn.btn-default
       Spiritlands
   - else
-    %a.btn.btn-default.disabled
-      Spiritlands
-      %span{ :class => 'ss-icon' }
-        &#x1F512;
+    %a.btn.btn-default.disabled.text-center
+      .row
+        .col-xs-3.col-xs-offset-4
+          .pull-right
+            Spiritlands
+        .col-xs-2
+          %span{ :class => 'ss-icon pull-left' }
+            &#x1F512;

@@ -1,70 +1,61 @@
 %footer
-  .width-100.grey-sleek
-    .container
+  .container
+    .col-xs-4
       .row
-        .footer.wide-margin-top
-          .col-md-4
-            .header-border
-              .row
-                .skinny-margin-top
-                .col-xs-6.col-sm-6.col-md-6.col-lg-6
-                  = link_to image_tag(logo_light_image_path), root_path
+        .column-divider
+        .col-xs-6#footer-logo
+          = link_to image_tag(logo_light_image_path), root_path
+      .row
+        .col-xs-6
+          %br
+          = link_to "About Nori", "#"
+          %br
+          = link_to "Game Guide", game_guide_path
+          %br
+          = link_to "High Scores", "#"
+          %br
+          = link_to "Create", "#"
 
-              .row
-                .col-xs-6.col-sm-6.col-md-6.col-lg-6
-                  %br
-                  = link_to "About Nori", "#"
-                  %br
-                  = link_to "Game Guide", game_guide_path
-                  %br
-                  = link_to "High Scores", "#"
-                  %br
-                  = link_to "Create", "#"
+    .col-xs-4
+      .row
+        .column-divider
+        %h3
+          Account
+      .row
+        Manage your account
+        %br
+        = link_to "Manage Account", "#"
+        %br
+        = link_to "Forgot Password?", "#"
+        %br
+        = link_to "Change Password", "#"
+        -#%br
+        -# link_to "Deactivate Account", "#"
 
-          .col-md-4
-            .header-border
-              .col-md-12
-                .row
-                  %h3
-                    Account
-                .row
-                  Manage your account
-                  %br
-                  = link_to "Manage Account", "#"
-                  %br
-                  = link_to "Forgot Password?", "#"
-                  %br
-                  = link_to "Change Password", "#"
-                  -#%br
-                  -# link_to "Deactivate Account", "#"
+    .col-xs-4
+      .row
+        .column-divider
+        %h3
+          Support
+      .row
+        Need help? Found a bug?
+        %br 
+        = link_to "Help", help_path
+        %br
+        = link_to "Blog", "#"
+        %br
+        = link_to "Forum", "#"
+        %br
+        = link_to "Submit a bug", "#"
 
-          .col-md-4
-            .header-border
-              .col-md-12
-                .row
-                  %h3
-                    Support
-                .row
-                  Need help? Found a bug?
-                  %br 
-                  = link_to "Help", help_path
-                  %br
-                  = link_to "Blog", "#"
-                  %br
-                  = link_to "Forum", "#"
-                  %br
-                  = link_to "Submit a bug", "#"
-
-      .footer.wide-margin-top 
-        .row.footer-closing
-          .col-md-12.text-center
-            %p
-              Designed by 
-              %a{:href => "http://www.twitter.com/patschreiber"} @patschreiber
-            %p.copyright
-              #{copyright}
-              %span{:class => "divider"} / 
-              All Rights Reserved
-              %span{:class => "divider"} / 
-              = link_to "Terms of Use", "#"
-      .wide-margin-top
+  .row.footer-closing
+    .text-center
+      %p
+        Designed by 
+        %a{:href => "http://www.twitter.com/patschreiber"} @patschreiber
+      %p.copyright
+        #{copyright}
+        %span{:class => "divider"} / 
+        All Rights Reserved
+        %span{:class => "divider"} / 
+        = link_to "Terms of Use", "#"

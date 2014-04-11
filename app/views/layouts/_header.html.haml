@@ -1,10 +1,10 @@
 .navbar
   .container
     %a{ :href => root_path, :alt => "Home Path" }
-      .navbar-brand.pull-left
+      .navbar-brand
     .navbar-header.pull-right
       - if user_signed_in?
-        %ul.main-user-menu.pull-right.hidden-xs
+        %ul.main-user-menu
           %li
             = link_to game_path, 'data-no-turbolink' => true do 
               %span{ :class => 'ss-icon header-icons' }
@@ -29,38 +29,10 @@
             = link_to "#", :class => "dropdown-toggle", "data-toggle"=>"dropdown" do
               %span{ :class => 'ss-icon header-icons' }
                 &#x2026;  
-            %ul.dropdown-menu.pull-right
+            %ul.dropdown-menu
               %li= link_to 'Settings', "#"
               %br
               %li= link_to 'Signout', signout_path, method: "delete"
-
-
-        %ul.main-user-menu-sm.pull-right.visible-xs
-          %li
-            = link_to game_path, 'data-no-turbolink' => true do 
-              %span{ :class => 'ss-icon header-icons' }
-                &#xE800;
-          %li
-            = link_to profile_path do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x1F464;
-          %li
-            = link_to profile_path do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x2709;
-          %li
-            = link_to "#" do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x1F465;
-          %li.dropdown
-            = link_to "#", :class => "dropdown-toggle", "data-toggle"=>"dropdown" do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x2026;  
-            %ul.dropdown-menu.pull-right
-              .row
-                %li= link_to 'Settings', "#"
-              .row
-                %li= link_to 'Signout', signout_path, method: "delete"
       - else
         %ul.main-user-menu
           %li

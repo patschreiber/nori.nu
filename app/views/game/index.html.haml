@@ -2,30 +2,18 @@
 .bg
   .container
     .row
-      .visible-sm.visible-md.visible-lg.hidden-xs
-        .skinny-margin-top
-        -# visible-xs margin for mobile devices
-        .col-sm-6.col-md-6.col-lg-6
-        .col-sm-6.col-md-6.col-lg-6.bordered
-          = render 'shared/game/user_stat_snapshot'
+      .col-xs-6
+        = render 'shared/game/user_stat_snapshot'
+      .col-xs-6
+        %p
+          User Stats are going to go here
 
     .row
-      .skinny-margin-top
-      .col-sm-6.col-md-6.col-lg-6
+      .col-xs-9
         = render 'shared/item_card'
-        .skinny-margin-top
         .btn-group.btn-group-justified
-          .hidden-xs.visible-sm.visible-md.visible-lg.text
-            = render 'shared/add_experience_buttons', :add_class => ""
-          .hidden-sm.hidden-md.hidden-lg.visible-xs
-            = render 'shared/add_experience_buttons', :add_class => "btn-block"
+          = render 'shared/add_experience_buttons'
       
-      .visible-sm.visible-md.visible-lg.hidden-xs
-        .col-sm-6.col-md-6.col-lg-6
-          = render 'shared/game/user_areas'
-
-      .visible-xs.hidden-sm.hidden-md.hidden-lg
-        .col-xs-12
-          .margin-top-10
-            = render 'shared/game/user_areas'
-
+    .row
+      .col-xs-6
+        = render 'shared/game/user_areas'
