@@ -47,7 +47,8 @@ class RegistrationsController < Devise::RegistrationsController
       :total_items_found => 0,
       :areas_unlocked => 1,
       :total_buttons_clicked => 0,
-      :total_gold_collected => 0)
+      :total_gold_collected => 0
+    )
 
     @users_equipped_items = UsersEquippedItem.new( 
       :user_id => @user.id,
@@ -57,7 +58,8 @@ class RegistrationsController < Devise::RegistrationsController
       :slot_4_is_equipped => false,
       :slot_5_is_equipped => false,
       :slot_6_is_equipped => false,
-      :slot_7_is_equipped => false)
+      :slot_7_is_equipped => false
+    )
 
     @users_areas = UsersArea.new( 
       :user_id => @user.id,
@@ -65,7 +67,8 @@ class RegistrationsController < Devise::RegistrationsController
       :is_area_2_unlocked => false,
       :is_area_3_unlocked => false,
       :is_area_4_unlocked => false,
-      :is_area_5_unlocked => false)
+      :is_area_5_unlocked => false
+    )
 
     begin
       if resource.save
@@ -74,7 +77,7 @@ class RegistrationsController < Devise::RegistrationsController
         @users_areas.save
         UserWelcomeMailer.user_welcome(resource.as_json).deliver
         sign_in @user
-        flash[:success] = "Welcome to nori.nu, #{@user.username}"
+        flash[:success] = "Welcome to #{application_name.capitalize}, #{@user.username}"
       else
         redirect_to root_path
       end
