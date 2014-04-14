@@ -1,34 +1,29 @@
 - content_for :body_class, "landing_page"
 - provide :title, 'Home'
 
-
-.width-100
-  .container
-    - unless user_signed_in?
-      .row
-        .col-sm-7.col-md-7.col-lg-7
-          %h1.text-center 
-            Collect items. Play with your friends. Trade around the world. 
-          .wide-margin-top 
-        .col-sm-5.col-md-5.col-lg-5
-          .row.well
-            = render 'shared/signup_form'
-      .wide-margin-top
-      .row.feature-container
+.container
+  - unless user_signed_in?
+    .row
+      .col-xs-7
+        %h1.text-center 
+          Collect items. Play with your friends. Trade around the world. 
+      .col-xs-5
+        .row.well
+          = render 'shared/signup_form'
+    .row
+      .col-xs-12#feature-container
         .row
-          .col-md-12.col-lg-12
-            %h2
-              %b
-              #{application_name} is a game about collecting, trading, and improving.
-            %br
-            %p
-              Players are constantly finding and trading items with friends and around the world to level up, improve their character, and become legendary. 
-              -# Possibly make this next paragraph into a feature blurb.
-              The quest to be the best is not a solo adventure, however, as 
-              = link_to "certain items are only available in certain regions", help_path, :anchor => "about"
-              \. In order to complete the most unique sets, you'll have to trade with people in different regions.
+          %h1
+            #{application_name.capitalize} is a game about collecting, trading, and improving.
+          %br
+          %p
+            Players are constantly finding and trading items with friends and around the world to level up, improve their character, and become legendary. 
+            -# Possibly make this next paragraph into a feature blurb.
+            The quest to be the best is not a solo adventure, however, as 
+            = link_to "certain items are only available in certain regions", help_path, :anchor => "about"
+            \. In order to complete the most unique sets, you'll have to trade with people in different regions.
         .row
-          .col-md-4
+          .col-xs-4
             .feature
               .panel.panel-default
                 %p
@@ -36,7 +31,7 @@
                 .panel.footer
                   %p.text-center
                     This is a paragraph describing the first feature. It is a really good paragraph.
-          .col-md-4
+          .col-xs-4
             .feature.text-center
               .panel.panel-default
                 %p
@@ -44,7 +39,7 @@
                 .panel.footer
                   %p.text-center
                     This is a paragraph describing the first feature. It is a really good paragraph.
-          .col-md-4
+          .col-xs-4
             .feature.text-center
               .panel.panel-default
                 %p
@@ -54,18 +49,17 @@
                     This is a paragraph describing the first feature. It is a really good paragraph.
 
         .row
-          .col-md-12.col-lg-12
-            %h2
-              Do you consider yourself an artist?
-            %p
-              #{application_name.capitalize} is all about encouraging users to come forth with their ideas to better the game and community. If you think an item's graphic can be tweaked, by all means post your design on the forums. If a design gets enough positive feedback from the community, we'll put it into the game. Who knows, you may even become a prolific artist whos items are sought after by many.
-    - else
-      .row
-        Announcements Here
-  .row
-    .col-md-2.pull-right.highscores
-      - if @highscores
-        %h4   
-          Current High Scores
-        %hr
-        = render 'snippets/highscores'
+          %h2
+            Do you consider yourself an artist?
+          %p
+            #{application_name.capitalize} is all about encouraging users to come forth with their ideas to better the game and community. If you think an item's graphic can be tweaked, by all means post your design on the forums. If a design gets enough positive feedback from the community, we'll put it into the game. Who knows, you may even become a prolific artist whos items are sought after by many.
+  - else
+    .row
+      Announcements Here
+.row
+  .col-xs-2.pull-right.highscores
+    - if @highscores
+      %h4   
+        Current High Scores
+      %hr
+      = render 'snippets/highscores'

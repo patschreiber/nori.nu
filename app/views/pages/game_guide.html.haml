@@ -1,21 +1,21 @@
--content_for :body_class, "game_guide"
+- content_for :body_class, "game_guide"
 
 .container.well
-  .col-xs-3.col-sm-3.col-md-3.col-lg-3
-    %ul
+  .col-xs-3
+    %ul#guide-navigation
       %li
-        Creating an Account
+        = link_to "Creating an Account", "#"
       %li
-        Levelling Up
+        = link_to "Leveling Up", "#"
       %li
-        Collecting Items
+        = link_to "Collecting Items", "#"
       %li
-        Crafting Items
+        = link_to "Crafting Items", "#"
       %li
-        Adding Friends
+        = link_to "Adding Friends", "#"
       %li
-        Trading
-  .col-xs-9.col-sm-9.col-md-9.col-lg-9
+        = link_to "Trading", "#"
+  .col-xs-9
     %h1 
       Game Guide
     %hr

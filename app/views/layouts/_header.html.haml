@@ -7,32 +7,37 @@
         %ul.main-user-menu
           %li
             = link_to game_path, 'data-no-turbolink' => true do 
-              %span{ :class => 'ss-icon header-icons' }
-                &#xE800;
+              %span{ :class => 'ss-icon ss-map header-icons' }
               Game
           %li
-            = link_to profile_path do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x1F464;
-              Profile
+            = link_to inventory_path do
+              %span{ :class => 'ss-icon ss-notebook header-icons' }
+              Inventory
           %li
             = link_to "#" do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x2709;
+              %span{ :class => 'ss-icon ss-mail header-icons' }
               Inbox
           %li
             = link_to "#" do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x1F465;
+              %span{ :class => 'ss-icon ss-users header-icons' }
               Friends
           %li.dropdown
             = link_to "#", :class => "dropdown-toggle", "data-toggle"=>"dropdown" do
-              %span{ :class => 'ss-icon header-icons' }
-                &#x2026;  
+              %span{ :class => 'ss-icon ss-ellipsis header-icons' }
+
             %ul.dropdown-menu
-              %li= link_to 'Settings', "#"
-              %br
-              %li= link_to 'Signout', signout_path, method: "delete"
+              %li 
+                = link_to profile_path do
+                  %span{ :class => 'ss-icon ss-user header-icons' }
+                  Profile
+              %li 
+                = link_to "#" do
+                  %span{ :class => 'ss-icon ss-settings header-icons' }
+                  Settings
+              %li 
+                = link_to signout_path, method: "delete" do
+                  %span{ :class => 'ss-icon ss-logout header-icons' }
+                  Signout
       - else
         %ul.main-user-menu
           %li

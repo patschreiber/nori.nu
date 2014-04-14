@@ -2,7 +2,8 @@ Public::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
   
   devise_scope :user do
-    match '/profile' => 'registrations#show', via: [:get, :post], :as => :profile
+    match '/inventory' => 'registrations#show', via: [:get, :post], :as => :inventory
+    match '/profile' => 'users#show', via: [:get, :post], :as => :profile
     match '/signup' => 'registrations#new', via: 'get', :as => :signup
     match '/signin' => 'sessions#new', via: 'get'
     match '/signout' => 'sessions#destroy', via: 'delete'

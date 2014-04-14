@@ -1,8 +1,16 @@
 @import "colors";
 @import "fonts";
 
-/* Bootstrap Overrides
-===================== */
+/*
+##################################################################
+#                     Bootstrap Overrides                        #
+##################################################################
+*/
+
+.alert {
+  border-radius: 0px;
+}
+
 .container {
   width: 976px;
 }
@@ -48,18 +56,35 @@
   min-width: 300px;
 }
 
+.dropdown, .dropdown-menu {
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  background-color: $grey_sleek;
+  background: rgba(0, 0, 0, 1);
+}
+
+.dropdown-menu > li > a {
+  color: $light_grey;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-color: transparent;
+  background-image: none;
+  color: darken($light_grey, 15%);
+}
 
 
-/* Universal Stylings
-===================== */
-
-$wide_margin_top: 34px 0 0 0;
-$wide_margin_bottom: 0 0 34px 0;
-$wide_margin_top_bottom: 34px 0 34px 0; 
-$skinny_margin_top_bottom: 17px 0 17px 0;
-$skinny_margin_top: 17px 0 0 0;
-$skinny_margin_bottom: 0 0 17px 0;
-$logged_in_margin_top: 5px 0 0 0;
+/*
+##################################################################
+#                     Universal Styling                          #
+##################################################################
+*/
 
 .row {
   margin: 0;
@@ -70,16 +95,9 @@ p {
 }
 
 body { 
+  background-color: $light_grey;
   color: darken($grey, 10%);
   font-family: 'Open Sans', sans-serif;
-
-  background-color: $light_grey;
-  background-image: radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -webkit-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -moz-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -o-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -ms-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-repeat: no-repeat;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -129,58 +147,12 @@ label {
 }
 
 
-/* Utility Stylings (Margins, backgrounds for divs, etc.)
-===================== */
 
-.wide-margin-top {
-  margin: $wide_margin_top;
-}
-
-.skinny-margin-top {
-  margin: $skinny_margin_top;
-}
-.logged-in-margin-top {
-  margin: $logged_in_margin_top;
-}
-
-.margin-top-10 {
-  margin-top: 10px;
-}
-
-.margin-right-10 {
-  margin-right: 10px;
-}
-
-.margin-bottom-10 {
-  margin-bottom: 10px;
-}
-.margin-left-10 {
-  margin-left: 10px;
-}
-
-.width-100 {
-  width: 100%;
-}
-
-.width-50 {
-  width: 50%;
-}
-
-.border-top {
-  border-top: 1px solid $grey_sleek;
-}
-
-.border-right {
-  border-right: 1px solid $grey_sleek;
-}
-
-.border-bottom {
-  border-bottom: 1px solid $grey_sleek;
-}
-
-.border-left {
-  border-left: 1px solid $grey_sleek;
-}
+/*
+##################################################################
+#                     Utility Stylings                           #
+##################################################################
+*/
 
 .bordered {
   border: 1px solid $grey_sleek;
@@ -211,17 +183,13 @@ label {
 
 
 
-/* Alerts
-===================== */
-.alert {
-  border-radius: 0px;
-}
+/*
+##################################################################
+#                     Utility Stylings                           #
+##################################################################
+*/
 
-
-/* Input Fields 
-===================== */
-
-.new_user {
+#new_user {
   input[type=email],
   input[type=text], 
   input[type=password] {
@@ -229,45 +197,15 @@ label {
     border-radius: 4px;
     color: $grey_dark;
     padding: .3em;
-    z-index: 3;
   }
 
-  input[type=submit] {
-
-    margin: $skinny_margin_top;
-
+  .row {
+    margin: 15px 0 0 0;
   }
 
-  input[type=text]:focus, 
-  input[type=password]:focus {
-    border: 1px solid $red_orange;
-  }
-
-  textarea:focus, input:focus{
-  }
-
-  .forgot-password-margin {
-    margin: 1em 0 0 0;
-  }
-}
-
-.new_user {
-  input[type=password] {
-    width: 45%;
-    margin: $skinny_margin_top;
-  }
-}
-
-.returning_user {
-  input[type=email],
-  input[type=text], 
-  input[type=password] {
-    border: 1px solid $light_grey;
-    border-radius: 4px;
-    color: $grey_dark;
-    padding: .3em;
-    z-index: 3;
-  }
+  #user_username, #user_email, .btn-success {
+    width: 100%;
+  } 
 }
 
 
@@ -276,52 +214,34 @@ label {
 
 .main-user-menu {
   a {
-  color: $light_grey;
+    color: $light_grey;
   }
 
   a:hover {
-  color: darken($light_grey, 15%);
+    color: darken($light_grey, 15%);
+
+    .header-icons {
+      color: darken($grey_dark, 5%);
+    }
+
   }
 
   li { 
     float: left; 
     padding: 10px; 
-    width: 100px; 
+    width: 110px; 
     border: 0 px solid blue; 
     text-align: center; 
-    list-style-type: none; 
+    list-style-type: none;
+  }
+
+  .header-icons {
+    color: $grey_dark;
+    font-size: 1.2em;
+    margin: 0 2px 0 0;
   }
 }
 
-.main-user-menu-sm {
-  a {
-  color: $light_grey;
-  }
-
-  a:hover {
-  color: darken($light_grey, 15%);
-  }
-
-  li { 
-    float: left; 
-    padding: 10px; 
-    width: 50px; 
-    border: 0 px solid blue; 
-    text-align: center; 
-    list-style-type: none; 
-  }
-}
-
-
-
-/* Icons  
-===================== */
-
-.header-icons {
-  color: $grey_dark;
-  font-size: 1.2em;
-  margin: 0 2px 0 0;
-}
 
 /* errors  
 ===================== */
@@ -334,50 +254,6 @@ label {
   padding: 0.5em;
 }
 
-
-/* colors  
-===================== */
-
-.white {
-  background-color: $white;
-}
-
-.off-white {
-  background: $off_white;
-}
-
-.grey-sleek {
-  background-color: $grey_sleek;
-}
-
-.red-orange {
-  background-color: $red_orange;  
-}
-
-.purple {
-  background-color: $purple;  
-}
-
-.blue {
-  background-color: $blue;  
-}
-
-.light-background-color {
-  background-color: lighten($red_orange, 46%);
-}
-.light-transparent {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.main-background-gradient {
-  background-color: lighten($red_orange, 44%);
-  background-image: radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -webkit-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -moz-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -o-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-image: -ms-radial-gradient(center top,ellipse cover,$white 0,darken($white, 50%) 100%);
-  background-repeat: no-repeat;
-}
 
 
 /* unique page sections  
@@ -475,34 +351,6 @@ footer {
   }
 }
 
-.dropdown, .dropdown-menu {
-  text-decoration: none;
-}
-
-.dropdown-menu {
-  background-color: $grey_sleek;
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.dropdown-menu > li > a {
-  color: $light_grey;
-}
-
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus,
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
-  background-color: transparent;
-  background-image: none;
-  color: darken($light_grey, 15%);
-}
-/*
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
-*/
-
 .highscores {
   background-color: $light_grey;
   height: 100%;
@@ -578,15 +426,45 @@ footer {
 }
 
 
+/*
+##################################################################
+#                     Individual Pages                           #
+##################################################################
+*/
+
+body.sign_in {
+  #sign-in-form {
+    width: 320px;
+    margin: 0 auto;
+
+    #user_password {
+      width: 100%;
+    }
+
+    #forgot-password {
+      margin: 30px 0 0 0;
+    }
+  }
+}
+
+
 body.landing_page {
 
-  .feature-container {
+  #feature-container {
     background-color: $off_white;
     box-shadow: #888888 0 1px 4px;;
     -webkit-box-shadow: #888888 0 1px 4px;
     -moz-box-shadow: #888888 0 1px 4px;
     -webkit-box-shadow: #888888 0 1px 4px;
     -o-box-shadow: #888888 0 1px 4px;
+  }
+
+  #sign-up-form {
+    #new_user {
+      input[type=password] {
+        width: 45%;
+      }
+    } 
   }
 
   .panel {
@@ -622,7 +500,7 @@ body.landing_page {
     -ms-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     -o-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-    margin: $wide_margin_top;
+    margin: 0;
   }
 
   .feature:hover {
