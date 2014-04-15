@@ -32,7 +32,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
 
-    @user_stats = UsersStat.new(  
+    @user_stats = UsersStat.create(  
       :user_id => @user.id, 
       :player_level => 1, 
       :current_experience => 0, 
@@ -50,7 +50,7 @@ class RegistrationsController < Devise::RegistrationsController
       :total_gold_collected => 0
     )
 
-    @users_equipped_items = UsersEquippedItem.new( 
+    @users_equipped_items = UsersEquippedItem.create( 
       :user_id => @user.id,
       :slot_1_is_equipped => false,
       :slot_2_is_equipped => false,
@@ -61,7 +61,7 @@ class RegistrationsController < Devise::RegistrationsController
       :slot_7_is_equipped => false
     )
 
-    @users_areas = UsersArea.new( 
+    @users_areas = UsersArea.create( 
       :user_id => @user.id,
       :is_area_1_unlocked => true,
       :is_area_2_unlocked => false,

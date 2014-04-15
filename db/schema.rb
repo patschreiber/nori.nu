@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114024551) do
+ActiveRecord::Schema.define(version: 20140415025931) do
 
   create_table "experience_buttons", force: true do |t|
     t.string   "name"
@@ -78,8 +78,6 @@ ActiveRecord::Schema.define(version: 20140114024551) do
     t.integer "min_equip_player_level"
     t.integer "tier"
     t.integer "equip_slot"
-    t.boolean "uses_ammo"
-    t.integer "ammo_type"
     t.boolean "is_consumable"
     t.boolean "is_currency"
     t.boolean "is_set"
@@ -97,7 +95,6 @@ ActiveRecord::Schema.define(version: 20140114024551) do
     t.integer "stealth_max"
     t.integer "luck_min"
     t.integer "luck_max"
-    t.float   "drop_percentage"
     t.text    "flavor_text"
   end
 

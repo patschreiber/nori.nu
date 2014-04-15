@@ -10,14 +10,14 @@
 
     .row
       .col-xs-9
-        = render 'shared/item_card'
-        .btn-group.btn-group-justified
-          = link_to "Gather Material", "#", :class => "btn btn-default", :id => "material-button", 'data-no-turbolink' => true
-          = link_to "Conjure Item", "#", :class => "btn btn-default", :id => "light-button", 'data-no-turbolink' => true
-          = link_to "Conjure an Uncommon Item", "#", :class =>"btn btn-default", :id => "medium-button", 'data-no-turbolink' => true
-          = link_to "Conjure a Rare Item", "#", :class => "btn btn-default", :id => "heavy-button", 'data-no-turbolink' => true  
-          -# Legendary training
+        .row
+          = render 'shared/item_card'
+          .btn-group.btn-group-justified
+            = link_to "Gather Material", "#", :class => "btn btn-default", :id => "material-button", 'data-no-turbolink' => true
+            = link_to "Conjure Item", "#", :class => "btn btn-default", :id => "light-button", 'data-no-turbolink' => true
+            = link_to "Conjure an Uncommon Item", "#", :class =>"btn btn-default", :id => "medium-button", 'data-no-turbolink' => true
+            = link_to "Conjure a Rare Item", "#", :class => "btn btn-default", :id => "heavy-button", 'data-no-turbolink' => true  
+            -# Legendary training
       
-    .row
-      .col-xs-6
-        = render 'shared/game/user_areas'
+        .row
+          = render 'shared/game/user_areas'

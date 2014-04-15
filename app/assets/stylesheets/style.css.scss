@@ -95,7 +95,7 @@ p {
 }
 
 body { 
-  background-color: $light_grey;
+  background-color: $green;
   color: darken($grey, 10%);
   font-family: 'Open Sans', sans-serif;
 }
@@ -146,6 +146,17 @@ label {
   border-top: 3px solid $red_orange; 
 }
 
+#guide-navigation {
+  li {
+    list-style-type: upper-roman;
+  }
+}
+
+#user-stat-snapshot {
+  background-color: $light_grey;
+  border: 1px solid $grey_sleek;
+  padding: 10px 15px 10px 15px;
+}
 
 
 /*

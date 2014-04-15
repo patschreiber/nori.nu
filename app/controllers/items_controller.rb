@@ -13,36 +13,32 @@ class ItemsController < ApplicationController
       @item.save!
     end
 
-    if @item.save!
-      session[:base_item_id] = @item.id
-      session[:name] = @item.name
-      session[:is_equippable] = @item.is_equippable
-      session[:min_equip_player_level] = @item.min_equip_player_level
-      session[:tier] = @item.tier
-      session[:equip_slot] = @item.equip_slot
-      session[:uses_ammo] = @item.uses_ammo
-      session[:ammo_type] = @item.ammo_type
-      session[:is_consumable] = @item.is_consumable
-      session[:is_currency] = @item.is_currency
-      session[:is_set] = @item.is_set
-      session[:set_id] = @item.set_id
-      session[:set_item_number] = @item.set_item_number
-      session[:value] = @item.value
-      session[:is_unique] = @item.is_unique
-      session[:can_have_prefix] = @item.can_have_prefix
-      session[:can_have_suffix] = @item.can_have_suffix
-      session[:computed_attack] = @item.computed_attack  
-      session[:computed_defense] = @item.computed_defense
-      session[:computed_stealth] = @item.computed_stealth
-      session[:computed_luck] = @item.computed_luck
-      session[:flavor_text] = @item.flavor_text
-    end
+
+    session[:base_item_id] = @item.id
+    session[:name] = @item.name
+    session[:is_equippable] = @item.is_equippable
+    session[:min_equip_player_level] = @item.min_equip_player_level
+    session[:tier] = @item.tier
+    session[:equip_slot] = @item.equip_slot
+    session[:is_consumable] = @item.is_consumable
+    session[:is_currency] = @item.is_currency
+    session[:is_set] = @item.is_set
+    session[:set_id] = @item.set_id
+    session[:set_item_number] = @item.set_item_number
+    session[:value] = @item.value
+    session[:is_unique] = @item.is_unique
+    session[:can_have_prefix] = @item.can_have_prefix
+    session[:can_have_suffix] = @item.can_have_suffix
+    session[:computed_attack] = @item.computed_attack  
+    session[:computed_defense] = @item.computed_defense
+    session[:computed_stealth] = @item.computed_stealth
+    session[:computed_luck] = @item.computed_luck
+    session[:flavor_text] = @item.flavor_text
 
     render :json => @item, :status => :ok
   end
 
   def generate_item()
-    # TODO Generate item by player level and luck. Generate formula to do this.
     
     item_from_database = Item.offset(rand(Item.count)).first
 
@@ -53,8 +49,6 @@ class ItemsController < ApplicationController
     base_item.min_equip_player_level = item_from_database.min_equip_player_level
     base_item.tier                   = item_from_database.tier
     base_item.equip_slot             = item_from_database.equip_slot
-    base_item.uses_ammo              = item_from_database.uses_ammo
-    base_item.ammo_type              = item_from_database.ammo_type
     base_item.is_consumable          = item_from_database.is_consumable
     base_item.is_currency            = item_from_database.is_currency
     base_item.is_set                 = item_from_database.is_set

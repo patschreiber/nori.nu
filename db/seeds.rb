@@ -91,8 +91,22 @@ puts "Adding base items to the database..."
     item.stealth_max = 100
     item.luck_min = 1
     item.luck_max = 100
-    item.drop_percentage = 50
     item.flavor_text = "Gold jacket, green jacket, who gives a shit?"
+    item.save!
+
+    item = Item.new
+    item.id = 10003
+    item.is_equippable = false
+    item.name = "Book of the Second Page"
+    item.tier = 1
+    item.is_set = false
+    item.is_unique = true
+    item.value = 1
+    item.can_have_prefix = false
+    item.can_have_suffix = false
+    item.luck_min = 75
+    item.luck_max = 100
+    item.flavor_text = "Some say this was the second item ever created for this world. "
     item.save!
 
   }.call
