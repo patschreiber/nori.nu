@@ -13,27 +13,27 @@ class ItemsController < ApplicationController
       @item.save!
     end
 
-
-    session[:base_item_id] = @item.id
-    session[:name] = @item.name
-    session[:is_equippable] = @item.is_equippable
-    session[:min_equip_player_level] = @item.min_equip_player_level
-    session[:tier] = @item.tier
-    session[:equip_slot] = @item.equip_slot
-    session[:is_consumable] = @item.is_consumable
-    session[:is_currency] = @item.is_currency
-    session[:is_set] = @item.is_set
-    session[:set_id] = @item.set_id
-    session[:set_item_number] = @item.set_item_number
-    session[:value] = @item.value
-    session[:is_unique] = @item.is_unique
-    session[:can_have_prefix] = @item.can_have_prefix
-    session[:can_have_suffix] = @item.can_have_suffix
-    session[:computed_attack] = @item.computed_attack  
-    session[:computed_defense] = @item.computed_defense
-    session[:computed_stealth] = @item.computed_stealth
-    session[:computed_luck] = @item.computed_luck
-    session[:flavor_text] = @item.flavor_text
+    session[:item] ||= {}
+    session[:item][:base_item_id] = @item.id
+    session[:item][:name] = @item.name
+    session[:item][:is_equippable] = @item.is_equippable
+    session[:item][:min_equip_player_level] = @item.min_equip_player_level
+    session[:item][:tier] = @item.tier
+    session[:item][:equip_slot] = @item.equip_slot
+    session[:item][:is_consumable] = @item.is_consumable
+    session[:item][:is_currency] = @item.is_currency
+    session[:item][:is_set] = @item.is_set
+    session[:item][:set_id] = @item.set_id
+    session[:item][:set_item_number] = @item.set_item_number
+    session[:item][:value] = @item.value
+    session[:item][:is_unique] = @item.is_unique
+    session[:item][:can_have_prefix] = @item.can_have_prefix
+    session[:item][:can_have_suffix] = @item.can_have_suffix
+    session[:item][:computed_attack] = @item.computed_attack  
+    session[:item][:computed_defense] = @item.computed_defense
+    session[:item][:computed_stealth] = @item.computed_stealth
+    session[:item][:computed_luck] = @item.computed_luck
+    session[:item][:flavor_text] = @item.flavor_text
 
     render :json => @item, :status => :ok
   end

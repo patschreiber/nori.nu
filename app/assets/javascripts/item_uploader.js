@@ -20,10 +20,35 @@ $(document).ready(function() {
         $('.prefix').text(data.prefix);
         $('.suffix').text(data.suffix);
         $('.name').text(data.name);
-        $('.attack-val').text(data.computed_attack);
-        $('.defense-val').text(data.computed_defense);
-        $('.luck-val').text(data.computed_luck);
-        $('.stealth-val').text(data.computed_stealth);
+
+        if(data.computed_attack != undefined) {
+          $('.attack-val').text(data.computed_attack);
+        }
+        else {
+          $('.attack-val').text("--");
+        }
+
+        if(data.computed_defense != undefined) {
+          $('.defense-val').text(data.computed_defense);
+        }
+        else {
+          $('.defense-val').text("--");
+        }
+
+        if(data.computed_luck != undefined) {
+          $('.luck-val').text(data.computed_luck);
+        }
+        else {
+          $('.luck-val').text("--");
+        }
+
+        if(data.computed_stealth != undefined) {
+          $('.stealth-val').text(data.computed_stealth);
+        }
+        else {
+          $('.stealth-val').text("--");
+        }
+        
         $('.min-equip-player-level-val').text(data.min_equip_player_level);
         $('.tier-val').text(data.tier);
         $('.monetary-val').text(data.value);
